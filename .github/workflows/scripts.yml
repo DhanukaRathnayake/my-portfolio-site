@@ -16,7 +16,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: "21" # Use the same Node.js version as your project
+          node-version: "16" # Use the same Node.js version as your project
 
       - name: Install dependencies
         run: npm install
@@ -25,7 +25,7 @@ jobs:
         run: npm run build
 
       - name: Export the project
-        run: npm run export
+        run: npx next build && npx next export
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
