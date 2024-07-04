@@ -1,33 +1,57 @@
+/* Papins Font Import */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: "Poppins";
+  color: aliceblue;
+  background-color: #1d1e24;
+  font-family: "Poppins", sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.pattern-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.cubic-element {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: radial-gradient(circle, #ff6b6b, transparent),
+    radial-gradient(circle, #3d8af7, transparent),
+    radial-gradient(circle, #e4e41b, transparent),
+    radial-gradient(circle, #14c184, transparent);
+  transform: rotate(45deg);
+  opacity: 0.7; /* Adjust opacity for a subtle effect */
+}
+
+/* Additional effects for a galaxy-like appearance */
+body::before {
+  content: "";
+  position: fixed;
+  background: linear-gradient(to bottom, #1d1e24 0%, #1d1e24 100%);
+  z-index: -1;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  background: transparent;
+  animation: stars 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes stars {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-1000px);
   }
 }

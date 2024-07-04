@@ -1,0 +1,18 @@
+.workTypeCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 400px) {
+  .workTypeCards {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+  }
+}
+
+@media (max-width: 300px) {
+  .workTypeCards {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}

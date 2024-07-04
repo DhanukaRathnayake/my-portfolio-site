@@ -1,0 +1,146 @@
+.mainDiv {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 200px 4fr;
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.1);
+  background-color: #23262b;
+  border-radius: 18px;
+}
+
+.dpDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.detailsDiv {
+  width: 100%;
+  display: flex;
+  align-content: space-between;
+}
+
+.detailsDivOne {
+  width: 100%;
+  min-width: 270px;
+  padding: 20px 20px 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.detailsDivTwo {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.detailsDivThree {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.divider {
+  height: 100px;
+  width: 2px;
+  background-color: #2e2f36;
+  align-self: center;
+  border-radius: 10px;
+}
+
+.dpMediumDiv {
+  display: none;
+}
+
+.detailsMediumDiv {
+  display: none;
+}
+
+.detailsMediumDivOne {
+  display: none;
+}
+
+@media (max-width: 1200px) {
+  .mainDiv {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 1fr;
+  }
+
+  .dpMediumDiv {
+    height: 130px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .detailsMediumDivOne {
+    display: flex;
+    padding-bottom: 20px;
+  }
+
+  .detailsMediumDiv {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 20px;
+  }
+
+  .detailsMediumDivTwo {
+    padding-left: 20px;
+  }
+
+  .detailsMediumDivThree {
+    padding-left: 20px;
+  }
+
+  .dividerMedium {
+    height: 2px;
+    width: 90%;
+    background-color: #2e2f36;
+    align-self: center;
+    border-radius: 10px;
+  }
+
+  .dpDiv {
+    display: none;
+  }
+
+  .detailsDivOne {
+    display: none;
+  }
+
+  .detailsDivTwo {
+    display: none;
+  }
+
+  .detailsDivThree {
+    display: none;
+  }
+
+  .divider {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .detailsMediumDiv {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .detailsMediumDivTwo {
+    padding-left: 0;
+  }
+
+  .detailsMediumDivThree {
+    padding-left: 0;
+  }
+}
