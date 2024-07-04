@@ -1,0 +1,23 @@
+{
+  "firstName": "Dhanuka",
+  "lastName": "Rathnayake",
+  "roles": "DevOps | Software Engineer",
+  "socialMediaPlatforms": {
+    "linkedIn": "https://www.linkedin.com/in/dhanukarathnayake/",
+    "github": "https://github.com/DhanukaRathnayake",
+    "upwork": "https://www.upwork.com/freelancers/~01beff29422dd4ac9d?viewMode=1",
+    "fiver": "https://www.fiverr.com/dhanuka_devops",
+    "medium": "https://medium.com/@dhanuka.janith"
+  },
+  "email": "dhanuka.janith@outlook.com",
+  "location": {
+    "name": "Kandy, Srilanka",
+    "link": "https://goo.gl/maps/nPW1gLNiarB3gi3t5"
+  },
+  "cv": "https://drive.google.com/file/d/12acCJrOtr3l2dOz_k_gcWO3Hm4kvCDla/view?usp=sharing",
+  "status": "Available",
+  "company": {
+    "name": "Sonic Labs (pvt) ltd",
+    "link": "https://www.soniclabsglobal.com/"
+  }
+}

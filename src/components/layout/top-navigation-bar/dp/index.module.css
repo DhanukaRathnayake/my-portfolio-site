@@ -1,0 +1,13 @@
+.dp {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 160px;
+  width: 160px;
+  position: relative;
+  top: -40px;
+  border-radius: 40px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #23262b;
+}

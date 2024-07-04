@@ -1,0 +1,60 @@
+.firstNameTxt {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.lastNameTxt {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+.roleTxt {
+  font-size: 15px;
+  color: gray;
+}
+
+.socialMediaIconsDiv {
+  display: flex;
+  margin-top: 10px;
+  gap: 12px;
+}
+
+.socialMediaIcon {
+  cursor: pointer;
+  color: grey;
+}
+
+.iconLinkedIn:hover {
+  color: #0a66c2;
+}
+
+.iconGithub:hover {
+  color: #5f26b4;
+}
+
+.iconUpWork:hover {
+  color: #6fda44;
+}
+
+.iconFiver:hover {
+  color: #1dbf73;
+}
+
+.iconMedium:hover {
+  color: white;
+}
+
+.iconInstergram:hover {
+  color: #833ab4;
+}
+
+@media (max-width: 1200px) {
+  .detailsOne {
+    text-align: center;
+  }
+
+  .socialMediaIconsDiv {
+    justify-content: center;
+  }
+}

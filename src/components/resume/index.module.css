@@ -1,0 +1,16 @@
+.educationRowDiv {
+  display: flex;
+  align-content: space-around;
+  width: 100%;
+}
+
+.contestFlow {
+  flex: 1;
+}
+
+@media (max-width: 600px) {
+  .educationRowDiv {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,71 @@
+.mainDiv {
+}
+
+.headerDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.flowDiv {
+  padding-left: 0;
+  margin-left: 15px;
+}
+
+.customBorder {
+  position: relative;
+  padding-left: 15px;
+}
+
+.customBorder::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0px;
+  width: 1px;
+  height: 100%;
+  background-color: #393939;
+  z-index: 0;
+}
+
+.withoutCustomBorder {
+  position: relative;
+  padding-left: 15px;
+}
+
+.customRoundCircle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-top: 0.4rem;
+  left: -0.39rem;
+  background-color: #0070f3;
+}
+
+.titleHeader {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.timeLine {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6a6a6a;
+  margin-bottom: 20px;
+}
+
+.content {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+  font-weight: 400;
+  color: #989898;
+}
+
+.skills {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #6a6a6a;
+  margin-bottom: 20px;
+}

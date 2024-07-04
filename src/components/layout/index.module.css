@@ -1,0 +1,116 @@
+.mainDiv {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 150px 0 150px;
+}
+
+.topDiv {
+  margin-top: 100px;
+  max-width: 1200px;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.middleDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  gap: 20px;
+}
+
+.sideBarDiv {
+  height: fit-content;
+  top: 20px;
+  position: sticky;
+}
+
+.dynamicMainDiv {
+  width: 100%;
+  overflow-y: scroll;
+  border-radius: 18px;
+  padding: 25px;
+  background-color: #23262b;
+}
+
+.dynamicMainDiv::-webkit-scrollbar {
+  background-color: transparent;
+  width: 0;
+}
+
+.dynamicMainDiv::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.footer {
+  padding: 10px 10px 10px 150px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: gray;
+}
+
+@media (max-width: 968px) {
+  .mainDiv {
+    padding: 0 100px 0 100px;
+  }
+
+  .middleDiv {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .sideBarDiv {
+    position: initial;
+  }
+
+  .dynamicMainDiv {
+    overflow-y: none;
+    border-radius: 0 0 18px 18px;
+    padding: 0 25px 25px 25px;
+  }
+
+  .footer {
+    padding: 10px 10px 10px 10px;
+    font-size: small;
+  }
+}
+
+@media (max-width: 785px) {
+  .mainDiv {
+    padding: 0 60px 0 60px;
+  }
+}
+
+@media (max-width: 700px) {
+  .mainDiv {
+    padding: 0 10px 0 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .topDiv {
+    margin-top: 140px;
+  }
+
+  .dynamicMainDiv {
+    border-radius: 18px;
+    padding-top: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .topDiv {
+    margin-top: 110px;
+  }
+
+  .footer {
+    font-size: x-small;
+  }
+}

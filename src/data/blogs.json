@@ -1,0 +1,12 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "image": "https://dhanuka-portfolio.s3.amazonaws.com/medium/001.jpg",
+      "title": "AWS EKS cost saving method 01 — Using Karpenter and Cronjob together",
+      "description": "This is explaining how to optimize the AWS EKS cluster structure and process with the cost",
+      "date": "23-09-2023",
+      "link": "https://medium.com/@dhanuka.janith/aws-eks-cost-saving-method-01-using-karpenter-and-cronjob-together-8981b0ed6175"
+    }
+  ]
+}

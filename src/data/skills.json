@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "skill": "Amazon Web Services (AWS)",
+      "percentage": "50%",
+      "stage": "intermediate"
+    },
+    {
+      "id": 2,
+      "skill": "Terraform",
+      "percentage": "50%",
+      "stage": "intermediate"
+    },
+    {
+      "id": 3,
+      "skill": "Kubernetes & Docker",
+      "percentage": "75%",
+      "stage": "experienced"
+    },
+    {
+      "id": 4,
+      "skill": "GitLab CI / Jenkins / CICD",
+      "percentage": "50%",
+      "stage": "intermediate"
+    },
+    {
+      "id": 5,
+      "skill": "JS Frameworks",
+      "percentage": "90%",
+      "stage": "Expertise"
+    },
+    {
+      "id": 6,
+      "skill": "Ai",
+      "percentage": "15%",
+      "stage": "Beginner"
+    }
+  ]
+}

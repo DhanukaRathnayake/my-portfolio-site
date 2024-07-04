@@ -1,0 +1,43 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "University Of Kelaniya Sri Lanka | B.Sc",
+      "date": "Mar 2017 - Mar 2020",
+      "contents": [
+        {
+          "id": 1,
+          "description": "Computer Science"
+        },
+        {
+          "id": 2,
+          "description": "Physics"
+        },
+        {
+          "id": 3,
+          "description": "Pure Mathematic"
+        },
+        {
+          "id": 4,
+          "description": "Marketing Management"
+        }
+      ],
+      "skills": "Programming, Database System, Data Communication, OOP, IntelliJ, Visual Programming, Mobile Application, Ai, Software Project Management"
+    },
+    {
+      "id": 2,
+      "title": "St. Sylvester's College Kandy Sri Lanka",
+      "date": "2005 - 2015",
+      "contents": [
+        {
+          "id": 1,
+          "description": "G. C. E. Advanced Level"
+        },
+        {
+          "id": 2,
+          "description": "G. C. E. Ordinary Level"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "skill": "JavaScript",
+      "percentage": "90%",
+      "stage": "Expertise"
+    },
+    {
+      "id": 2,
+      "skill": "Python",
+      "percentage": "20%",
+      "stage": "Beginner"
+    },
+    {
+      "id": 3,
+      "skill": "Java",
+      "percentage": "50%",
+      "stage": "intermediate"
+    },
+    {
+      "id": 4,
+      "skill": "Linux",
+      "percentage": "50%",
+      "stage": "intermediate"
+    },
+    {
+      "id": 5,
+      "skill": "HCL",
+      "percentage": "50%",
+      "stage": "intermediate"
+    }
+  ]
+}

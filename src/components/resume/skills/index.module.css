@@ -1,0 +1,41 @@
+.mainDiv {
+}
+
+.headerDiv {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.skillsDiv {
+  padding: 1px 16px 16px 16px;
+  border: 1px solid #616164;
+  border-radius: 25px;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.growthLine {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 15px;
+}
+
+.fillLine {
+  height: 100%;
+  background: linear-gradient(to right, #0071ff, #003366);
+  width: 70%;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: small;
+  padding: 0 10px 0 10px;
+  font-weight: 500;
+}

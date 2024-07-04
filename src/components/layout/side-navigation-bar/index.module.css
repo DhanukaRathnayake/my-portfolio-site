@@ -1,0 +1,133 @@
+.mainDiv {
+  display: grid;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 18px;
+  background-color: #23262b;
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.1);
+}
+
+.sideBarButton {
+  width: 100px;
+  height: 100px;
+  border-radius: 20px;
+  font-size: small;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: #2e2f36;
+  color: rgb(188, 177, 177);
+  border: none;
+}
+
+.sideBarButton:hover {
+  cursor: pointer;
+}
+
+.sideBarButton.selected {
+  background: linear-gradient(to bottom right, #0071ff, #003366);
+  color: rgb(241, 240, 240);
+}
+
+.sideBarButton:not(.selected):hover {
+  color: #0071ff;
+}
+
+.mainMobileDiv {
+  display: none;
+}
+
+.sideBarIcon {
+  width: 27px;
+  height: 27px;
+}
+
+@media (max-width: 1150px) {
+  .mainDiv {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .sideBarButton {
+    width: 80px;
+    height: 80px;
+  }
+
+  .sideBarIcon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 968px) {
+  .mainDiv {
+    display: flex;
+    gap: 35px;
+    padding: 20px;
+    border-radius: 18px 18px 0 0;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .mainDiv {
+    display: none;
+  }
+
+  .mainMobileDiv {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    justify-content: space-around;
+    gap: 1px;
+    border-radius: 0;
+    background-color: #23262b;
+    box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.1);
+  }
+
+  .sideBarButton {
+    width: 100px;
+    height: 80px;
+    border-radius: 0;
+    font-size: small;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    background-color: transparent;
+    color: rgb(188, 177, 177);
+    border: none;
+  }
+
+  .sideBarButton.selected {
+    background: transparent;
+    color: #0071ff;
+    border-bottom: 4px solid #0071ff;
+  }
+
+  .sideBarIcon {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sideBarButton {
+    width: 70px;
+    height: 60px;
+    font-size: x-small;
+  }
+
+  .sideBarIcon {
+    width: 17px;
+    height: 17px;
+  }
+}

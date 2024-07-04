@@ -1,0 +1,78 @@
+.mainInputDiv {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+.inputDiv {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputMain {
+  padding: 10px;
+  border-radius: 17px;
+  background-color: #2e2f36;
+  box-sizing: border-box;
+  border: 1px solid grey;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.inputTxtArea {
+  width: 100%;
+  min-height: 300px;
+  display: flex;
+  justify-items: start;
+}
+
+.focused {
+  background-color: #23262b;
+  border-color: #0071ff;
+}
+
+.submitBtnDiv {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.submitBtn {
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background: linear-gradient(to bottom right, #2788ff, #003366);
+  color: rgb(188, 177, 177);
+  border: none;
+  font-size: medium;
+  font-weight: 500;
+}
+
+.submitBtn:not(.selected):hover {
+  cursor: pointer;
+  background: linear-gradient(to bottom right, #2b7ee3, #093f75);
+  color: rgb(220, 220, 220);
+}
+
+@media (max-width: 600px) {
+  .mainInputDiv {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .inputTxtArea {
+    min-height: 200px;
+  }
+
+  .submitBtn {
+    width: 70px;
+    height: 40px;
+    border-radius: 20px;
+    font-size: small;
+  }
+}

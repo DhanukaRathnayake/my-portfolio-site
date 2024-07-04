@@ -1,0 +1,140 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "title": "DevOps Engineer at Sonic Labs ( pvt ) ltd | Hybrid",
+      "date": "Aug 2023 - Present",
+      "contents": [
+        {
+          "id": 1,
+          "description": "Spearheaded the maintenance, monitoring, and optimization of the company's production-level platform servers, ensuring optimal performance and reliability."
+        },
+        {
+          "id": 2,
+          "description": "Enhanced CI/CD processes to an advanced level by integrating with project management tools, streamlining development workflows and accelerating delivery cycles."
+        },
+        {
+          "id": 3,
+          "description": "Conducted in-depth research to develop disaster recovery and backup restoration methods for production sites and critical data, bolstering the company's resilience against potential disruptions."
+        },
+        {
+          "id": 4,
+          "description": "Pioneered the implementation of updated designs for auto-scaling, resource allocation, and cost management strategies for cloud services and infrastructure utilized by the company's platforms."
+        },
+        {
+          "id": 5,
+          "description": "Proactively identified and mitigated security vulnerabilities across the company's platforms, ensuring robust protection against potential threats and breaches."
+        }
+      ],
+      "skills": "Amazon Web Services (AWS) · Terraform · Kubernetes · Docker · Bash · Python · Gitlab · CICD · Pipelines · Jenkins · Grafana · Prometheus · Linux · JMeter"
+    },
+    {
+      "id": 2,
+      "title": "Junior DevOps Engineer | Software Engineer II at Sonic Labs ( pvt ) ltd | Colombo",
+      "date": "Aug 2022 - July 2023",
+      "contents": [
+        {
+          "id": 1,
+          "description": "Orchestrated the creation of scalable software infrastructure utilizing Terraform and AWS services, aligning with Infrastructure as Code (IaC) principles to ensure flexibility and efficiency."
+        },
+        {
+          "id": 2,
+          "description": "Architected and implemented GitLab and GitHub CI/CD pipelines, automating the seamless deployment of over 50 microservices across Amazon EKS Clusters, enhancing development velocity and reliability."
+        },
+        {
+          "id": 3,
+          "description": "Demonstrated adeptness in managing and optimizing a portfolio of 5+ diverse web platforms, leveraging Kubernetes, Linux, and Shell Scripts to streamline operations and enhance performance."
+        },
+        {
+          "id": 4,
+          "description": "Established robust monitoring and alerting mechanisms using Grafana and K8s Monitoring tools, providing real-time insights into system health and performance, ensuring proactive issue resolution and uptime optimization."
+        }
+      ],
+      "skills": "Amazon Web Services (AWS) · Terraform · Kubernetes · Docker · Gitlab · CICD · Shell Scripting · Linux · Next.js · Nest.js"
+    },
+    {
+      "id": 3,
+      "title": "Full Stack Engineer at Sonic Labs ( pvt ) ltd | Colombo",
+      "date": "Feb 2022 - July 2022",
+      "contents": [
+        {
+          "id": 1,
+          "description": "Demonstrated mastery in Full Stack Engineering, proficiently developing both frontend and backend components to deliver user-centric applications with robust data gathering capabilities."
+        },
+        {
+          "id": 2,
+          "description": "Acknowledged the importance of DevOps practices, actively experimenting with and training in Kubernetes technologies and workflows, enhancing deployment efficiency and scalability."
+        },
+        {
+          "id": 3,
+          "description": "Spearheaded the crafting of infrastructure-level architectures for web-based software development platforms, leveraging Terraform and AWS services to ensure scalability, reliability, and security."
+        },
+        {
+          "id": 4,
+          "description": "Fostered close collaboration with cross-functional teams, including development, operations, and quality assurance, to drive efficiency, streamline processes, and achieve project success through effective communication and teamwork."
+        }
+      ],
+      "skills": "AWS EKS · Terraform · Kubernetes · Docker · Infrastructure · Architectural Design · DevOps"
+    },
+    {
+      "id": 4,
+      "title": "Junior Full Stack Engineer at Sonic Labs ( pvt ) ltd | Remote",
+      "date": "Jun 2021 - Jan 2022",
+      "contents": [
+        {
+          "id": 1,
+          "description": "Acquired expertise in the MERN (MongoDB, Express.js, React, Node.js) stack, leveraging its capabilities to construct and maintain intricate microservices."
+        },
+        {
+          "id": 2,
+          "description": "Developed and refined over 15 microservices tailored for enhanced data gathering within the cryptocurrency platform, employing advanced engineering techniques to optimize performance."
+        },
+        {
+          "id": 3,
+          "description": "Proficiently utilized software version control platforms and collaborative tools to ensure seamless development workflows and efficient project management practices."
+        },
+        {
+          "id": 4,
+          "description": "AWS Deployment : Orchestrated successful product deployments on AWS EC2 Linux servers, fortified with SSL certificates. Leveraged a range of AWS services to optimize server performance.Orchestrated successful product deployments on AWS EC2 Linux servers, bolstered by SSL certificates, and leveraged a diverse range of AWS services to enhance server performance and reliability."
+        },
+        {
+          "id": 5,
+          "description": "Pioneered exploration into emerging fields of crypto and NFT technologies, actively developing demos to illustrate their potential applications and value."
+        },
+        {
+          "id": 6,
+          "description": "Engineered microservices interfacing with live trading exchanges, facilitating seamless data collection and providing invaluable insights into resource management and operational limitations."
+        }
+      ],
+      "skills": "MERN Stack · GitHub · Next.js · Node.js · MongoDB · Amazon EC2 · Linux · Solidity"
+    },
+    {
+      "id": 5,
+      "title": "Freelance Web Developer",
+      "date": "Aug 2019 - May 2021",
+      "contents": [
+        {
+          "id": 1,
+          "description": "Developed an innovative online conceptual marketing platform, providing clients with a dynamic space to showcase and sell their ideas and products - irate.lk."
+        },
+        {
+          "id": 2,
+          "description": "Engineered a unique online platform for the exchange of political ideas, fostering open discussions and encouraging civic engagement - kiyanna.lk."
+        },
+        {
+          "id": 3,
+          "description": "Designed and implemented a comprehensive online solution for efficient hospital management, facilitating seamless patient records, appointments, and resource coordination - DA Hospital Management system."
+        },
+        {
+          "id": 4,
+          "description": "Crafted a user-friendly Woo-Commerce application tailored for mobile devices, enabling users to explore and shop effortlessly on-the-go - WayTooGo Mobile Application."
+        },
+        {
+          "id": 5,
+          "description": "Developed a web-based application for real-time weather tracking, offering users an interactive experience to monitor weather conditions - Heat Map Weather Tracker."
+        }
+      ],
+      "skills": "JavaScript · React.js · Angular.js · React Native · HTML · Cascading Style Sheets (CSS) · Bootstrap"
+    }
+  ]
+}
