@@ -24,31 +24,31 @@
     "flowbite": "^1.8.1",
     "framer-motion": "^10.15.0",
     "fs": "^0.0.1-security",
+    "graphql-request": "^7.1.2",
     "mailgun-js": "^0.22.0",
     "mailgun.js": "^9.2.1",
+    "next": "15.1.0",
     "nodemailer": "^6.9.5",
-    "next": "14.2.4",
-    "react": "^18",
-    "react-dom": "^18",
+    "react": "^18.0.0",
     "react-chrono": "^2.2.4",
-    "react-icons": "^4.10.1",
+    "react-dom": "^18.0.0",
+    "react-icons": "^5.3.0",
     "react-redux": "^8.1.2",
     "redux": "^4.2.1",
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
-    "rsuite": "^5.38.0",
-    "typescript": "5.1.6"
+    "rsuite": "^5.38.0"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
+    "@types/nodemailer": "^6.4.9",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "@types/nodemailer": "^6.4.9",
-    "autoprefixer": "^10.4.15",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "eslint-config-next": "14.2.4",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5"
   }
 }

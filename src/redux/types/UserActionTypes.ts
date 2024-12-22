@@ -18,7 +18,6 @@ export interface SendEmailFail {
 export interface SendEmailSuccess {
   type: typeof SEND_EMAIL_SUCCESS;
 }
-// SEND_EMAIL
 
 export type UserDispatchTypes =
   | SendEmailLoading

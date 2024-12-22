@@ -2,8 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   output: "export",
-  // basePath: "/my-portfolio-site",
-  // assetPrefix: "/my-portfolio-site/",
+  env: {
+    BACKEND_URL: process.env.BACKEND_URL,
+  },
   images: {
     unoptimized: true,
   },
