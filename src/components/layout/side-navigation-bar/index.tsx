@@ -31,12 +31,12 @@ const sideBarButtons = [
   //   icon: <FaDiceD20 size="100%" />,
   //   path: "/portfolio",
   // },
-  // {
-  //   id: 4,
-  //   title: "BLOG",
-  //   icon: <FaBookOpen size="100%" />,
-  //   path: "/blog",
-  // },
+  {
+    id: 4,
+    title: "BLOG",
+    icon: <FaBookOpen size="100%" />,
+    path: "/blogs",
+  },
   // {
   //   id: 5,
   //   title: "CONTACT",

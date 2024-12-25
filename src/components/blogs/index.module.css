@@ -1,3 +1,21 @@
+.btnCategory {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  min-width: 60px;
+  padding: 5px;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 400;
+  background-color: gray;
+  color: white;
+}
+
+.btnCategory:hover {
+  background-color: darkslategrey;
+}
+
 .blogCards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
