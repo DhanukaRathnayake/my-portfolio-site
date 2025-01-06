@@ -1,3 +1,5 @@
+import { JSONContent } from "@tiptap/core";
+
 // Models
 export type TypeBlogCategory = {
   id: string;
@@ -8,23 +10,31 @@ export type TypeBlogCategory = {
 };
 
 export type TypeBlog = {
-  id: string;
+  id?: number;
   title: string;
-  body: JSON;
-  category: TypeBlogCategory;
-  metaDescription: string;
-  metaKeywords: string;
-  metaTitle: string;
   slug: string;
+  category: any;
+  author: string;
+  excerpt: string;
+  coverImageUrl: string;
+  body: JSONContent;
+  metaTitle: string;
+  metaDescription: string;
+  metaKeywords: string[];
+  tags: string[];
+  readingTime: number;
   status: string;
-  isPublished: boolean;
-  publishedAt: string;
-  createdAt: string;
-  updatedAt: string;
+  publishedAt?: string | null;
+  isPublished?: boolean;
+  viewsCount?: number;
+  version?: number;
+  previousVersions?: TypeBlog[];
+  createdAt?: string;
+  updatedAt?: string;
 };
 
 export type BlogState = {
-  blogs: TypeBlog[] | null;
+  blogs: TypeBlog[] | [];
   singleBlog: TypeBlog | null;
   loading: boolean;
   error: string | null;

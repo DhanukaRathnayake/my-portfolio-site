@@ -53,7 +53,7 @@ const Blog: FunctionComponent<Props> = ({ item }) => {
         onClick={() => router.push(`/blogs/${item.id}`)}
       >
         <Image
-          src={""}
+          src={item.coverImageUrl}
           alt="Image"
           width={768}
           height={432}

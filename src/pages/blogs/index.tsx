@@ -1,5 +1,5 @@
 // Libraries
-import React from "react";
+import React, { useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
 import Divider from "@mui/material/Divider";
 
@@ -22,7 +22,9 @@ interface Props {
   blogs: TypeBlog[] | [];
 }
 
-const BlogsPage: NextPage<Props> = ({ categories, blogs }) => {
+const BlogsPage: NextPage<Props> = ({ categories, blogs: initialBlogs }) => {
+  const [blogs] = useState<TypeBlog[] | []>(initialBlogs);
+
   return (
     <div>
       <text style={{ fontSize: "30px", fontWeight: "600" }}>Blog</text>
@@ -46,9 +48,34 @@ export default BlogsPage;
 export const getServerSideProps: GetServerSideProps =
   wrapper.getServerSideProps((store) => async (context) => {
     const props: Props = {
-      categories: [],
       blogs: [],
+      categories: [],
     };
+
+    // Fetch contents
+    try {
+      const category = context.query?.category;
+      const search = context.query?.search;
+      const status = context.query?.status;
+
+      const blogsResponse = await store.dispatch(
+        getAllBlogs.initiate({
+          category: typeof category === "string" ? category : null,
+          search: typeof search === "string" ? search : null,
+          status: typeof status === "string" ? status : null,
+        })
+      );
+
+      if (blogsResponse.isSuccess) {
+        props.blogs = blogsResponse.data;
+
+        console.log(blogsResponse, "BBB");
+      } else {
+        console.error("Failed to fetch blogs:", blogsResponse.error);
+      }
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
 
     // Fetch categories
     try {
@@ -63,29 +90,6 @@ export const getServerSideProps: GetServerSideProps =
       }
     } catch (error) {
       console.error("Error fetching categories:", error);
-    }
-
-    // Fetch blogs
-    try {
-      const category = context.query?.category;
-      const search = context.query?.search;
-      const slug = context.query?.slug;
-
-      const blogsResponse = await store.dispatch(
-        getAllBlogs.initiate({
-          categoryId: typeof category === "string" ? category : null,
-          search: typeof search === "string" ? search : null,
-          slug: typeof slug === "string" ? slug : null,
-        })
-      );
-
-      if (blogsResponse.isSuccess) {
-        props.blogs = blogsResponse.data;
-      } else {
-        console.error("Failed to fetch blogs:", blogsResponse.error);
-      }
-    } catch (error) {
-      console.error("Error fetching blogs:", error);
     }
 
     // Run any remaining queries

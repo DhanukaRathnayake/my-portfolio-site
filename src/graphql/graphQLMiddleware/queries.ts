@@ -16,22 +16,30 @@ export const getAllCategoriesGQL = gql`
 `;
 
 export const getAllBlogsGQL = gql`
-  query findAllContents($categoryId: Int, $search: String, $slug: String) {
-    findAllContents(categoryId: $categoryId, search: $search, slug: $slug) {
+  query findAllContents($category: String, $search: String, $status: String) {
+    findAllContents(category: $category, search: $search, status: $status) {
       id
       title
-      body
+      slug
       category {
         id
         name
       }
+      author
+      excerpt
+      coverImageUrl
+      body
+      metaTitle
       metaDescription
       metaKeywords
-      metaTitle
-      slug
+      tags
+      readingTime
       status
       isPublished
       publishedAt
+      viewsCount
+      version
+      previousVersions
       createdAt
       updatedAt
     }
@@ -43,18 +51,26 @@ export const getBlogByIdGQL = gql`
     findContentById(id: $id) {
       id
       title
-      body
+      slug
       category {
         id
         name
       }
+      author
+      excerpt
+      coverImageUrl
+      body
+      metaTitle
       metaDescription
       metaKeywords
-      metaTitle
-      slug
+      tags
+      readingTime
       status
       isPublished
       publishedAt
+      viewsCount
+      version
+      previousVersions
       createdAt
       updatedAt
     }

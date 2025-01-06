@@ -2,7 +2,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 
 // Middleware
-import { graphqlBaseQuery } from "@/middleware/graphQLMiddleware";
+import { graphqlBaseQuery } from "@/graphql/graphQLMiddleware";
 
 // Types
 import { TypeBlog } from "@/types/blog";
@@ -12,7 +12,7 @@ import {
   getAllCategoriesGQL,
   getAllBlogsGQL,
   getBlogByIdGQL,
-} from "@/middleware/graphQLMiddleware/queries";
+} from "@/graphql/graphQLMiddleware/queries";
 
 const BACKEND_URL = process.env.BACKEND_URL;
 
@@ -27,18 +27,22 @@ export const blogsApi = createApi({
       query: () => ({
         body: getAllCategoriesGQL,
       }),
-      transformResponse: (response: any) => response.findAllCategories,
+      transformResponse: (response: any) => {
+        return response.findAllCategories;
+      },
     }),
     getAllBlogs: builder.query({
-      query: ({ categoryId, search, slug }) => ({
+      query: ({ category, search, slug }) => ({
         body: getAllBlogsGQL,
         variables: {
-          categoryId,
-          search,
-          slug,
+          category: "",
+          search: "",
+          status: "",
         },
       }),
-      transformResponse: async (response: any) => response.findAllContents,
+      transformResponse: async (response: any) => {
+        return response.findAllContents;
+      },
     }),
     getBlogById: builder.query({
       query: ({ id }) => ({
@@ -47,7 +51,9 @@ export const blogsApi = createApi({
           id: id,
         },
       }),
-      transformResponse: async (response: any) => response.findContentById,
+      transformResponse: async (response: any) => {
+        return response.findContentById;
+      },
     }),
   }),
 });
