@@ -2,7 +2,7 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 
 // Middleware
-import { graphqlBaseQuery } from "@/graphql/graphQLMiddleware";
+import { graphqlBaseQuery } from "@/graphql";
 
 // Types
 import { TypeBlog } from "@/types/blog";
