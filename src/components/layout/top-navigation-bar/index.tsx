@@ -1,12 +1,19 @@
 import React from "react";
+import { motion } from "framer-motion";
+
 import styles from "./index.module.css";
 
 const TopNavBar: React.FC = () => {
   return (
-    <header className={styles.navBar}>
+    <motion.div
+      initial={{ opacity: 0, y: -10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      className={styles.navBar}
+    >
       {/* Logo */}
       <a href="/" className={styles.logo}>
-        Dhanuka
+        Portfolio
       </a>
 
       {/* Navigation Links */}
@@ -30,7 +37,7 @@ const TopNavBar: React.FC = () => {
         <span className={styles.bar}></span>
         <span className={styles.bar}></span>
       </div>
-    </header>
+    </motion.div>
   );
 };
 

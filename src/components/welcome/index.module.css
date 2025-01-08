@@ -15,22 +15,3 @@
   overflow: hidden; /* Ensures no internal scrollbars on the page itself */
   overflow-x: hidden;
 }
-
-/* Animation when the page is leaving */
-.welcomePageAnimated {
-  animation: zoomFadeBlur 3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-/* Hero animation keyframe */
-@keyframes zoomFadeBlur {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-    filter: blur(0);
-  }
-  100% {
-    transform: scale(1.2);
-    opacity: 0;
-    filter: blur(100px);
-  }
-}

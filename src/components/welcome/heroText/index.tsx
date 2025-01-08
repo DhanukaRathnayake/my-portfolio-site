@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion"; // Import Framer Motion
 import styles from "./index.module.css";
 
 const HeroSection: React.FC = () => {
@@ -15,13 +16,19 @@ const HeroSection: React.FC = () => {
         return (
           <span key={index} className={styles.heroWord}>
             {word.split("").map((char, i) => (
-              <span
+              <motion.span
                 key={i}
                 className={styles.heroLetter}
                 style={{ animationDelay: `${(i + index * 5) * 0.1}s` }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  transition: { delay: (i + index * 5) * 0.1, duration: 0.3 },
+                }}
               >
                 <span className={styles.nameHighlight}>{char}</span>
-              </span>
+              </motion.span>
             ))}
           </span>
         );
@@ -30,13 +37,19 @@ const HeroSection: React.FC = () => {
       return (
         <span key={index} className={styles.heroWord}>
           {word.split("").map((char, i) => (
-            <span
+            <motion.span
               key={i}
               className={styles.heroLetter}
               style={{ animationDelay: `${(i + index * 5) * 0.1}s` }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { delay: (i + index * 5) * 0.1, duration: 0.3 },
+              }}
             >
               {char}
-            </span>
+            </motion.span>
           ))}
         </span>
       );
@@ -45,17 +58,54 @@ const HeroSection: React.FC = () => {
 
   return (
     <div className={styles.heroSection}>
-      <h1 className={`${styles.heroText} ${styles.fadeInEffect}`}>
+      {/* Motion h1 for hero text animation */}
+      <motion.h1
+        className={`${styles.heroText} ${styles.fadeInEffect}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeInOut" }}
+      >
         {splitText(heroText, highlightedName)}
-      </h1>
-      <p className={`${styles.heroSubText} ${styles.fadeInEffect}`}>
+      </motion.h1>
+
+      {/* Motion p for sub text animation */}
+      <motion.p
+        className={`${styles.heroSubText} ${styles.fadeInEffect}`}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, ease: "easeInOut", delay: 1.5 }}
+      >
         {splitText(subText)}
-      </p>
-      <div className={styles.loadingDots}>
-        <span>.</span>
-        <span>.</span>
-        <span>.</span>
-      </div>
+      </motion.p>
+
+      {/* Motion div for loading dots animation */}
+      <motion.div
+        className={styles.loadingDots}
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { duration: 1, repeat: Infinity, repeatType: "loop" },
+        }}
+      >
+        <motion.span
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 0.6, repeat: Infinity }}
+        >
+          .
+        </motion.span>
+        <motion.span
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
+        >
+          .
+        </motion.span>
+        <motion.span
+          animate={{ opacity: [0, 1, 0] }}
+          transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
+        >
+          .
+        </motion.span>
+      </motion.div>
     </div>
   );
 };

@@ -1,15 +1,19 @@
 // Libraries
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useRef } from "react";
 import { IoInfinite } from "react-icons/io5";
 import { TbCloudCode } from "react-icons/tb";
 import { HiOutlineCode } from "react-icons/hi";
-import styles from "./index.module.css";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 // Components
 import WorkTypeCard from "./work-type-card";
+// import BlogCard from "./blog-card";
+
+import styles from "./index.module.css";
+import Link from "next/link";
 
 // Work type categories
-const workTypes: any = [
+const workTypes = [
   {
     id: 1,
     icon: <IoInfinite size="40" />,
@@ -33,13 +37,62 @@ const workTypes: any = [
   },
 ];
 
-const Home: FunctionComponent = ({}) => {
+// Latest blogs mock data
+const blogs = [
+  {
+    id: 1,
+    title: "10 Best Practices in DevOps",
+    summary: "Explore essential DevOps practices to streamline your workflow.",
+    link: "/blog/devops-best-practices",
+  },
+  {
+    id: 2,
+    title: "Cloud Computing in 2025",
+    summary: "Discover the latest trends in cloud computing.",
+    link: "/blog/cloud-computing-2025",
+  },
+  {
+    id: 3,
+    title: "Building Scalable Web Apps",
+    summary: "A guide to creating high-performance web applications.",
+    link: "/blog/scalable-web-apps",
+  },
+];
+
+const Home: FunctionComponent = () => {
   return (
     <div className={styles.container}>
-      {/* Hero Section */}
-      <div className={styles.hero}>
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={styles.section}
+      >
         <div className={styles.intro}>
-          <h1>Hi, I am Dhanuka</h1>
+          <h1 className={styles.title}>Full Stack Web, Mobile Solutions</h1>
+          <p>
+            I specialize in building scalable web applications, mobile apps, and
+            full-stack solutions tailored to your business needs.
+          </p>
+        </div>
+        <div className={styles.animation}>
+          <img
+            src="/dp.jpeg"
+            alt="Dhanuka Rathnayake"
+            className={styles.animatedImage}
+          />
+        </div>
+      </motion.section>
+
+      {/* Section 2: Hero Section - Introduction */}
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={styles.section}
+      >
+        <div className={styles.intro}>
+          <h1 className={styles.title}>Hi, I am Dhanuka</h1>
           <p>
             A passionate DevOps Engineer driving innovation in software and
             infrastructure automation. With over five years of experience, I’m
@@ -53,17 +106,56 @@ const Home: FunctionComponent = ({}) => {
             className={styles.animatedImage}
           />
         </div>
-      </div>
+      </motion.section>
 
-      {/* What I’m Doing Section */}
-      <div className={styles.workTypeSection}>
-        <h2>What I’m Doing</h2>
+      {/* Section 3: What I’m Doing */}
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={styles.section}
+      >
+        <h1 className={styles.title}>What I’m Doing</h1>
         <div className={styles.workTypeCards}>
-          {workTypes.map((item: any, index: any) => {
-            return <WorkTypeCard key={index} item={item} />;
-          })}
+          {workTypes.map((item) => (
+            <WorkTypeCard key={item.id} item={item} />
+          ))}
         </div>
-      </div>
+      </motion.section>
+
+      {/* Section 4: Main Services */}
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={styles.section}
+      >
+        <h1 className={styles.title}>My Main Services</h1>
+        <div className={styles.serviceCards}>
+          {workTypes.map((item) => (
+            <WorkTypeCard key={item.id} item={item} />
+          ))}
+        </div>
+      </motion.section>
+
+      {/* Section 5: Latest Blogs */}
+      <motion.section
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className={styles.section}
+      >
+        <h1 className={styles.title}>Latest Blogs</h1>
+        <div className={styles.blogCards}>
+          {blogs.map((blog) => (
+            <div key={blog.id} className={styles.blogCard}>
+              <h3>{blog.title}</h3>
+              <p>{blog.summary}</p>
+              <a href={blog.link}>Read more</a>
+            </div>
+          ))}
+        </div>
+      </motion.section>
     </div>
   );
 };

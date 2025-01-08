@@ -10,29 +10,3 @@ body {
   background-color: #000;
   font-family: "Poppins", sans-serif;
 }
-
-/* Additional effects for a galaxy-like appearance */
-body::before {
-  content: "";
-  position: fixed;
-  background: linear-gradient(to bottom, #1d1e24 0%, #1d1e24 100%);
-  z-index: -1;
-}
-
-body::after {
-  content: "";
-  position: absolute;
-  background: transparent;
-  animation: stars 20s linear infinite;
-  z-index: -1;
-}
-
-/* Scrollbar hide */
-.hide-scrollbar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Edge */
-}
-
-.hide-scrollbar {
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
-}

@@ -12,9 +12,7 @@
   position: fixed;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(
-    10px
-  ); /* Glass effect: applies blur to the background */
+  backdrop-filter: blur(10px);
 }
 
 /* Optional: Adds hover effect to make it a bit more dynamic */

@@ -23,29 +23,6 @@
   gap: 20px;
 }
 
-.sideBarDiv {
-  height: fit-content;
-  top: 20px;
-  position: sticky;
-}
-
-.dynamicMainDiv {
-  width: 100%;
-  overflow-y: scroll;
-  border-radius: 18px;
-  padding: 25px;
-  background-color: #23262b;
-}
-
-.dynamicMainDiv::-webkit-scrollbar {
-  background-color: transparent;
-  width: 0;
-}
-
-.dynamicMainDiv::-webkit-scrollbar-thumb {
-  background-color: #888;
-}
-
 .footer {
   padding: 10px 10px 10px 150px;
   width: 100%;
@@ -62,16 +39,6 @@
   .middleDiv {
     flex-direction: column;
     gap: 0;
-  }
-
-  .sideBarDiv {
-    position: initial;
-  }
-
-  .dynamicMainDiv {
-    overflow-y: none;
-    border-radius: 0 0 18px 18px;
-    padding: 0 25px 25px 25px;
   }
 
   .footer {
@@ -95,11 +62,6 @@
 @media (max-width: 600px) {
   .topDiv {
     margin-top: 140px;
-  }
-
-  .dynamicMainDiv {
-    border-radius: 18px;
-    padding-top: 20px;
   }
 }
 
