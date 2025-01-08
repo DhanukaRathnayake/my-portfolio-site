@@ -11,6 +11,9 @@ const WelcomePage: React.FC = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsAnimating(true);
+
+      // Hide horizontal scrollbar when animation starts
+      document.body.style.overflowX = "hidden";
     }, 6000); // Delay animation start (0.1s after mount)
 
     return () => clearTimeout(timer);
@@ -21,13 +24,16 @@ const WelcomePage: React.FC = () => {
     if (isAnimating) {
       const timer = setTimeout(() => {
         setIsWelcomePageVisible(false);
+
+        // Restore horizontal scrollbar after animation ends
+        document.body.style.overflowX = "auto";
       }, 6000); // After 2s (animation duration)
       return () => clearTimeout(timer);
     }
   }, [isAnimating]);
 
   return (
-    <div>
+    <div className="overflow-hidden">
       {isWelcomePageVisible && (
         <div
           className={`${styles.welcomePage} ${

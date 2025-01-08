@@ -1,146 +1,91 @@
-.mainDiv {
+/* Main Navbar Styles */
+.navBar {
   width: 100%;
-  display: grid;
-  grid-template-columns: 200px 4fr;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: rgba(25, 25, 25, 0.7); /* Semi-transparent background */
+  color: #fff;
   box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.1);
-  background-color: #23262b;
-  border-radius: 18px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: blur(
+    10px
+  ); /* Glass effect: applies blur to the background */
 }
 
-.dpDiv {
-  width: 100%;
+/* Optional: Adds hover effect to make it a bit more dynamic */
+.navBar:hover {
+  backdrop-filter: blur(1px); /* Increase blur on hover */
+}
+
+/* Logo */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #3700b3;
+  text-shadow: 0 0 1px #3700b3, 0 0 1px #3700b3, 0 0 5px #3700b3;
+}
+
+/* Navigation Links */
+.navLinks {
   display: flex;
-  justify-content: center;
+  gap: 40px;
+  align-items: center;
 }
 
-.detailsDiv {
-  width: 100%;
-  display: flex;
-  align-content: space-between;
+.navLink {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease-in-out;
 }
 
-.detailsDivOne {
-  width: 100%;
-  min-width: 270px;
-  padding: 20px 20px 20px 0;
-  display: flex;
-  flex-direction: column;
-  align-self: center;
+.navLink:hover {
+  color: #3700b3;
 }
 
-.detailsDivTwo {
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* Download Button */
+.downloadBtn {
+  padding: 10px 20px;
+  background-color: #a0153e;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
 }
 
-.detailsDivThree {
-  width: 100%;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.downloadBtn:hover {
+  background-color: #a0153e;
+  box-shadow: 0 0 5px #a0153e, 0 0 5px #a0153e, 0 0 5px #a0153e;
 }
 
-.divider {
-  height: 100px;
-  width: 2px;
-  background-color: #2e2f36;
-  align-self: center;
-  border-radius: 10px;
-}
-
-.dpMediumDiv {
+/* Hamburger Menu */
+.hamburgerMenu {
   display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
 }
 
-.detailsMediumDiv {
-  display: none;
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
 }
 
-.detailsMediumDivOne {
-  display: none;
-}
-
-@media (max-width: 1200px) {
-  .mainDiv {
-    display: grid;
-    justify-items: center;
-    grid-template-columns: 1fr;
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
   }
 
-  .dpMediumDiv {
-    height: 130px;
+  .hamburgerMenu {
     display: flex;
-    justify-content: center;
-  }
-
-  .detailsMediumDivOne {
-    display: flex;
-    padding-bottom: 20px;
-  }
-
-  .detailsMediumDiv {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 20px;
-  }
-
-  .detailsMediumDivTwo {
-    padding-left: 20px;
-  }
-
-  .detailsMediumDivThree {
-    padding-left: 20px;
-  }
-
-  .dividerMedium {
-    height: 2px;
-    width: 90%;
-    background-color: #2e2f36;
-    align-self: center;
-    border-radius: 10px;
-  }
-
-  .dpDiv {
-    display: none;
-  }
-
-  .detailsDivOne {
-    display: none;
-  }
-
-  .detailsDivTwo {
-    display: none;
-  }
-
-  .detailsDivThree {
-    display: none;
-  }
-
-  .divider {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  .detailsMediumDiv {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-}
-
-@media (max-width: 400px) {
-  .detailsMediumDivTwo {
-    padding-left: 0;
-  }
-
-  .detailsMediumDivThree {
-    padding-left: 0;
   }
 }

@@ -1,0 +1,53 @@
+.mainDiv {
+  height: 100%;
+  width: 100%;
+  max-width: 300px;
+  border: 2px solid #0071ff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mainDiv:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.icon {
+  color: #0071ff;
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 14px;
+  color: #616164;
+  line-height: 1.5;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .mainDiv {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 400px) {
+  .mainDiv {
+    max-width: 100%;
+    padding: 15px;
+  }
+}

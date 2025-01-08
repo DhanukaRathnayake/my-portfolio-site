@@ -1,10 +1,10 @@
 // Libraries
 import React from "react";
 import { NextPage } from "next";
-import About from "@/components/about";
+import Home from "@/components/home";
 
 const HomePage: NextPage<{}> = () => {
-  return <About />;
+  return <Home />;
 };
 
 export default HomePage;

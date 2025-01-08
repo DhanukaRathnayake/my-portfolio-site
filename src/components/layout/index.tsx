@@ -4,10 +4,10 @@ import dynamic from "next/dynamic";
 
 // Styles
 import styles from "./index.module.css";
+import BlobBackground from "./background";
 
 // Components
-import TopNavBar from "./top-navigation-bar";
-import SideNavBar from "./side-navigation-bar";
+const TopNavBar = dynamic(() => import("./top-navigation-bar"));
 const WelcomePage = dynamic(() => import("../welcome"));
 
 interface LayoutProps {
@@ -17,6 +17,8 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   return (
     <div className={styles.mainDiv}>
+      <BlobBackground />
+
       <WelcomePage />
 
       {/* Top Nav Bar */}
@@ -26,12 +28,7 @@ const Layout = ({ children }: LayoutProps) => {
 
       {/* Main Div  */}
       <div className={styles.middleDiv}>
-        <div className={styles.sideBarDiv}>
-          <SideNavBar />
-        </div>
-        <div className={styles.dynamicMainDiv}>
-          <main>{children}</main>
-        </div>
+        <main>{children}</main>
       </div>
 
       {/* Footer */}

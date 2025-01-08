@@ -1,0 +1,119 @@
+/* General Styles */
+.container {
+  width: 100%;
+  font-family: "Arial", sans-serif;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  min-height: 80vh;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  animation: slideInDown 1s ease-in-out;
+}
+
+.intro {
+  max-width: 50%;
+}
+
+.intro h1 {
+  font-size: 60px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* Animation for sliding down */
+@keyframes slideInDown {
+  0% {
+    transform: translateY(100%); /* Start from above the screen */
+    opacity: 0; /* Start with hidden content */
+  }
+  100% {
+    transform: translateY(0); /* Move to normal position */
+    opacity: 1; /* Fade in the content */
+  }
+}
+
+.animation {
+  max-width: 45%;
+  position: relative;
+}
+
+/* Shining Effect & Rotating Animation on Image */
+.animatedImage {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 255, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Mouse Hover Vertical Rotation */
+@keyframes rotate {
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.workTypeSection {
+  padding: 50px;
+  text-align: center;
+}
+
+.workTypeSection h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.workTypeCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .animation {
+    max-width: 100%;
+  }
+
+  .animatedImage {
+    width: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero {
+    padding: 30px;
+  }
+
+  .animatedImage {
+    width: 100%;
+  }
+}

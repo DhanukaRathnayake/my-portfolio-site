@@ -13,22 +13,9 @@ type Props = LinkStateProps;
 const WorkTypeCard: FunctionComponent<Props> = ({ item }) => {
   return (
     <div className={styles.mainDiv}>
-      <div style={{ color: "#0071ff" }}>{item.icon}</div>
-      <text
-        style={{
-          fontWeight: "800",
-          fontSize: "20px",
-        }}
-      >
-        {item.title}
-      </text>
-      <text
-        style={{
-          color: "grey",
-        }}
-      >
-        {item.description}
-      </text>
+      <div className={styles.icon}>{item.icon}</div>
+      <h3 className={styles.title}>{item.title}</h3>
+      <p className={styles.description}>{item.description}</p>
     </div>
   );
 };

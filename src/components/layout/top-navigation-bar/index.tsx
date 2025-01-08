@@ -1,75 +1,36 @@
-// Libraries
-import React, { FunctionComponent } from "react";
-import Divider from "@mui/material/Divider";
-import Dp from "./dp";
-import DetailsOne from "./details-1";
-import DetailsTwo from "./details-2";
-import DetailsThree from "./details-3";
-
-// Styles
+import React from "react";
 import styles from "./index.module.css";
 
-// Data
-import data from "../../../data/main-info.json";
-import picture from "../../../../public/dp.jpeg";
-
-const TopNavBar: FunctionComponent = ({}) => {
-  const handleDownloadClick = () => {
-    const pdfUrl = data.cv;
-    const link = document.createElement("a");
-    link.href = pdfUrl;
-    link.target = "_blank";
-    link.download = "dhanuka-rathnayake-cv.pdf";
-    link.click();
-  };
-
+const TopNavBar: React.FC = () => {
   return (
-    <div className={styles.mainDiv}>
-      {/* Larger View */}
-      <div className={styles.dpDiv}>
-        <Dp src={picture.src} />
-      </div>
-      <div className={styles.detailsDiv}>
-        <div className={styles.detailsDivOne}>
-          <DetailsOne data={data} />
-        </div>
-        <Divider
-          orientation="vertical"
-          variant="middle"
-          flexItem
-          className={styles.divider}
-        />
-        <div className={styles.detailsDivTwo}>
-          <DetailsTwo data={data} />
-        </div>
-        <Divider
-          orientation="vertical"
-          variant="middle"
-          flexItem
-          className={styles.divider}
-        />
-        <div className={styles.detailsDivThree}>
-          <DetailsThree data={data} handleDownloadClick={handleDownloadClick} />
-        </div>
-      </div>
+    <header className={styles.navBar}>
+      {/* Logo */}
+      <a href="/" className={styles.logo}>
+        Dhanuka
+      </a>
 
-      {/* Medium and Small Views */}
-      <div className={styles.dpMediumDiv}>
-        <Dp src={picture.src} />
-      </div>
-      <div className={styles.detailsMediumDivOne}>
-        <DetailsOne data={data} />
-      </div>
+      {/* Navigation Links */}
+      <nav className={styles.navLinks}>
+        <a href="#about" className={styles.navLink}>
+          About
+        </a>
+        <a href="#home" className={styles.navLink}>
+          Blog
+        </a>
+        <a href="#services" className={styles.navLink}>
+          Services
+        </a>
+      </nav>
 
-      <div className={styles.detailsMediumDiv}>
-        <div className={styles.detailsMediumDivTwo}>
-          <DetailsTwo data={data} />
-        </div>
-        <div className={styles.detailsMediumDivThree}>
-          <DetailsThree data={data} handleDownloadClick={handleDownloadClick} />
-        </div>
+      <button className={styles.downloadBtn}>Contact</button>
+
+      {/* Mobile Hamburger Menu */}
+      <div className={styles.hamburgerMenu}>
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
+        <span className={styles.bar}></span>
       </div>
-    </div>
+    </header>
   );
 };
 

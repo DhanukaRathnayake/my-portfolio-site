@@ -7,7 +7,7 @@
 body {
   font-family: "Poppins";
   color: aliceblue;
-  background-color: #1d1e24;
+  background-color: #000;
   font-family: "Poppins", sans-serif;
 }
 
@@ -25,4 +25,14 @@ body::after {
   background: transparent;
   animation: stars 20s linear infinite;
   z-index: -1;
+}
+
+/* Scrollbar hide */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
 }
