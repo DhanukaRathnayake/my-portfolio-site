@@ -19,11 +19,21 @@
   overflow: hidden;
 }
 
-.title {
-  font-size: 3rem;
+.heroText {
+  font-size: 4rem;
   font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
+  color: #ffffff;
+  display: inline-block;
+}
+
+.heroWord {
+  display: inline-block;
+  margin-right: 0.5rem; /* Add space between words */
+}
+
+.nameHighlight {
+  color: #3700b3;
+  text-shadow: 0 0 3px #3700b3, 0 0 5px #3700b3, 0 0 8px #3700b3;
 }
 
 .intro {

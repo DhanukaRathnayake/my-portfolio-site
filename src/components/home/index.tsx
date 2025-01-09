@@ -11,6 +11,7 @@ import WorkTypeCard from "./work-type-card";
 
 import styles from "./index.module.css";
 import Link from "next/link";
+import HeroText from "../common/heroText";
 
 // Work type categories
 const workTypes = [
@@ -68,13 +69,20 @@ const Home: FunctionComponent = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={styles.section}
       >
-        <div className={styles.intro}>
-          <h1 className={styles.title}>Full Stack Web, Mobile Solutions</h1>
-          <p>
-            I specialize in building scalable web applications, mobile apps, and
-            full-stack solutions tailored to your business needs.
-          </p>
-        </div>
+        <motion.div className={styles.intro}>
+          <HeroText
+            heroText="Full Stack Web, Mobile Solutions"
+            highlightedName={["Web,", "Mobile"]}
+            subText="I specialize in building scalable web applications, mobile apps, and full-stack solutions tailored to your business needs."
+            stylesProps={{
+              heroText: styles.heroText,
+              heroWord: styles.heroWord,
+              nameHighlight: styles.nameHighlight,
+              heroSubText: styles.heroSubText,
+            }}
+          />
+        </motion.div>
+
         <div className={styles.animation}>
           <img
             src="/dp.jpeg"

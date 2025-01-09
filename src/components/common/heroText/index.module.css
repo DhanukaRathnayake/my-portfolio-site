@@ -1,0 +1,26 @@
+/* Hero Section Container */
+.heroSection {
+  color: #ffffff;
+}
+
+/* Word Wrapper */
+.heroWord {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+/* Letter Animation */
+.heroLetter {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInLetter 2s forwards;
+}
+
+/* Typing Animation */
+@keyframes fadeInLetter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
