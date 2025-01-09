@@ -67,6 +67,7 @@ const Home: FunctionComponent = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ amount: 0.5 }} // Ensures animation triggers only once when visible
         className={styles.section}
       >
         <motion.div className={styles.intro}>
@@ -97,15 +98,21 @@ const Home: FunctionComponent = () => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ amount: 0.5 }} // Ensures animation triggers only once when visible
         className={styles.section}
       >
         <div className={styles.intro}>
-          <h1 className={styles.title}>Hi, I am Dhanuka</h1>
-          <p>
-            A passionate DevOps Engineer driving innovation in software and
-            infrastructure automation. With over five years of experience, I’m
-            here to bring your projects to life with cutting-edge technology.
-          </p>
+          <HeroText
+            heroText="Hi, I am Dhanuka"
+            highlightedName={["Dhanuka"]}
+            subText="A passionate DevOps Engineer driving innovation in software and infrastructure automation. With over five years of experience, I’m here to bring your projects to life with cutting-edge technology."
+            stylesProps={{
+              heroText: styles.heroText,
+              heroWord: styles.heroWord,
+              nameHighlight: styles.nameHighlight,
+              heroSubText: styles.heroSubText,
+            }}
+          />
         </div>
         <div className={styles.animation}>
           <img

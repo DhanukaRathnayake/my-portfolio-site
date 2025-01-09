@@ -37,7 +37,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
                 isHighlighted ? stylesProps.nameHighlight : ""
               }`}
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true, amount: 0.5 }} // Animation triggers when 50% of the section is visible
               transition={{
                 delay: wordIndex * 0.5 + charIndex * 0.1, // Progressive delay for letters
                 duration: 0.1, // Speed of each character reveal
@@ -51,7 +52,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
             key={`${wordIndex}-space`}
             className={styles.heroLetter}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
             transition={{
               delay: (wordIndex + 1) * 0.5, // Delay for space after the word
               duration: 0.1,
@@ -70,7 +72,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       <motion.h1
         className={`${stylesProps.heroText}`}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 1.5, ease: "easeInOut" }}
       >
         {splitText(heroText, highlightedName)}
@@ -81,7 +84,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         <motion.p
           className={`${stylesProps.heroSubText}`}
           initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 2, ease: "easeInOut", delay: 1.5 }}
         >
           {splitText(subText)}
