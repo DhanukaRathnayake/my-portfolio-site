@@ -127,11 +127,20 @@ const Home: FunctionComponent = () => {
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.5 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={styles.section}
+        className={styles.sectionCards}
       >
-        <h1 className={styles.title}>What I’m Doing</h1>
-        <div className={styles.workTypeCards}>
+        <HeroText
+          heroText="What I’m Doing"
+          stylesProps={{
+            heroText: styles.heroText,
+            heroWord: styles.heroWord,
+            nameHighlight: styles.nameHighlight,
+            heroSubText: styles.heroSubText,
+          }}
+        />
+        <div className={styles.cardsDiv}>
           {workTypes.map((item) => (
             <WorkTypeCard key={item.id} item={item} />
           ))}
@@ -142,11 +151,20 @@ const Home: FunctionComponent = () => {
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ amount: 0.5 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={styles.section}
+        className={styles.sectionCards}
       >
-        <h1 className={styles.title}>My Main Services</h1>
-        <div className={styles.serviceCards}>
+        <HeroText
+          heroText="My main services"
+          stylesProps={{
+            heroText: styles.heroText,
+            heroWord: styles.heroWord,
+            nameHighlight: styles.nameHighlight,
+            heroSubText: styles.heroSubText,
+          }}
+        />
+        <div className={styles.cardsDiv}>
           {workTypes.map((item) => (
             <WorkTypeCard key={item.id} item={item} />
           ))}

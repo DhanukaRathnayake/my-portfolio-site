@@ -19,6 +19,16 @@
   overflow: hidden;
 }
 
+.intro {
+  flex: 1;
+  max-width: 600px;
+}
+
+.intro p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
 /* Hero section */
 .heroText {
   font-size: 4rem;
@@ -37,16 +47,7 @@
   text-shadow: 0 0 3px #3700b3, 0 0 5px #3700b3, 0 0 8px #3700b3;
 }
 
-.intro {
-  flex: 1;
-  max-width: 600px;
-}
-
-.intro p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
+/* Image */
 .animation {
   flex: 1;
   max-width: 400px;
@@ -63,30 +64,27 @@
   transition: transform 0.3s ease-in-out;
 }
 
-/* Add rotation effect on hover */
 .animatedImage:hover {
   transform: rotate(15deg);
 }
 
-/* Work Type and Service Cards */
-.workTypeSection,
-.servicesSection,
-.blogSection {
+/* Card section */
+.sectionCards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 50px;
-  text-align: center;
+  min-height: 60vh;
+  gap: 50px;
+  color: white;
+  position: relative;
+  overflow: hidden;
 }
 
-.workTypeCards,
-.serviceCards {
+.cardsDiv {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.blogCards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+  gap: 60px; /* Spacing between cards */
 }
 
 /* Blog Card Styles */
