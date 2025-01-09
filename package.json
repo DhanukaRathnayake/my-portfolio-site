@@ -34,6 +34,7 @@
     "lowlight": "^3.3.0",
     "next": "15.1.2",
     "next-redux-wrapper": "^8.1.0",
+    "nextjs-progressbar": "^0.0.16",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",

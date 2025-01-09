@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-
 import styles from "./index.module.css";
+import { useRouter } from "next/router";
 
 const TopNavBar: React.FC = () => {
-  const [activeLink, setActiveLink] = useState<string>("/about");
+  const router = useRouter();
+  const [activeLink, setActiveLink] = useState<string>(router.pathname);
+
+  useEffect(() => {
+    setActiveLink(router.pathname); // Update activeLink when route changes
+  }, [router.pathname]);
 
   const handleClick = (path: string) => {
-    setActiveLink(path);
+    setActiveLink(path); // Update activeLink on click
   };
 
   return (

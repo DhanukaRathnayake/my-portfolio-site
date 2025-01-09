@@ -11,7 +11,7 @@
   align-items: center;
   opacity: 1;
   transition: opacity 0.5s ease-out;
-  z-index: 1001; /* Keeps it on top */
+  z-index: 10000; /* Keeps it on top */
   overflow: hidden; /* Ensures no internal scrollbars on the page itself */
   overflow-x: hidden;
 }
