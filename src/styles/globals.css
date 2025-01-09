@@ -4,9 +4,55 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Applies globally to all scrollable elements */
+html {
+  scrollbar-width: thin; /* Firefox: Thin scrollbar */
+  scrollbar-color: rgba(68, 68, 68, 0.8) rgba(34, 34, 34, 0.8); /* Firefox: Thumb and track colors with transparency */
+}
+
 body {
+  overflow-y: scroll; /* Ensure scrollbars are always visible */
   font-family: "Poppins";
   color: aliceblue;
   background-color: #000;
   font-family: "Poppins", sans-serif;
+}
+
+/* WebKit-based browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 6px; /* Thin scrollbar width */
+  height: 6px; /* Thin scrollbar height for horizontal scrolls */
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(34, 34, 34, 0.8); /* Dark track with transparency */
+  border-radius: 10px; /* Rounded track edges */
+  backdrop-filter: blur(10px); /* Glassy blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari-specific */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(
+    68,
+    68,
+    68,
+    0.8
+  ); /* Subtle dark gray thumb with transparency */
+  border-radius: 10px; /* Rounded thumb edges */
+  border: 1px solid rgba(34, 34, 34, 0.8); /* Optional border for contrast */
+  backdrop-filter: blur(10px); /* Glassy blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari-specific */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(85, 85, 85, 0.8); /* Slightly lighter gray on hover */
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: rgba(
+    102,
+    102,
+    102,
+    0.8
+  ); /* Even lighter gray when active */
 }

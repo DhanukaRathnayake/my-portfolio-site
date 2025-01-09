@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Styles
 import styles from "./index.module.css";
 import BlobBackground from "./background";
+import LoadingProgressBar from "../common/loaders/loadingProgressBar";
 
 // Components
 const TopNavBar = dynamic(() => import("./top-navigation-bar"));
@@ -47,6 +48,7 @@ const Layout = ({ children }: LayoutProps) => {
             {/* Top Nav Bar */}
             <div className={styles.topDiv}>
               <TopNavBar />
+              <LoadingProgressBar />
             </div>
 
             {/* Main Div */}

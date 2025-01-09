@@ -14,10 +14,10 @@ import certification from "../../data/certification.json";
 import skills from "../../data/skills.json";
 import codeSkills from "../../data/code-skills.json";
 
-const Resume: FunctionComponent = ({}) => {
+const About: FunctionComponent = ({}) => {
   return (
     <div>
-      <text style={{ fontSize: "30px", fontWeight: "600" }}>Resume</text>
+      <text style={{ fontSize: "30px", fontWeight: "600" }}>About</text>
       <Divider
         flexItem
         style={{
@@ -49,4 +49,4 @@ const Resume: FunctionComponent = ({}) => {
   );
 };
 
-export default Resume;
+export default About;

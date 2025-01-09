@@ -1,23 +1,22 @@
 /* Main Navbar Styles */
 .navBar {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  background-color: rgba(25, 25, 25, 0.7); /* Semi-transparent background */
-  color: #fff;
-  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
   z-index: 1000;
   backdrop-filter: blur(10px);
+  height: 70px;
+  width: 100%;
+  padding: 0 20px;
+  color: #fff;
+  background-color: rgba(25, 25, 25, 0.7);
+  box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Optional: Adds hover effect to make it a bit more dynamic */
 .navBar:hover {
-  backdrop-filter: blur(1px); /* Increase blur on hover */
+  backdrop-filter: blur(12px);
 }
 
 /* Logo */
@@ -36,14 +35,43 @@
 }
 
 .navLink {
+  width: 65px;
+  display: flex;
+  justify-content: center;
   color: #fff;
   text-decoration: none;
   font-size: 1rem;
+  position: relative;
   transition: color 0.3s ease-in-out;
 }
 
-.navLink:hover {
+/* Bottom Line (Hidden by Default) */
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #3700b3;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect for Non-Active Links */
+.navLink:hover::after {
+  transform: scaleX(1);
+}
+
+/* Active Link Styles */
+.activeNavLink {
   color: #3700b3;
+  font-weight: bold;
+}
+
+.activeNavLink::after {
+  transform: scaleX(1);
 }
 
 /* Download Button */
@@ -80,6 +108,10 @@
 /* Responsive Styles */
 @media (max-width: 768px) {
   .navLinks {
+    display: none;
+  }
+
+  .downloadBtn {
     display: none;
   }
 

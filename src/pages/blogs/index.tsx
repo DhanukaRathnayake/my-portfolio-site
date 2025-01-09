@@ -1,10 +1,15 @@
 // Libraries
 import React, { useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
+import dynamic from "next/dynamic";
 import Divider from "@mui/material/Divider";
 
 // Components
-import Blogs from "@/components/blogs";
+import PageLoader from "@/components/common/loaders/pageLoader";
+const Blogs = dynamic(() => import("../../components/blogs"), {
+  ssr: true,
+  loading: () => <PageLoader />,
+});
 
 // Redux
 import { wrapper } from "@/redux/store";

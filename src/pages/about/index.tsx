@@ -4,13 +4,13 @@ import dynamic from "next/dynamic";
 import { NextPage } from "next";
 
 import PageLoader from "@/components/common/loaders/pageLoader";
-const Home = dynamic(() => import("../components/home"), {
+const About = dynamic(() => import("../../components/about"), {
   ssr: true,
   loading: () => <PageLoader />,
 });
 
-const HomePage: NextPage<{}> = () => {
-  return <Home />;
+const AboutPage: NextPage<{}> = () => {
+  return <About />;
 };
 
-export default HomePage;
+export default AboutPage;

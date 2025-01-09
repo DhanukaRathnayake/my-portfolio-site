@@ -1,0 +1,18 @@
+/* LoadingProgress.module.css */
+.progressBarContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 1002; /* Ensure it's on top of everything */
+  transition: visibility 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.progressBar {
+  height: 100%;
+  background-color: #3700b3;
+  background-image: linear-gradient(90deg, #3700b3, #a0153e);
+  transition: width 0.3s ease-out;
+}
