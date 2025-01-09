@@ -1,5 +1,6 @@
 // Libraries
 import React, { FunctionComponent, useRef } from "react";
+import Link from "next/link";
 import { IoInfinite } from "react-icons/io5";
 import { TbCloudCode } from "react-icons/tb";
 import { HiOutlineCode } from "react-icons/hi";
@@ -10,8 +11,28 @@ import WorkTypeCard from "./work-type-card";
 // import BlogCard from "./blog-card";
 
 import styles from "./index.module.css";
-import Link from "next/link";
 import HeroText from "../common/heroText";
+import { FaGithub } from "react-icons/fa";
+
+const tags = ["AWS", "K8S", "NextJs", "NestJs"];
+const socialIcons = [
+  { name: "GitHub", url: "https://github.com/", icon: <FaGithub /> },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/",
+    icon: <FaGithub />,
+  },
+  {
+    name: "Facebook",
+    url: "https://facebook.com/",
+    icon: <FaGithub />,
+  },
+  {
+    name: "Instagram",
+    url: "https://instagram.com/",
+    icon: <FaGithub />,
+  },
+];
 
 // Work type categories
 const workTypes = [
@@ -71,9 +92,19 @@ const Home: FunctionComponent = () => {
         className={styles.section}
       >
         <motion.div className={styles.intro}>
+          {/* Ready to Innovate Button */}
+          <motion.div
+            className={styles.readyButtonContainer}
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <button className={styles.readyButton}>Ready to Innovate</button>
+          </motion.div>
+
           <HeroText
-            heroText="Full Stack Web, Mobile Solutions"
-            highlightedName={["Web,", "Mobile"]}
+            heroText="Full Stack & DevOps Engineer"
+            highlightedName={["Full", "Stack", "DevOps"]}
             subText="I specialize in building scalable web applications, mobile apps, and full-stack solutions tailored to your business needs."
             stylesProps={{
               heroText: styles.heroText,
@@ -82,6 +113,45 @@ const Home: FunctionComponent = () => {
               heroSubText: styles.heroSubText,
             }}
           />
+
+          {/* Rounded Tags */}
+          <motion.div
+            className={styles.tagContainer}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            {tags.map((tag, index) => (
+              <span key={index} className={styles.tag}>
+                {tag}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* Projects and Contact Buttons */}
+          <motion.div
+            className={styles.buttonRow}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <button className={styles.button}>Projects</button>
+            <button className={styles.button}>Contact</button>
+          </motion.div>
+
+          {/* Social Media Icons */}
+          <motion.div
+            className={styles.socialIcons}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            {socialIcons.map((item, index) => (
+              <Link key={index} href={item.url} className={styles.socialIcon}>
+                {item.icon}
+              </Link>
+            ))}
+          </motion.div>
         </motion.div>
 
         <div className={styles.animation}>
