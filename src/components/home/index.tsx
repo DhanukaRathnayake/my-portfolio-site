@@ -12,25 +12,27 @@ import WorkTypeCard from "./work-type-card";
 
 import styles from "./index.module.css";
 import HeroText from "../common/heroText";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
+import { TbBrandFiverr } from "react-icons/tb";
 
-const tags = ["AWS", "K8S", "NextJs", "NestJs"];
+const tags = ["AWS", "K8S", "Terraform", "NextJs", "NestJs"];
 const socialIcons = [
-  { name: "GitHub", url: "https://github.com/", icon: <FaGithub /> },
+  { name: "GitHub", url: "https://github.com/", icon: <FaGithub size="20" /> },
   {
     name: "LinkedIn",
     url: "https://linkedin.com/",
-    icon: <FaGithub />,
+    icon: <FaLinkedinIn size="20" />,
   },
   {
     name: "Facebook",
     url: "https://facebook.com/",
-    icon: <FaGithub />,
+    icon: <SiUpwork size="20" />,
   },
   {
     name: "Instagram",
     url: "https://instagram.com/",
-    icon: <FaGithub />,
+    icon: <TbBrandFiverr size="20" />,
   },
 ];
 
@@ -99,7 +101,9 @@ const Home: FunctionComponent = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <button className={styles.readyButton}>Ready to Innovate</button>
+            <button type="button" className={styles.readyButton}>
+              <div className={styles.readyButtonInner}>Ready to Innovate</div>
+            </button>
           </motion.div>
 
           <HeroText
@@ -122,9 +126,9 @@ const Home: FunctionComponent = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             {tags.map((tag, index) => (
-              <span key={index} className={styles.tag}>
-                {tag}
-              </span>
+              <button key={index} type="button" className={styles.readyButton}>
+                <div className={styles.readyButtonInner}>{tag}</div>
+              </button>
             ))}
           </motion.div>
 
@@ -147,8 +151,10 @@ const Home: FunctionComponent = () => {
             transition={{ duration: 0.5, delay: 0.6 }}
           >
             {socialIcons.map((item, index) => (
-              <Link key={index} href={item.url} className={styles.socialIcon}>
-                {item.icon}
+              <Link key={index} href={item.url}>
+                <button key={index} type="button" className={styles.iconButton}>
+                  <div className={styles.iconButtonInner}>{item.icon}</div>
+                </button>
               </Link>
             ))}
           </motion.div>

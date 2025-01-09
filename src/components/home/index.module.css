@@ -11,12 +11,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: 50px;
-  gap: 50px;
   min-height: 80vh;
   color: white;
-  position: relative;
-  overflow: hidden;
 }
 
 .intro {
@@ -24,34 +20,40 @@
   max-width: 600px;
 }
 
-.intro p {
-  font-size: 1.2rem;
-  line-height: 1.8;
-}
-
+/* Ready Button */
 .readyButtonContainer {
   margin-bottom: 20px;
 }
 
 .readyButton {
-  background-color: #3a0088;
-  color: #ffffff;
-  border: none;
-  padding: 12px 30px;
-  font-size: 16px;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px; /* Full rounded */
+  background: linear-gradient(to right, #3700b3, #a0153e);
+  padding: 1.5px;
+  color: white;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.readyButton:hover {
-  background-color: #6f2d92;
+.readyButtonInner {
+  display: flex;
+  font-size: small;
+  padding: 5px 15px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px; /* Full rounded */
+  background: #191919; /* Gray 900 */
+  transition: background 0.3s ease;
 }
 
+/* Hero Text */
 .heroText {
-  font-size: 4rem;
-  line-height: 80px;
+  font-size: 3.5rem;
   font-weight: bold;
+  line-height: 60px;
   color: #ffffff;
   display: inline-block;
   margin-bottom: 20px;
@@ -59,7 +61,7 @@
 
 .heroWord {
   display: inline-block;
-  margin-right: 0.5rem; /* Add space between words */
+  margin-right: 0.5rem;
 }
 
 .nameHighlight {
@@ -68,11 +70,12 @@
 }
 
 .heroSubText {
-  font-size: 20px;
+  font-size: 18px;
   color: #ffffff;
   margin-bottom: 20px;
 }
 
+/* Tag Styles */
 .tagContainer {
   display: flex;
   flex-wrap: wrap;
@@ -81,51 +84,74 @@
 }
 
 .tag {
-  background-color: #3a0088;
-  color: #fff;
-  padding: 8px 20px;
+  background: linear-gradient(180deg, #3700b3, #a0153e);
+  color: white;
+  padding: 8px 16px;
   border-radius: 20px;
   font-size: 14px;
 }
 
+/* Button Row */
 .buttonRow {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 30px;
 }
 
 .button {
-  background-color: #3a0088;
-  color: #fff;
+  background-color: #3700b3;
+  color: white;
   border: none;
+  width: 150px;
   padding: 12px 20px;
   font-size: 16px;
-  border-radius: 30px;
+  font-weight: bold;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out;
 }
 
 .button:hover {
-  background-color: #6f2d92;
+  background-color: #a0153e;
+  transform: scale(1.05);
 }
 
+/* Social Icons */
 .socialIcons {
   display: flex;
+  gap: 30px;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
   justify-content: center;
-  gap: 15px;
+  border-radius: 10px; /* Adjusted for slightly rounded corners */
+  background: linear-gradient(to right, #3700b3, #a0153e);
+  padding: 1.5px;
+  color: white;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.socialIcon {
-  width: 35px;
-  height: 35px;
-  transition: transform 0.3s ease;
+.iconButtonInner {
+  display: flex;
+  font-size: small;
+  padding: 10px 10px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px; /* Slightly smaller than parent to maintain gradient effect */
+  background: #191919; /* Dark background color */
+  transition: background 0.3s ease;
 }
 
-.socialIcon:hover {
+.iconButton:hover {
   transform: scale(1.1);
+  box-shadow: 0 0 10px #a0153e, 0 0 20px #a0153e;
 }
 
-/* Image */
+/* Image Animation */
 .animation {
   flex: 1;
   max-width: 400px;
@@ -138,62 +164,12 @@
   width: 100%;
   height: auto;
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(0, 0, 255, 0.8);
+  box-shadow: 0 0 15px rgba(55, 0, 179, 0.8);
   transition: transform 0.3s ease-in-out;
 }
 
 .animatedImage:hover {
   transform: rotate(15deg);
-}
-
-/* Card section */
-.sectionCards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
-  min-height: 60vh;
-  gap: 50px;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
-
-.cardsDiv {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three cards per row */
-  gap: 60px; /* Spacing between cards */
-}
-
-/* Blog Card Styles */
-.blogCard {
-  background-color: #23262b;
-  color: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease-in-out;
-}
-
-.blogCard:hover {
-  transform: translateY(-5px);
-}
-
-.blogCard h3 {
-  margin-top: 0;
-  font-size: 1.2rem;
-}
-
-.blogCard p {
-  margin: 10px 0;
-  font-size: 0.9rem;
-  line-height: 1.4;
-}
-
-.blogCard a {
-  text-decoration: none;
-  color: #4a90e2;
-  font-weight: bold;
 }
 
 /* Responsive Styles */
@@ -217,13 +193,13 @@
     width: 100%;
   }
 
-  .title {
+  .heroText {
     font-size: 2.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  .title {
+  .heroText {
     font-size: 2rem;
   }
 
@@ -231,7 +207,7 @@
     padding: 20px;
   }
 
-  .intro p {
+  .heroSubText {
     font-size: 1rem;
   }
 }
