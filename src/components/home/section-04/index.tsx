@@ -1,48 +1,92 @@
 // Libraries
 import React from "react";
+import { motion } from "framer-motion";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
+import { SiUpwork } from "react-icons/si";
+import { TbBrandFiverr } from "react-icons/tb";
 
 // Components
 import HeroText from "../../common/heroText";
 
 // Styles
 import styles from "./index.module.css";
+import Link from "next/link";
 
 // Data
-const blogs = [
+const socialIcons = [
+  { name: "GitHub", url: "https://github.com/", icon: <FaGithub size="20" /> },
   {
-    id: 1,
-    title: "10 Best Practices in DevOps",
-    summary: "Explore essential DevOps practices to streamline your workflow.",
-    link: "/blog/devops-best-practices",
+    name: "LinkedIn",
+    url: "https://linkedin.com/",
+    icon: <FaLinkedinIn size="20" />,
   },
   {
-    id: 2,
-    title: "Cloud Computing in 2025",
-    summary: "Discover the latest trends in cloud computing.",
-    link: "/blog/cloud-computing-2025",
+    name: "Facebook",
+    url: "https://facebook.com/",
+    icon: <SiUpwork size="20" />,
   },
   {
-    id: 3,
-    title: "Building Scalable Web Apps",
-    summary: "A guide to creating high-performance web applications.",
-    link: "/blog/scalable-web-apps",
+    name: "Instagram",
+    url: "https://instagram.com/",
+    icon: <TbBrandFiverr size="20" />,
   },
 ];
 
 const Section04 = () => {
   return (
     <div className={styles.section}>
+      {/* Hero Section */}
+      <div className={styles.hero}>
+        <HeroText
+          heroText="Contact Me"
+          highlightedName={["Me"]}
+          subText="Great service for lifetime"
+          stylesProps={{
+            heroText: styles.heroText,
+            heroWord: styles.heroWord,
+            nameHighlight: styles.nameHighlight,
+            heroSubText: styles.heroSubText,
+          }}
+        />
+      </div>
+
       <div className={styles.intro}>
-        <h1 className={styles.title}>Latest Blogs</h1>
-        <div className={styles.blogCards}>
-          {blogs.map((blog) => (
-            <div key={blog.id} className={styles.blogCard}>
-              <h3>{blog.title}</h3>
-              <p>{blog.summary}</p>
-              <a href={blog.link}>Read more</a>
-            </div>
-          ))}
-        </div>
+        <form className={styles.contactForm}>
+          <text className={styles.formTitle}>Get In Touch</text>
+          <input
+            type="name"
+            placeholder="Your Name"
+            className={styles.inputField}
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className={styles.inputField}
+          />
+          <textarea
+            placeholder="Your Message"
+            className={styles.textArea}
+          ></textarea>
+          <button type="submit" className={styles.submitButton}>
+            Send Message
+          </button>
+
+          {/* Social Media Icons */}
+          <motion.div
+            className={styles.socialIcons}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          >
+            {socialIcons.map((item, index) => (
+              <Link key={index} href={item.url}>
+                <button key={index} type="button" className={styles.iconButton}>
+                  <div className={styles.iconButtonInner}>{item.icon}</div>
+                </button>
+              </Link>
+            ))}
+          </motion.div>
+        </form>
       </div>
     </div>
   );

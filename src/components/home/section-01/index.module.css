@@ -45,7 +45,7 @@
 .heroText {
   font-size: 3.5rem;
   font-weight: bold;
-  line-height: 60px;
+  /* line-height: 60px; */
   color: #ffffff;
   display: inline-block;
   margin-bottom: 20px;

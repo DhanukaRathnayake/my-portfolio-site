@@ -37,14 +37,103 @@
   margin-bottom: 20px;
 }
 
-.animatedImage {
-  width: 100%;
-  height: auto;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(55, 0, 179, 0.8);
-  transition: transform 0.3s ease-in-out;
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.5s;
 }
 
-.animatedImage:hover {
-  transform: rotate(15deg);
+.inputField,
+.textArea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background-color: inherit; /* Ensures the input adopts the parent background */
+  backdrop-filter: inherit; /* Ensures it takes the parent's blur effect */
+  color: #fff;
+  outline: none;
+  box-shadow: none; /* Removes any native input shadow */
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Optional: Hover & Focus Styles for Inputs */
+.inputField:hover,
+.textArea:hover,
+.inputField:focus,
+.textArea:focus {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Slightly visible on interaction */
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.textArea {
+  min-height: 120px;
+}
+
+.submitButton {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: #3700b3;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+}
+
+.submitButton:hover {
+  background: #a0153e;
+  transform: scale(1.01);
+}
+
+/* Social Icons */
+.socialIcons {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.iconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px; /* Adjusted for slightly rounded corners */
+  background: linear-gradient(to right, #3700b3, #a0153e);
+  padding: 1.5px;
+  color: white;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.iconButtonInner {
+  display: flex;
+  font-size: small;
+  padding: 10px 10px;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px; /* Slightly smaller than parent to maintain gradient effect */
+  background: #191919; /* Dark background color */
+  transition: background 0.3s ease;
+}
+
+.iconButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px #a0153e, 0 0 20px #a0153e;
 }
