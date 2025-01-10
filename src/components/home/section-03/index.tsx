@@ -1,47 +1,39 @@
-// Libraries
-import React from "react";
-import { IoInfinite } from "react-icons/io5";
-import { TbCloudCode } from "react-icons/tb";
-import { HiOutlineCode } from "react-icons/hi";
+// Librares
+import React, { useState } from "react";
 
 // Components
 import HeroText from "../../common/heroText";
-import WorkTypeCard from "../work-type-card";
+import Blogs from "./blogs";
+import Services from "./services/services";
+import Skills from "./skills/skills";
 
 // Styles
 import styles from "./index.module.css";
 
-// Work type category cards
-const workTypes = [
-  {
-    id: 1,
-    icon: <IoInfinite size="40" />,
-    title: "DevOps",
-    description:
-      "I derive great satisfaction from the process of learning and employing automation to create both software and infrastructure",
-  },
-  {
-    id: 2,
-    icon: <TbCloudCode size="40" />,
-    title: "Cloud Computing",
-    description:
-      "I've created numerous projects using cloud computing, primarily relying on AWS services",
-  },
-  {
-    id: 3,
-    icon: <HiOutlineCode size="40" />,
-    title: "Software Engineering",
-    description:
-      "I've a strong passion for software development, utilizing various technology stacks to create high-quality solutions",
-  },
-];
-
 const Section03 = () => {
+  const [currentSection, setCurrentSection] = useState("blogs");
+
+  const renderContent = () => {
+    switch (currentSection) {
+      case "blogs":
+        return <Blogs />;
+      case "services":
+        return <Services />;
+      case "skills":
+        return <Skills />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className={styles.section}>
-      <div className={styles.intro}>
+      {/* Hero Section */}
+      <div className={styles.hero}>
         <HeroText
-          heroText="What I’m Doing"
+          heroText="Portfolio Showcase"
+          highlightedName={["Portfolio", "Showcase"]}
+          subText="Explore my work, skills, and services crafted with cutting-edge technologies."
           stylesProps={{
             heroText: styles.heroText,
             heroWord: styles.heroWord,
@@ -49,12 +41,38 @@ const Section03 = () => {
             heroSubText: styles.heroSubText,
           }}
         />
-        <div className={styles.cardsDiv}>
-          {workTypes.map((item) => (
-            <WorkTypeCard key={item.id} item={item} />
-          ))}
-        </div>
       </div>
+
+      {/* Buttons Section */}
+      <div className={styles.buttonsGroup}>
+        <button
+          className={`${styles.glassyButton} ${
+            currentSection === "blogs" ? styles.active : ""
+          }`}
+          onClick={() => setCurrentSection("blogs")}
+        >
+          Blogs
+        </button>
+        <button
+          className={`${styles.glassyButton} ${
+            currentSection === "services" ? styles.active : ""
+          }`}
+          onClick={() => setCurrentSection("services")}
+        >
+          Services
+        </button>
+        <button
+          className={`${styles.glassyButton} ${
+            currentSection === "skills" ? styles.active : ""
+          }`}
+          onClick={() => setCurrentSection("skills")}
+        >
+          Skills
+        </button>
+      </div>
+
+      {/* Cards Section */}
+      <div className={styles.contentDiv}>{renderContent()}</div>
     </div>
   );
 };

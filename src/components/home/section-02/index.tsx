@@ -1,59 +1,63 @@
 // Libraries
 import React from "react";
 import { motion } from "framer-motion";
+import { FaCode, FaLaptop } from "react-icons/fa";
+import { MdArrowOutward } from "react-icons/md";
+import { MdOutlineVerifiedUser } from "react-icons/md";
+import { GrUserExpert } from "react-icons/gr";
 
 // Components
 import HeroText from "../../common/heroText";
 
 // Styles
 import styles from "./index.module.css";
+import Link from "next/link";
 
 // Data
 const summary = [
   {
     id: 1,
-    title: "10 Best Practices in DevOps",
-    description:
-      "Explore essential DevOps practices to streamline your workflow.",
-    link: "/blog/devops-best-practices",
-    icon: "/icons/devops.png",
+    title: "Total Projects",
+    count: 15,
+    description: "Innovation web solutions crafted",
+    link: "",
+    icon: <FaCode size="20" />,
   },
   {
     id: 2,
-    title: "Cloud Computing in 2025",
-    description: "Discover the latest trends in cloud computing.",
-    link: "/blog/cloud-computing-2025",
-    icon: "/icons/cloud.png",
+    title: "Services",
+    count: 4,
+    description: "Trusted service provider",
+    link: "",
+    icon: <MdOutlineVerifiedUser size="20" />,
   },
   {
     id: 3,
-    title: "Building Scalable Web Apps",
-    description: "A guide to creating high-performance web applications.",
-    link: "/blog/scalable-web-apps",
-    icon: "/icons/webapp.png",
+    title: "Years of experience",
+    count: 5,
+    description: "Continuous learning journey",
+    link: "",
+    icon: <GrUserExpert size="20" />,
   },
 ];
 
 const Section02 = () => {
   return (
     <div className={styles.section}>
-      <div className={styles.titleWrapper}>
-        <HeroText
-          heroText="About Me"
-          highlightedName={["About", "Me"]}
-          subText="Transform ideas into digital experiences"
-          stylesProps={{
-            heroText: styles.heroText,
-            heroWord: styles.heroWord,
-            nameHighlight: styles.nameHighlight,
-            heroSubText: styles.heroSubText,
-          }}
-        />
-      </div>
       <div className={styles.detailsWrapper}>
         <div className={styles.introWrapper}>
           <HeroText
-            heroText="Hello, I'm Dhanuka Rathnayake"
+            heroText="Hello, I'm"
+            highlightedName={[""]}
+            stylesProps={{
+              heroText: styles.heroText,
+              heroWord: styles.heroWord,
+              nameHighlight: styles.nameHighlight,
+              heroSubText: styles.heroSubText,
+            }}
+          />
+          <HeroText
+            heroText="Dhanuka Rathnayake"
             highlightedName={["Dhanuka", "Rathnayake"]}
             subText="A passionate DevOps Engineer driving innovation in software and infrastructure automation. With over five years of experience, I’m here to bring your projects to life with cutting-edge technology."
             stylesProps={{
@@ -70,8 +74,8 @@ const Section02 = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <button className={styles.button}>Projects</button>
-            <button className={styles.button}>Contact</button>
+            <button className={styles.button}>Download CV</button>
+            <button className={styles.button}>About Me</button>
           </motion.div>
         </div>
         <div className={styles.imageWrapper}>
@@ -86,17 +90,17 @@ const Section02 = () => {
         {summary.map((item) => (
           <div key={item.id} className={styles.cardWrapper}>
             <div className={styles.cardHeader}>
-              <img src={item.icon} alt="icon" className={styles.cardIcon} />
-              <span className={styles.cardNumber}>#{item.id}</span>
+              {item.icon}
+              <span className={styles.cardNumber}>{item.count}</span>
             </div>
             <div className={styles.cardBody}>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardDescription}>{item.description}</p>
-            </div>
-            <div className={styles.cardFooter}>
-              <a href={item.link} className={styles.cardLink}>
-                Read more
-              </a>
+              <div>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDescription}>{item.description}</p>
+              </div>
+              <Link href={item.link} className={styles.cardLink}>
+                <MdArrowOutward size={"20px"} />
+              </Link>
             </div>
           </div>
         ))}

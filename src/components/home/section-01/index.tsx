@@ -39,19 +39,19 @@ const Section01 = () => {
       <motion.div className={styles.intro}>
         {/* Ready to Innovate Button */}
         <motion.div
-          className={styles.readyButtonContainer}
+          className={styles.gradientTagContainer}
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <button type="button" className={styles.readyButton}>
-            <div className={styles.readyButtonInner}>Ready to Innovate</div>
-          </button>
+          <div className={styles.gradientTag}>
+            <div className={styles.gradientTagInner}>Ready to Innovate</div>
+          </div>
         </motion.div>
 
         {/* Hero text section */}
         <HeroText
-          heroText="Full Stack & DevOps Engineer"
+          heroText="Full Stack & DevOps Engineering"
           highlightedName={["Full", "Stack", "DevOps"]}
           subText="I specialize in building scalable web applications, mobile apps, and full-stack solutions tailored to your business needs."
           stylesProps={{
@@ -70,9 +70,9 @@ const Section01 = () => {
           transition={{ duration: 0.5, delay: 0.2 }}
         >
           {tags.map((tag, index) => (
-            <button key={index} type="button" className={styles.readyButton}>
-              <div className={styles.readyButtonInner}>{tag}</div>
-            </button>
+            <div key={index} className={styles.gradientTag}>
+              <div className={styles.gradientTagInner}>{tag}</div>
+            </div>
           ))}
         </motion.div>
 
@@ -83,8 +83,8 @@ const Section01 = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <button className={styles.button}>About Me</button>
-          <button className={styles.button}>Download CV</button>
+          <button className={styles.button}>Services</button>
+          <button className={styles.button}>Projects</button>
         </motion.div>
 
         {/* Social Media Icons */}

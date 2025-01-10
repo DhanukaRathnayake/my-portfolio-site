@@ -1,9 +1,7 @@
 .mainDiv {
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 50px 0 50px;
+  width: 100%;
+  padding: 0 150px 0 150px;
 }
 
 .topDiv {
@@ -16,10 +14,6 @@
 
 .middleDiv {
   width: 100%;
-  display: flex;
-  flex-direction: row;
-  max-width: 1200px;
-  gap: 20px;
 }
 
 .footer {

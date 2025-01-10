@@ -55,7 +55,7 @@ const Home: FunctionComponent = () => {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className={styles.sectionCards}
       >
-        <Section04 />
+        {/* <Section04 /> */}
       </motion.section>
     </div>
   );
