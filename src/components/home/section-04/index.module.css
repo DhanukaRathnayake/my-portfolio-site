@@ -1,0 +1,50 @@
+.section {
+  min-height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.intro {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Hero Text */
+.heroText {
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 60px;
+  color: #ffffff;
+  display: inline-block;
+  margin-bottom: 20px;
+}
+
+.heroWord {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.nameHighlight {
+  color: #3700b3;
+  text-shadow: 0 0 3px #3700b3, 0 0 5px #3700b3, 0 0 8px #3700b3;
+}
+
+.heroSubText {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.animatedImage {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(55, 0, 179, 0.8);
+  transition: transform 0.3s ease-in-out;
+}
+
+.animatedImage:hover {
+  transform: rotate(15deg);
+}

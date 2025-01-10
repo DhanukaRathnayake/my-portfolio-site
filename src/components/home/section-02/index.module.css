@@ -1,0 +1,148 @@
+/* General Styles */
+.section {
+  min-height: 90vh;
+}
+
+.titleWrapper {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.detailsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.introWrapper {
+  max-width: 600px;
+}
+
+.profileImage {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.profileImage:hover {
+  transform: scale(1.1);
+}
+
+/* Hero Text */
+.heroText {
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 60px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+.heroWord {
+  margin-right: 0.5rem;
+}
+
+.nameHighlight {
+  color: #3700b3;
+  text-shadow: 0 0 10px #3700b3;
+}
+
+.heroSubText {
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* Button Row */
+.buttonRow {
+  display: flex;
+  gap: 30px;
+}
+
+.button {
+  background-color: #3700b3;
+  color: white;
+  width: 150px;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.button:hover {
+  background-color: #a0153e;
+  transform: scale(1.1);
+}
+
+/* Cards */
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.cardWrapper {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cardWrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.cardNumber {
+  font-size: 18px;
+  color: #3700b3;
+}
+
+.cardBody {
+  margin-bottom: 15px;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.cardDescription {
+  font-size: 14px;
+  color: #dcdcdc;
+}
+
+.cardFooter {
+  text-align: right;
+}
+
+.cardLink {
+  font-size: 16px;
+  font-weight: bold;
+  color: #3700b3;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.cardLink:hover {
+  color: #a0153e;
+}
