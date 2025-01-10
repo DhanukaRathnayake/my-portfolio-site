@@ -82,6 +82,7 @@
 
 .textArea {
   min-height: 120px;
+  max-height: 250px;
 }
 
 .submitButton {
