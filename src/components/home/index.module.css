@@ -1,11 +1,14 @@
-/* General Styles */
-.container {
+.homeContainer {
   display: flex;
   flex-direction: column;
-  gap: 80px;
-  padding: 20px;
+  gap: var(--spacing-xxl); /* Using global spacing variable */
+  padding: var(--spacing-md); /* Using global spacing variable */
 }
 
 .section {
-  color: white;
+  color: var(--color-text); /* Using global text color */
+}
+
+.sectionCards {
+  color: var(--color-text); /* Using global text color */
 }

@@ -1,0 +1,35 @@
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(100px, 1fr)
+  ); /* Responsive grid */
+  gap: var(--spacing-md); /* Using global spacing variable */
+  width: 100%;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-lg); /* Using global border radius */
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  color: var(--color-text); /* Using global text color */
+  transition: transform var(--transition-medium),
+    background var(--transition-medium);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.icon {
+  width: 50px; /* Icon size adjustment */
+  height: 50px;
+  text-align: center;
+}

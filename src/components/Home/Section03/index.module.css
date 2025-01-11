@@ -1,0 +1,72 @@
+.section {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--spacing-xl); /* Using global spacing variable */
+  color: var(--color-text); /* Using global text color */
+}
+
+.hero {
+  text-align: center;
+}
+
+.heroText {
+  font-size: var(--font-size-xxl); /* Using global font size */
+  font-weight: bold;
+  line-height: 60px;
+  color: var(--color-text); /* Using global text color */
+  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
+}
+
+.heroWord {
+  margin-right: var(--spacing-xs); /* Using global spacing variable */
+}
+
+.nameHighlight {
+  color: var(--color-primary); /* Using global primary color */
+  text-shadow: 0 0 10px var(--color-primary); /* Using global primary color */
+}
+
+.heroSubText {
+  font-size: var(--font-size-lg); /* Using global font size */
+  color: var(--color-text); /* Using global text color */
+}
+
+.buttonsGroup {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-xl) 0; /* Using global spacing variable */
+  gap: var(--spacing-md); /* Using global spacing variable */
+}
+
+.glassyButton {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: var(--border-radius-md); /* Using global border radius */
+  padding: var(--spacing-md) var(--spacing-lg); /* Using global spacing variables */
+  color: var(--color-text); /* Using global text color */
+  font-size: var(--font-size-md); /* Using global font size */
+  font-weight: bold;
+  cursor: pointer;
+  transition: background var(--transition-medium),
+    transform var(--transition-medium);
+  width: 200px;
+  text-align: center;
+}
+
+.glassyButton:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.active {
+  background: rgba(55, 0, 179, 0.8);
+  color: var(--color-text); /* Using global text color */
+}
+
+.contentDiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

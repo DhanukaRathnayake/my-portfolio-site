@@ -1,7 +1,7 @@
 // Libraries
 import React, { FunctionComponent } from "react";
 import Divider from "@mui/material/Divider";
-import ContentCard from "./content-cards";
+import ContentCard from "./ContentCards";
 
 // Styles
 import styles from "./index.module.css";

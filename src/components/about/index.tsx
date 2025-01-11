@@ -1,8 +1,8 @@
 // Libraries
 import React, { FunctionComponent } from "react";
 import Divider from "@mui/material/Divider";
-import ContentFlow from "./content-flow";
-import Skills from "./skills";
+import ContentFlow from "./ContentFlow";
+import Skills from "./Skills";
 
 // Styles
 import styles from "./index.module.css";

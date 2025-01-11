@@ -7,7 +7,7 @@ import { wrapper } from "../redux/store";
 import "../styles/globals.css";
 
 // Layout component
-import Layout from "../components/layout";
+import Layout from "../components/Layout";
 
 export const MyApp = ({ Component, ...rest }: AppProps) => {
   const { store, props } = wrapper.useWrappedStore(rest);

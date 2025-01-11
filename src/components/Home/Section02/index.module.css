@@ -1,0 +1,138 @@
+.section {
+  min-height: 80vh;
+}
+
+.detailsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xxl); /* Using global spacing variable */
+}
+
+.introWrapper {
+  max-width: 680px;
+}
+
+.profileImage {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-medium);
+}
+
+.profileImage:hover {
+  transform: scale(1.1);
+}
+
+/* Hero Text */
+.heroText {
+  font-size: var(--font-size-xxl); /* Using global font size */
+  font-weight: bold;
+  line-height: 60px;
+  color: var(--color-text); /* Using global text color */
+  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
+}
+
+.heroWord {
+  margin-right: var(--spacing-xs); /* Using global spacing variable */
+}
+
+.nameHighlight {
+  color: var(--color-primary); /* Using global primary color */
+  text-shadow: 0 0 10px var(--color-primary); /* Using global primary color */
+}
+
+.heroSubText {
+  font-size: var(--font-size-lg); /* Using global font size */
+  color: var(--color-text); /* Using global text color */
+  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
+}
+
+/* Button Row */
+.buttonRow {
+  display: flex;
+  gap: var(--spacing-xl); /* Using global spacing variable */
+}
+
+.button {
+  background-color: var(--color-primary); /* Using global primary color */
+  color: var(--color-text); /* Using global text color */
+  padding: var(--spacing-sm) var(--spacing-md); /* Using global spacing variables */
+  font-size: var(--font-size-md); /* Using global font size */
+  font-weight: bold;
+  border-radius: var(--border-radius-sm); /* Using global border radius */
+  cursor: pointer;
+  transition: background-color var(--transition-medium),
+    transform var(--transition-fast);
+}
+
+.button:hover {
+  background-color: var(--color-secondary); /* Using global secondary color */
+  transform: scale(1.1);
+}
+
+/* Cards */
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-md); /* Using global spacing variable */
+}
+
+.cardWrapper {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  padding: var(--spacing-md); /* Using global spacing variable */
+  border-radius: var(--border-radius-lg); /* Using global border radius */
+  box-shadow: var(--shadow-md); /* Using global shadow variable */
+  transition: transform var(--transition-medium),
+    box-shadow var(--transition-medium);
+}
+
+.cardWrapper:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg); /* Using global shadow variable */
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm); /* Using global spacing variable */
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.cardNumber {
+  font-size: var(--font-size-lg); /* Using global font size */
+  font-weight: bold;
+}
+
+.cardBody {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  color: var(--color-text); /* Using global text color */
+  margin-bottom: var(--spacing-xs); /* Using global spacing variable */
+}
+
+.cardDescription {
+  font-size: var(--font-size-sm); /* Using global font size */
+  color: var(--color-text-secondary); /* Using global text color */
+}
+
+.cardFooter {
+  text-align: right;
+}
+
+.cardLink {
+  color: var(--color-primary); /* Using global primary color */
+  font-weight: bold;
+  align-self: flex-end;
+}

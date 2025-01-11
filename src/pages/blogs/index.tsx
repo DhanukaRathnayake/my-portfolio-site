@@ -5,8 +5,8 @@ import dynamic from "next/dynamic";
 import Divider from "@mui/material/Divider";
 
 // Components
-import PageLoader from "@/components/common/loaders/pageLoader";
-const Blogs = dynamic(() => import("../../components/blogs"), {
+import PageLoader from "@/components/Common/Loaders/PageLoader";
+const Blogs = dynamic(() => import("../../components/Blogs"), {
   ssr: true,
   loading: () => <PageLoader />,
 });

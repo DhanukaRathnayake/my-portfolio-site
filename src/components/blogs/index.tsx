@@ -1,6 +1,6 @@
 // Libraries
 import React, { FunctionComponent, useState } from "react";
-import BlogCard from "./blog-card";
+import BlogCard from "./BlogCard";
 
 // Styles
 import styles from "./index.module.css";

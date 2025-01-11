@@ -6,7 +6,7 @@ import { generateHTML } from "@tiptap/html";
 import DOMPurify from "dompurify";
 
 // Components
-import extensions from "@/components/common/editor-extension";
+import extensions from "@/components/Common/EditorExtension";
 
 // Redux
 import { wrapper } from "@/redux/store";

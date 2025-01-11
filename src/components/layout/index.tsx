@@ -4,26 +4,24 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Styles
 import styles from "./index.module.css";
-import BlobBackground from "./background";
-import ProgressBar from "../common/loaders/ProgressBar";
-import PageLoader from "../common/loaders/pageLoader";
+import BlobBackground from "./BlobBackground";
+import ProgressBar from "../Common/Loaders/ProgressBar";
+import PageLoader from "../Common/Loaders/PageLoader";
 
-// Components
-const TopNavBar = dynamic(() => import("./top-navigation-bar"));
-const WelcomePage = dynamic(() => import("../welcome"));
+// Dynamically imported components
+const TopNavBar = dynamic(() => import("./TopNavBar"));
+const WelcomePage = dynamic(() => import("../Welcome"));
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [showWelcomePage, setShowWelcomePage] = useState<boolean>(true); // null means checking
-  const [loading, setLoading] = useState(true); // To manage loading state
+  const [showWelcomePage, setShowWelcomePage] = useState<boolean>(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    // Check if there's a previous visit timestamp in localStorage
     const lastVisit = localStorage.getItem("lastVisit");
-
     const now = Date.now();
     const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
@@ -35,16 +33,16 @@ const Layout = ({ children }: LayoutProps) => {
       } else {
         setShowWelcomePage(false);
       }
-      setLoading(false);
+      setIsLoading(false);
     }, 100);
   }, []);
 
-  if (loading) {
+  if (isLoading) {
     return <PageLoader />;
   }
 
   return (
-    <div className={styles.mainDiv}>
+    <div className={styles.layoutContainer}>
       <AnimatePresence>
         {showWelcomePage ? (
           <motion.div
@@ -53,7 +51,7 @@ const Layout = ({ children }: LayoutProps) => {
             animate={{ opacity: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1, delay: 6 }}
-            onAnimationComplete={() => setShowWelcomePage(false)} // Once animation is complete, hide the welcome page
+            onAnimationComplete={() => setShowWelcomePage(false)}
           >
             <WelcomePage />
           </motion.div>
@@ -67,14 +65,14 @@ const Layout = ({ children }: LayoutProps) => {
           >
             <BlobBackground />
 
-            {/* Top Nav Bar */}
-            <div className={styles.topDiv}>
+            {/* Top Navigation and Progress Bar */}
+            <div className={styles.topSection}>
               <TopNavBar />
               <ProgressBar />
             </div>
 
-            {/* Main Div */}
-            <div className={styles.middleDiv}>
+            {/* Main Content */}
+            <div className={styles.mainContent}>
               <main>{children}</main>
             </div>
 

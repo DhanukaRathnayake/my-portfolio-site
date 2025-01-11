@@ -1,10 +1,8 @@
 import React from "react";
-import { motion } from "framer-motion"; // Import Framer Motion
-
+import { motion } from "framer-motion";
+import LiquidBackground from "./LiqudBackground";
+import HeroText from "../Common/HeroText";
 import styles from "./index.module.css";
-
-import LiquidBackground from "./background";
-import HeroText from "../common/heroText";
 
 const WelcomePage: React.FC = () => {
   return (
@@ -14,7 +12,7 @@ const WelcomePage: React.FC = () => {
         <LiquidBackground />
 
         {/* Hero text animation */}
-        <div className={styles.middleDiv}>
+        <div className={styles.contentContainer}>
           <HeroText
             heroText="Welcome to my Portfolio"
             highlightedName={["Portfolio"]}

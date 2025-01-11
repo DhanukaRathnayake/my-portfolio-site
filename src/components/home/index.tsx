@@ -1,19 +1,18 @@
-// Libraries
-import React, { FunctionComponent } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 
 // Components
-import Section01 from "./section-01";
-import Section02 from "./section-02";
-import Section03 from "./section-03";
-import Section04 from "./section-04";
+import Section01 from "./Section01";
+import Section02 from "./Section02";
+import Section03 from "./Section03";
+import Section04 from "./Section04";
 
 // Styles
-import styles from "./index.module.css";
+import styles from "./index.module.css"; // Renamed for clarity
 
-const Home: FunctionComponent = () => {
+const Home: React.FC = () => {
   return (
-    <div className={styles.container}>
+    <div className={styles.homeContainer}>
       {/* Section 1: Introduction */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
@@ -47,7 +46,7 @@ const Home: FunctionComponent = () => {
         <Section03 />
       </motion.section>
 
-      {/* Section 4: Show cast summery */}
+      {/* Section 4: Showcase Summary */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
