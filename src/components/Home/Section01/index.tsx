@@ -7,6 +7,7 @@ import { TbBrandFiverr } from "react-icons/tb";
 
 // Components
 import HeroText from "../../Common/HeroText";
+import LottieAnimation from "./LottieAnimation";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
@@ -104,13 +105,7 @@ const Section01 = () => {
       </motion.div>
 
       {/* Animated Image */}
-      <div className={styles.animation}>
-        <img
-          src="/dp.jpeg"
-          alt="Dhanuka Rathnayake"
-          className={styles.animatedImage}
-        />
-      </div>
+      <LottieAnimation />
     </div>
   );
 };

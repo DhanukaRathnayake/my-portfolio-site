@@ -1,16 +1,27 @@
-.educationRowDiv {
-  display: flex;
-  align-content: space-around;
-  width: 100%;
+.aboutContainer {
+  padding: var(--spacing-xxl); /* Using global spacing variable */
+  max-width: 1200px; /* Limit container width for better readability */
+  margin: 0 auto; /* Center the container */
 }
 
-.contestFlow {
-  flex: 1;
+.flowContainer {
+  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  border-radius: var(--border-radius-lg); /* Using global border radius */
+  padding: var(--spacing-xl); /* Using global spacing variable */
+  transition: transform var(--transition-medium),
+    box-shadow var(--transition-medium);
 }
 
-@media (max-width: 600px) {
-  .educationRowDiv {
-    display: flex;
-    flex-direction: column;
+.flowContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md); /* Using global shadow variable */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .flowContainer {
+    width: 100%;
+    margin-bottom: var(--spacing-lg); /* Using global spacing variable */
   }
 }

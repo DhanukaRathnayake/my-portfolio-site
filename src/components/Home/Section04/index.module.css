@@ -28,8 +28,8 @@
 
 .nameHighlight {
   color: var(--color-primary); /* Using global primary color */
-  text-shadow: 0 0 3px var(--color-primary), 0 0 5px var(--color-primary),
-    0 0 8px var(--color-primary); /* Using global primary color */
+  text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
+    0 0 1px var(--color-primary); /* Using global primary color */
 }
 
 .heroSubText {

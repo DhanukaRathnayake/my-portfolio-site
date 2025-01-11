@@ -58,8 +58,8 @@
 
 .nameHighlight {
   color: var(--color-primary); /* Using global primary color */
-  text-shadow: 0 0 3px var(--color-primary), 0 0 5px var(--color-primary),
-    0 0 8px var(--color-primary); /* Using global primary color */
+  text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
+    0 0 1px var(--color-primary); /* Using global primary color */
 }
 
 .heroSubText {
@@ -157,7 +157,8 @@
 
 .animatedImage {
   width: 100%;
-  height: auto;
+  height: 200px;
+  background-color: aquamarine;
   border-radius: 50%;
   box-shadow: 0 0 15px rgba(55, 0, 179, 0.8);
   transition: transform var(--transition-medium);

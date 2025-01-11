@@ -6,8 +6,8 @@
 
 :root {
   /* Colors */
-  --color-primary: #3700b3;
-  --color-secondary: #a0153e;
+  --color-primary: #800080;
+  --color-secondary: #b136dd;
   --color-background: #000;
   --color-text: #ffffff;
   --color-text-secondary: #dcdcdc;
@@ -15,12 +15,12 @@
   --color-navbar-text: #fff;
   --color-card-bg: rgba(255, 255, 255, 0.1);
   --color-card-shadow: rgba(0, 0, 0, 0.3);
-  --color-gradient-start: #3700b3;
-  --color-gradient-end: #a0153e;
-  --color-blob-1: #a0153e;
-  --color-blob-2: #3a0088;
-  --color-blob-3: #a0153e;
-  --color-blob-4: #3a0088;
+  --color-gradient-start: #660099;
+  --color-gradient-end: #b136dd;
+  --color-blob-1: #660099;
+  --color-blob-2: #3bafbb;
+  --color-blob-3: #b136dd;
+  --color-blob-4: #4a90e2;
 
   /* Blur Effect */
   --blur-lg: blur(150px);

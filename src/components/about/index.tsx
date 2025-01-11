@@ -1,11 +1,9 @@
-// Libraries
-import React, { FunctionComponent } from "react";
-import Divider from "@mui/material/Divider";
+import React from "react";
 import ContentFlow from "./ContentFlow";
 import Skills from "./Skills";
 
 // Styles
-import styles from "./index.module.css";
+import styles from "./index.module.css"; // Renamed for clarity
 
 // Data
 import experience from "../../data/experience.json";
@@ -14,36 +12,29 @@ import certification from "../../data/certification.json";
 import skills from "../../data/skills.json";
 import codeSkills from "../../data/code-skills.json";
 
-const About: FunctionComponent = ({}) => {
+const About: React.FC = () => {
   return (
-    <div>
-      <text style={{ fontSize: "30px", fontWeight: "600" }}>About</text>
-      <Divider
-        flexItem
-        style={{
-          backgroundColor: "#0071ff",
-          height: "6px",
-          width: "100px",
-          borderRadius: "10px",
-        }}
-      />
-      <br />
-      <ContentFlow title="Experience" data={experience.items} />
-      <br />
-      <br />
-      <div className={styles.educationRowDiv}>
-        <div className={styles.contestFlow}>
-          <ContentFlow title="Education" data={education.items} />
-        </div>
-        {/* <div className={styles.contestFlow}>
-          <ContentFlow title="Certifications" data={certification.items} />
-        </div> */}
+    <div className={styles.aboutContainer}>
+      {/* Experience Section */}
+      <div className={styles.flowContainer}>
+        <ContentFlow title="Experience" data={experience.items} />
       </div>
       <br />
       <br />
+
+      {/* Education Section */}
+      <div className={styles.flowContainer}>
+        <ContentFlow title="Education" data={education.items} />
+      </div>
+      <br />
+      <br />
+
+      {/* Skills Section */}
       <Skills title="Skills" data={skills.items} />
       <br />
       <br />
+
+      {/* Code Skills Section */}
       <Skills title="Code Skills" data={codeSkills.items} />
     </div>
   );
