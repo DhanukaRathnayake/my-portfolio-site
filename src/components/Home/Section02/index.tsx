@@ -8,9 +8,11 @@ import Link from "next/link";
 
 // Components
 import HeroText from "../../Common/HeroText";
+import { CardBody, CardContainer, CardItem } from "../../Common/3DCard";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
+import Image from "next/image";
 
 // Data
 const summary = [
@@ -78,11 +80,17 @@ const Section02 = () => {
           </motion.div>
         </div>
         <div className={styles.imageWrapper}>
-          <img
-            src="/dp.jpeg"
-            alt="Dhanuka Rathnayake"
-            className={styles.profileImage}
-          />
+          <CardContainer>
+            <CardItem translateZ="40" rotateX={-6}>
+              <Image
+                src="/dp.jpeg"
+                height={10}
+                width={10}
+                alt="Dhanuka Rathnayake"
+                className={styles.profileImage}
+              />
+            </CardItem>
+          </CardContainer>
         </div>
       </div>
       <div className={styles.cardContainer}>

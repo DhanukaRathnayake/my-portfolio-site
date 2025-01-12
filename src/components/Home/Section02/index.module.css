@@ -21,10 +21,6 @@
   transition: transform var(--transition-medium);
 }
 
-.profileImage:hover {
-  transform: scale(1.1);
-}
-
 /* Hero Text */
 .heroText {
   font-size: var(--font-size-xxl); /* Using global font size */
