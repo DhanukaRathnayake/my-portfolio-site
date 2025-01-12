@@ -12,7 +12,11 @@
 
 .progressBar {
   height: 100%;
-  background-color: #3700b3;
-  background-image: linear-gradient(90deg, #3700b3, #a0153e);
+  background-color: var(--color-primary);
+  background-image: linear-gradient(
+    90deg,
+    var(--color-primary),
+    var(--color-secondary)
+  );
   transition: width 0.3s ease-out;
 }

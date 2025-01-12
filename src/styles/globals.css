@@ -70,7 +70,7 @@
   --border-radius-full: 9999px;
 
   /* Shadows */
-  --shadow-sm: 0px 4px 9px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0px 4px 9px rgba(68, 35, 35, 0.1);
   --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3);
   --shadow-lg: 0 8px 20px rgba(0, 0, 0, 0.5);
 
