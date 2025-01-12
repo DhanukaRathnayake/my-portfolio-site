@@ -105,7 +105,7 @@ const Section01 = () => {
       </motion.div>
 
       {/* Animated Image */}
-      <div className={styles.animation}>
+      <div className={styles.lottieSVG}>
         <LottieAnimation />
       </div>
     </div>

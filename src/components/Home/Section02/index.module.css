@@ -6,11 +6,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-xxl); /* Using global spacing variable */
+  margin-bottom: var(--spacing-l); /* Using global spacing variable */
 }
 
 .introWrapper {
   max-width: 680px;
+}
+
+.imageWrapper {
+  /* width: 100%; */
 }
 
 .profileImage {

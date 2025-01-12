@@ -147,22 +147,10 @@
 }
 
 /* Image Animation */
-.animation {
+.lottieSVG {
   flex: 1;
   max-width: 600px;
   display: flex;
-  justify-content: center;
+  justify-items: right;
   align-items: center;
-}
-
-.animatedImage {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  box-shadow: 0 0 15px rgba(55, 0, 179, 0.8);
-  transition: transform var(--transition-medium);
-}
-
-.animatedImage:hover {
-  transform: rotate(15deg);
 }
