@@ -15,7 +15,15 @@ interface TimelineEntry {
   content: React.ReactNode;
 }
 
-export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
+export const Timeline = ({
+  data,
+  category,
+  description,
+}: {
+  data: TimelineEntry[];
+  category: string;
+  description: string;
+}) => {
   const ref = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [height, setHeight] = useState(0);
@@ -38,11 +46,8 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
   return (
     <div className={styles.timelineContainer} ref={containerRef}>
       <div className={styles.timelineHeader}>
-        <h2 className={styles.timelineTitle}>Changelog from my journey</h2>
-        <p className={styles.timelineSubtitle}>
-          I&apos;ve been working on Aceternity for the past 2 years. Here&apos;s
-          a timeline of my journey.
-        </p>
+        <h2 className={styles.timelineTitle}>{category}</h2>
+        <p className={styles.timelineSubtitle}>{description}</p>
       </div>
 
       <div ref={ref} className={styles.timelineContent}>

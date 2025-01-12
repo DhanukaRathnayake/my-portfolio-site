@@ -18,10 +18,41 @@
   box-shadow: var(--shadow-md); /* Using global shadow variable */
 }
 
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .flowContainer {
-    width: 100%;
-    margin-bottom: var(--spacing-lg); /* Using global spacing variable */
-  }
+/* Gradient Tag Container */
+.gradientTagContainer {
+  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap; /* Allow tags to wrap to the next line */
+  align-items: center;
+  justify-content: flex-start; /* Align tags to the start */
+  gap: 8px; /* Consistent spacing between tags */
+}
+
+/* Gradient Tag */
+.gradientTag {
+  display: inline-flex; /* Ensure tags don't stretch */
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-full); /* Using global border radius */
+  background: var(--gradient-primary); /* Using global gradient */
+  padding: 1.5px;
+  color: var(--color-text); /* Using global text color */
+  transition: background var(--transition-medium),
+    box-shadow var(--transition-medium);
+}
+
+/* Gradient Tag Inner */
+.gradientTagInner {
+  display: flex;
+  font-size: 0.875rem; /* Small font size (14px) */
+  padding: var(--spacing-xs) var(--spacing-md); /* Using global spacing variables */
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-full); /* Using global border radius */
+  background: var(--color-background); /* Using global background color */
+  transition: background var(--transition-medium);
+  white-space: nowrap; /* Prevent text from wrapping */
 }
