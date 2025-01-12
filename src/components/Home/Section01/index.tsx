@@ -105,7 +105,9 @@ const Section01 = () => {
       </motion.div>
 
       {/* Animated Image */}
-      <LottieAnimation />
+      <div className={styles.animation}>
+        <LottieAnimation />
+      </div>
     </div>
   );
 };

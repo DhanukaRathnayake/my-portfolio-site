@@ -57,12 +57,12 @@
 }
 
 .glassyButton:hover {
-  background: rgba(255, 255, 255, 0.4);
+  background: var(--color-secondary);
   transform: scale(1.05);
 }
 
 .active {
-  background: rgba(55, 0, 179, 0.8);
+  background: var(--color-primary);
   color: var(--color-text); /* Using global text color */
 }
 
