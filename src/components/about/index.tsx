@@ -1,5 +1,4 @@
 import React from "react";
-import Skills from "./Skills";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
@@ -8,8 +7,6 @@ import styles from "./index.module.css"; // Renamed for clarity
 import experience from "../../data/experience.json";
 import education from "../../data/education.json";
 import certification from "../../data/certification.json";
-import skills from "../../data/skills.json";
-import codeSkills from "../../data/code-skills.json";
 import { Timeline } from "../Common/Timeline";
 
 type TimelineDataType = {
@@ -49,7 +46,7 @@ const About: React.FC = () => {
   return (
     <div className={styles.aboutContainer}>
       {/* Experience Section */}
-      <div className={styles.flowContainer}>
+      <div className={`${styles.flowContainer} primary-card`}>
         <Timeline
           data={formattedData(experience.items)}
           category={experience.category}

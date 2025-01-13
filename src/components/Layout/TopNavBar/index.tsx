@@ -62,7 +62,7 @@ const TopNavBar: React.FC = () => {
       </nav>
 
       {/* Contact Button */}
-      <button className={styles.contactButton}>Contact</button>
+      <button className={`primary-button`}>Contact</button>
 
       {/* Mobile Hamburger Menu */}
       <div className={styles.hamburgerMenu}>

@@ -83,8 +83,12 @@ const Section01 = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <button className={styles.button}>Services</button>
-          <button className={styles.button}>Projects</button>
+          <button className={`${styles.button} primary-button`}>
+            Services
+          </button>
+          <button className={`${styles.button} primary-button`}>
+            Projects
+          </button>
         </motion.div>
 
         {/* Social Media Icons */}

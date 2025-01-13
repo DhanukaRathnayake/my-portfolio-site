@@ -31,7 +31,7 @@ const Blogs = () => {
   return (
     <div className={styles.cardsContainer}>
       {blogs.map((blog) => (
-        <div key={blog.id} className={styles.card}>
+        <div key={blog.id} className={`${styles.card} primary-card`}>
           <div className={styles.icon}>{blog.icon}</div>
           <h3 className={styles.cardTitle}>{blog.title}</h3>
           <p className={styles.cardDescription}>{blog.description}</p>

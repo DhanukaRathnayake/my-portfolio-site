@@ -37,7 +37,7 @@ const Services: FunctionComponent = () => {
       {/* Service Packages Grid */}
       <div className={styles.servicePackagesGrid}>
         {servicesData.items.map((service: Service, index: number) => (
-          <div key={index} className={styles.serviceCard}>
+          <div key={index} className={`${styles.serviceCard} primary-card`}>
             <div className={styles.serviceCardContent}>
               <h3 className={styles.serviceTitle}>{service.title}</h3>
               <p className={styles.serviceDescription}>{service.description}</p>

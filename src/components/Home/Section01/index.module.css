@@ -92,22 +92,7 @@
 }
 
 .button {
-  background-color: var(--color-primary); /* Using global primary color */
-  color: var(--color-text); /* Using global text color */
-  border: none;
   width: 150px;
-  padding: var(--spacing-sm) var(--spacing-md); /* Using global spacing variables */
-  font-size: var(--font-size-md); /* Using global font size */
-  font-weight: bold;
-  border-radius: var(--border-radius-sm); /* Using global border radius */
-  cursor: pointer;
-  transition: background-color var(--transition-medium),
-    transform var(--transition-fast);
-}
-
-.button:hover {
-  background-color: var(--color-secondary); /* Using global secondary color */
-  transform: scale(1.05);
 }
 
 /* Social Icons */

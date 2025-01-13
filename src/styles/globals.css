@@ -101,7 +101,22 @@
     var(--color-gradient-end)
   );
   --gradient-button: linear-gradient(
-    to right,
+    45deg,
+    var(--color-gradient-start),
+    var(--color-gradient-end)
+  );
+
+  /* Glassy Card Styles */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-blur: blur(10px);
+  --hover-bg: rgba(255, 255, 255, 0.2);
+
+  /* Button Styles */
+  --button-bg: var(--gradient-button);
+  --button-hover-bg: linear-gradient(
+    45deg,
     var(--color-gradient-start),
     var(--color-gradient-end)
   );
@@ -158,4 +173,46 @@ body {
     102,
     0.8
   ); /* Even lighter gray when active */
+}
+
+/* Glassy Card Base Style */
+.primary-card {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-medium),
+    box-shadow var(--transition-medium);
+  overflow: hidden;
+}
+
+.primary-card:hover {
+  transform: scale(1.01);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Button Base Style */
+.primary-button {
+  background: var(--button-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  color: var(--color-text);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.primary-button:hover {
+  background: var(--button-hover-bg);
+  transform: scale(1.02);
+}
+
+.primary-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }

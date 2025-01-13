@@ -50,7 +50,7 @@ const Section04 = () => {
       </div>
 
       <div className={styles.intro}>
-        <form className={styles.contactForm}>
+        <form className={`${styles.contactForm} primary-card`}>
           <h2 className={styles.formTitle}>Get In Touch</h2>
           <input
             type="name"
@@ -66,7 +66,10 @@ const Section04 = () => {
             placeholder="Your Message"
             className={styles.textArea}
           ></textarea>
-          <button type="submit" className={styles.submitButton}>
+          <button
+            type="submit"
+            className={`${styles.submitButton} primary-button`}
+          >
             Send Message
           </button>
 

@@ -4,18 +4,19 @@
   margin: 0 auto; /* Center the container */
 }
 
-.flowContainer {
-  background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
-  border-radius: var(--border-radius-lg); /* Using global border radius */
-  padding: var(--spacing-xl); /* Using global spacing variable */
-  transition: transform var(--transition-medium),
-    box-shadow var(--transition-medium);
-}
-
 .flowContainer:hover {
   transform: translateY(-5px);
   box-shadow: var(--shadow-md); /* Using global shadow variable */
+}
+
+.flowContainer {
+  padding: var(--spacing-xl); /* Using global spacing variable */
+
+  overflow: inherit;
+}
+
+.flowContainer:hover {
+  transform: none;
 }
 
 /* Gradient Tag Container */

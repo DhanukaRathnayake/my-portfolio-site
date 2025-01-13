@@ -75,24 +75,6 @@
   transform: scaleX(1);
 }
 
-/* Contact Button */
-.contactButton {
-  padding: var(--spacing-sm) var(--spacing-md);
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  border: none;
-  border-radius: var(--border-radius-sm);
-  cursor: pointer;
-  transition: background-color var(--transition-medium),
-    box-shadow var(--transition-medium);
-}
-
-.contactButton:hover {
-  background-color: var(--color-primary);
-  box-shadow: 0 0 5px var(--color-primary), 0 0 5px var(--color-primary),
-    0 0 5px var(--color-primary);
-}
-
 /* Hamburger Menu */
 .hamburgerMenu {
   display: none;

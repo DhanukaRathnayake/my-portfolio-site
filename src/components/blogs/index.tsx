@@ -1,6 +1,5 @@
 // Libraries
 import React, { FunctionComponent, useState } from "react";
-import BlogCard from "./BlogCard";
 
 // Styles
 import styles from "./index.module.css";
@@ -17,7 +16,7 @@ interface Props {
 const Blog: FunctionComponent<Props> = ({
   categories,
   blogs,
-  blogsPerPage = 3,
+  blogsPerPage = 12,
 }) => {
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -48,10 +47,13 @@ const Blog: FunctionComponent<Props> = ({
   };
 
   return (
-    <div>
-      <div className="flex gap-4 mb-4">
+    <div className={styles.blogContainer}>
+      <div className={styles.categoryContainer}>
         {categories.map((item: TypeBlogCategory, index: number) => (
-          <button className={styles.btnCategory} key={index}>
+          <button
+            className={`${styles.btnCategory} primary-button`}
+            key={index}
+          >
             {item.name}
           </button>
         ))}
@@ -60,27 +62,44 @@ const Blog: FunctionComponent<Props> = ({
         {currentBlogs &&
           currentBlogs.length > 0 &&
           currentBlogs.map((item: TypeBlog, index: number) => (
-            <BlogCard key={index} item={item} />
+            <div className={`primary-card`}>
+              <img
+                src={item.coverImageUrl}
+                alt={item.title}
+                className={styles.cardImage}
+              />
+              <div className={styles.cardContent}>
+                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <p className={styles.cardDescription}>
+                  {item.excerpt.length > 95
+                    ? `${item.excerpt.substring(0, 95)}...`
+                    : item.excerpt}
+                </p>
+                <button className={`${styles.readMoreButton} primary-button`}>
+                  Read More
+                </button>
+              </div>
+            </div>
           ))}
       </div>
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
-        <div className="flex justify-between items-center mt-6">
+        <div className={styles.paginationContainer}>
           <button
             onClick={prevPage}
             disabled={currentPage === 1}
-            className="btn-primary px-4 py-2 rounded-md shadow-md focus:outline-none disabled:opacity-50"
+            className={`${styles.paginationButton} primary-button`}
           >
             Previous
           </button>
-          <div className="flex space-x-2">
+          <div className={styles.pageNumbers}>
             {Array.from({ length: totalPages }, (_, index) => (
               <button
                 key={index}
                 onClick={() => handlePageChange(index + 1)}
-                className={`px-4 py-2 rounded-md shadow-md focus:outline-none ${
-                  currentPage === index + 1 ? "btn-primary" : "btn-tertiary"
+                className={`${styles.pageButton} primary-button ${
+                  currentPage === index + 1 ? styles.activePage : ""
                 }`}
               >
                 {index + 1}
@@ -90,7 +109,7 @@ const Blog: FunctionComponent<Props> = ({
           <button
             onClick={nextPage}
             disabled={currentPage === totalPages}
-            className="btn-primary px-4 py-2 rounded-md shadow-md focus:outline-none disabled:opacity-50"
+            className={`${styles.paginationButton} primary-button`}
           >
             Next
           </button>

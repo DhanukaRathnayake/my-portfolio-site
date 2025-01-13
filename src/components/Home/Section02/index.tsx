@@ -75,8 +75,12 @@ const Section02 = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <button className={styles.button}>Download CV</button>
-            <button className={styles.button}>About Me</button>
+            <button className={`${styles.button} primary-button`}>
+              Download CV
+            </button>
+            <button className={`${styles.button} primary-button`}>
+              About Me
+            </button>
           </motion.div>
         </div>
         <div className={styles.imageWrapper}>
@@ -95,7 +99,7 @@ const Section02 = () => {
       </div>
       <div className={styles.cardContainer}>
         {summary.map((item) => (
-          <div key={item.id} className={styles.cardWrapper}>
+          <div key={item.id} className={`${styles.cardWrapper} primary-card`}>
             <div className={styles.cardHeader}>
               {item.icon}
               <span className={styles.cardNumber}>{item.count}</span>

@@ -57,7 +57,7 @@ const Skills = () => {
   return (
     <div className={styles.cardsContainer}>
       {skills.map((skill) => (
-        <div key={skill.id} className={styles.card}>
+        <div key={skill.id} className={`${styles.card} primary-card`}>
           <div className={styles.icon}>{skill.icon}</div>
         </div>
       ))}

@@ -31,7 +31,7 @@ const Services = () => {
   return (
     <div className={styles.cardsContainer}>
       {services.map((service) => (
-        <div key={service.id} className={styles.card}>
+        <div key={service.id} className={`${styles.card} primary-card`}>
           <div className={styles.icon}>{service.icon}</div>
           <h3 className={styles.cardTitle}>{service.title}</h3>
           <p className={styles.cardDescription}>{service.description}</p>

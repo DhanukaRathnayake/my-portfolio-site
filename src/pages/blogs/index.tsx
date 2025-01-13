@@ -32,17 +32,6 @@ const BlogsPage: NextPage<Props> = ({ categories, blogs: initialBlogs }) => {
 
   return (
     <div>
-      <text style={{ fontSize: "30px", fontWeight: "600" }}>Blog</text>
-      <Divider
-        flexItem
-        style={{
-          backgroundColor: "#0071ff",
-          height: "6px",
-          width: "100px",
-          borderRadius: "10px",
-        }}
-      />
-      <br />
       <Blogs categories={categories} blogs={blogs} />
     </div>
   );

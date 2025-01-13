@@ -57,20 +57,7 @@
 }
 
 .button {
-  background-color: var(--color-primary); /* Using global primary color */
-  color: var(--color-text); /* Using global text color */
-  padding: var(--spacing-sm) var(--spacing-md); /* Using global spacing variables */
-  font-size: var(--font-size-md); /* Using global font size */
-  font-weight: bold;
-  border-radius: var(--border-radius-sm); /* Using global border radius */
-  cursor: pointer;
-  transition: background-color var(--transition-medium),
-    transform var(--transition-fast);
-}
-
-.button:hover {
-  background-color: var(--color-secondary); /* Using global secondary color */
-  transform: scale(1.1);
+  width: 150px;
 }
 
 /* Cards */
@@ -81,18 +68,11 @@
 }
 
 .cardWrapper {
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
   padding: var(--spacing-md); /* Using global spacing variable */
-  border-radius: var(--border-radius-lg); /* Using global border radius */
-  box-shadow: var(--shadow-md); /* Using global shadow variable */
-  transition: transform var(--transition-medium),
-    box-shadow var(--transition-medium);
 }
 
 .cardWrapper:hover {
   transform: translateY(-10px);
-  box-shadow: var(--shadow-lg); /* Using global shadow variable */
 }
 
 .cardHeader {
