@@ -57,7 +57,7 @@ const About: React.FC = () => {
       <br />
 
       {/* Education Section */}
-      <div className={styles.flowContainer}>
+      <div className={`${styles.flowContainer} primary-card`}>
         <Timeline
           data={formattedData(education.items)}
           category={education.category}

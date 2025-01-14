@@ -1,5 +1,6 @@
 // Libraries
 import React, { FunctionComponent, useState } from "react";
+import { useRouter } from "next/router";
 
 // Styles
 import styles from "./index.module.css";
@@ -18,6 +19,8 @@ const Blog: FunctionComponent<Props> = ({
   blogs,
   blogsPerPage = 12,
 }) => {
+  const router = useRouter();
+
   const [currentPage, setCurrentPage] = useState(1);
 
   // Get the blogs for the current page
@@ -44,6 +47,10 @@ const Blog: FunctionComponent<Props> = ({
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
     }
+  };
+
+  const handleBlogView = (blog: TypeBlog) => {
+    router.push(`/blogs/${blog.id}`);
   };
 
   return (
@@ -75,7 +82,10 @@ const Blog: FunctionComponent<Props> = ({
                     ? `${item.excerpt.substring(0, 95)}...`
                     : item.excerpt}
                 </p>
-                <button className={`${styles.readMoreButton} primary-button`}>
+                <button
+                  className={`${styles.readMoreButton} primary-button`}
+                  onClick={() => handleBlogView(item)}
+                >
                   Read More
                 </button>
               </div>
