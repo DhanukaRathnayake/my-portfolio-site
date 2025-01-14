@@ -1,0 +1,18 @@
+/* Tag Container */
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .tagContainer {
+    justify-content: center; /* Center tags on smaller screens */
+  }
+
+  .gradientTagInner {
+    font-size: smaller; /* Reduce font size for smaller screens */
+  }
+}

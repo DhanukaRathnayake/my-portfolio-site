@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 
 // Components
-import HeroText from "../../Common/HeroText";
+import HeroText from "../../Common/TextGenerateEffects/HeroText";
+import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 import Blogs from "./Blogs";
 import Services from "./Services/services";
 import Skills from "./Skills/skills";
@@ -32,13 +33,19 @@ const Section03 = () => {
         <HeroText
           heroText="Portfolio Showcase"
           highlightedName={["Portfolio", "Showcase"]}
-          subText="Explore my work, skills, and services crafted with cutting-edge technologies."
           stylesProps={{
             heroText: styles.heroText,
             heroWord: styles.heroWord,
             nameHighlight: styles.nameHighlight,
-            heroSubText: styles.heroSubText,
           }}
+        />
+
+        <TextGenerateEffect
+          words={
+            "Explore my work, skills, and services crafted with cutting-edge technologies."
+          }
+          className={styles.heroSubText}
+          duration={0.5}
         />
       </div>
 

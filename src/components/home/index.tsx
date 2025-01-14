@@ -48,6 +48,7 @@ const Home: React.FC = () => {
 
       {/* Section 4: Showcase Summary */}
       <motion.section
+        id="contact-section"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ amount: 0.5 }}

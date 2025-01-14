@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
+  padding: var(--spacing-md);
 }
 
 .intro {
@@ -11,84 +12,37 @@
   max-width: 800px;
 }
 
-/* Gradient Tag */
-.gradientTagContainer {
-  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
-  width: max-content;
-}
-
-.gradientTag {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-full); /* Using global border radius */
-  background: var(--gradient-primary); /* Using global gradient */
-  padding: 1.5px;
-  color: var(--color-text); /* Using global text color */
-  transition: background var(--transition-medium),
-    box-shadow var(--transition-medium);
-}
-
-.gradientTagInner {
-  display: flex;
-  font-size: small;
-  padding: var(--spacing-xs) var(--spacing-md); /* Using global spacing variables */
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-full); /* Using global border radius */
-  background: var(--color-background); /* Using global background color */
-  transition: background var(--transition-medium);
-}
-
 /* Hero Text */
 .heroText {
-  font-size: var(--font-size-xxl); /* Using global font size */
+  font-size: var(--font-size-xxl);
   font-weight: bold;
-  color: var(--color-text); /* Using global text color */
+  color: var(--color-text);
   display: inline-block;
-  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
+  margin-bottom: var(--spacing-lg);
 }
 
 .heroWord {
   display: inline-block;
-  margin-right: var(--spacing-xs); /* Using global spacing variable */
+  margin-right: var(--spacing-xs);
 }
 
 .nameHighlight {
-  color: var(--color-primary); /* Using global primary color */
+  color: var(--color-primary);
   text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
-    0 0 1px var(--color-primary); /* Using global primary color */
+    0 0 1px var(--color-primary);
 }
 
 .heroSubText {
-  font-size: var(--font-size-lg); /* Using global font size */
-  color: var(--color-text); /* Using global text color */
-  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
-}
-
-/* Tag Styles */
-.tagContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-md); /* Using global spacing variable */
-  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
-}
-
-.tag {
-  background: var(--gradient-primary); /* Using global gradient */
-  color: var(--color-text); /* Using global text color */
-  padding: var(--spacing-xs) var(--spacing-md); /* Using global spacing variables */
-  border-radius: var(--border-radius-md); /* Using global border radius */
-  font-size: var(--font-size-sm); /* Using global font size */
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-lg);
 }
 
 /* Button Row */
 .buttonRow {
   display: flex;
-  gap: var(--spacing-xl); /* Using global spacing variable */
-  margin-bottom: var(--spacing-xl); /* Using global spacing variable */
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
 }
 
 .button {
@@ -98,44 +52,124 @@
 /* Social Icons */
 .socialIcons {
   display: flex;
-  gap: var(--spacing-xl); /* Using global spacing variable */
-}
-
-.iconButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-md); /* Using global border radius */
-  background: var(--gradient-primary); /* Using global gradient */
-  padding: 1.5px;
-  color: var(--color-text); /* Using global text color */
-  transition: background var(--transition-medium),
-    box-shadow var(--transition-medium);
-}
-
-.iconButtonInner {
-  display: flex;
-  font-size: small;
-  padding: var(--spacing-sm); /* Using global spacing variable */
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-md); /* Using global border radius */
-  background: var(--color-background); /* Using global background color */
-  transition: background var(--transition-medium);
-}
-
-.iconButton:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px var(--color-secondary), 0 0 20px var(--color-secondary); /* Using global secondary color */
+  gap: var(--spacing-xl);
 }
 
 /* Image Animation */
 .lottieSVG {
-  flex: 1;
-  max-width: 600px;
-  display: flex;
-  justify-items: right;
-  align-items: center;
+  flex: 0 0 40%; /* This keeps the Lottie animation on the right side */
+  max-width: 500px; /* Limit size */
+  position: relative; /* Optional if needed */
+  margin-left: var(--spacing-lg);
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+  .heroText {
+    font-size: var(--font-size-xxl); /* Adjust font size for large tablets */
+  }
+
+  .heroSubText {
+    font-size: var(--font-size-md); /* Adjust font size for large tablets */
+  }
+
+  .lottieSVG {
+    max-width: 500px; /* Adjust Lottie animation size */
+  }
+}
+
+@media (max-width: 992px) {
+  .heroText {
+    font-size: var(--font-size-xl); /* Adjust font size for tablets */
+  }
+
+  .heroSubText {
+    font-size: var(--font-size-sm); /* Adjust font size for tablets */
+  }
+
+  .lottieSVG {
+    max-width: 400px; /* Adjust Lottie animation size */
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: var(--spacing-md);
+  }
+
+  .intro {
+    max-width: 100%;
+  }
+
+  .gradientTagContainer {
+    margin: 0 auto var(--spacing-lg); /* Center the gradient tag */
+  }
+
+  .heroText {
+    font-size: var(--font-size-xxl); /* Adjust font size for small tablets */
+  }
+
+  .heroSubText {
+    font-size: var(--font-size-sm); /* Adjust font size for small tablets */
+  }
+
+  .tagContainer {
+    justify-content: center; /* Center tags on small tablets */
+  }
+
+  .buttonRow {
+    flex-direction: column; /* Stack buttons vertically on small tablets */
+    gap: var(--spacing-md);
+    align-items: center;
+  }
+
+  .button {
+    width: 100%; /* Full-width buttons on small tablets */
+    max-width: 200px; /* Limit button width */
+  }
+
+  .socialIcons {
+    justify-content: center; /* Center social icons on small tablets */
+    gap: var(--spacing-lg);
+  }
+
+  .lottieSVG {
+    max-width: 100%;
+    margin-top: var(--spacing-xl); /* Add spacing above the animation */
+    margin-left: 0; /* No margin on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .heroText {
+    font-size: var(--font-size-md); /* Adjust font size for mobile */
+  }
+
+  .heroSubText {
+    font-size: var(--font-size-xs); /* Adjust font size for mobile */
+  }
+
+  .gradientTagInner {
+    font-size: smaller; /* Reduce font size for gradient tags */
+  }
+
+  .tag {
+    font-size: var(--font-size-xs); /* Reduce font size for tags */
+  }
+
+  .iconButton {
+    padding: 1px; /* Reduce padding for social icons */
+  }
+
+  .iconButtonInner {
+    padding: var(--spacing-xs); /* Reduce padding for social icons */
+  }
+
+  .lottieSVG {
+    max-width: 100%; /* Make the animation full-width on mobile */
+    margin-left: 0;
+  }
 }

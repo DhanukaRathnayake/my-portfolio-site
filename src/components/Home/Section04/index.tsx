@@ -6,7 +6,8 @@ import { TbBrandFiverr } from "react-icons/tb";
 import Link from "next/link";
 
 // Components
-import HeroText from "../../Common/HeroText";
+import HeroText from "../../Common/TextGenerateEffects/HeroText";
+import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
@@ -39,13 +40,16 @@ const Section04 = () => {
         <HeroText
           heroText="Contact Me"
           highlightedName={["Me"]}
-          subText="Great service for lifetime"
           stylesProps={{
             heroText: styles.heroText,
             heroWord: styles.heroWord,
             nameHighlight: styles.nameHighlight,
-            heroSubText: styles.heroSubText,
           }}
+        />
+        <TextGenerateEffect
+          words={"Great service for lifetime"}
+          className={styles.heroSubText}
+          duration={0.5}
         />
       </div>
 

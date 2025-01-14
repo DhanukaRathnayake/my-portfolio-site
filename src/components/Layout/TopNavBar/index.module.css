@@ -75,6 +75,16 @@
   transform: scaleX(1);
 }
 
+/* Desktop Contact Button */
+.desktopContactButton {
+  display: block;
+}
+
+/* Mobile Contact Button */
+.mobileContactButton {
+  display: none;
+}
+
 /* Hamburger Menu */
 .hamburgerMenu {
   display: none;
@@ -88,19 +98,83 @@
   height: 3px;
   background-color: var(--color-text);
   border-radius: var(--border-radius-sm);
+  transition: transform var(--transition-medium),
+    opacity var(--transition-medium);
+}
+
+/* Hamburger Menu Animation */
+.bar1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bar2 {
+  opacity: 0;
+}
+
+.bar3 {
+  transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
   .navLinks {
     display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--color-background); /* Solid background color */
+    width: 100%;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
   }
 
-  .contactButton {
+  .navLinks.mobileMenuOpen {
+    display: flex;
+  }
+
+  .navLink {
+    width: 100%;
+    justify-content: flex-start;
+    padding: var(--spacing-sm) 0;
+  }
+
+  /* Remove bottom line animation for mobile nav links */
+  .navLink::after {
+    display: none; /* Hide the bottom line */
+  }
+
+  /* Hide Desktop Contact Button on Mobile */
+  .desktopContactButton {
     display: none;
+  }
+
+  /* Show Mobile Contact Button in Dropdown */
+  .mobileContactButton {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: var(--color-text);
+    font-size: var(--font-size-md);
+    margin-top: var(--spacing-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .mobileContactButton:hover {
+    color: var(--color-primary);
   }
 
   .hamburgerMenu {
     display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: var(--font-size-lg);
+  }
+
+  .navLinks {
+    top: 60px;
   }
 }

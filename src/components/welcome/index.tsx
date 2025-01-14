@@ -1,8 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
 import LiquidBackground from "./LiqudBackground";
-import HeroText from "../Common/HeroText";
+import HeroText from "../Common/TextGenerateEffects/HeroText";
 import styles from "./index.module.css";
+import TextGenerateEffect from "../Common/TextGenerateEffects";
 
 const WelcomePage: React.FC = () => {
   return (
@@ -16,13 +17,17 @@ const WelcomePage: React.FC = () => {
           <HeroText
             heroText="Welcome to my Portfolio"
             highlightedName={["Portfolio"]}
-            subText="portfolio.tagzy.site"
             stylesProps={{
               heroText: styles.heroText,
               heroWord: styles.heroWord,
               nameHighlight: styles.nameHighlight,
-              heroSubText: styles.heroSubText,
             }}
+          />
+
+          <TextGenerateEffect
+            words={"portfolio.tagzy.site"}
+            className={styles.heroSubText}
+            duration={0.5}
           />
 
           {/* Motion div for loading dots animation */}

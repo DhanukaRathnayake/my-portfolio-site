@@ -7,8 +7,9 @@ import { GrUserExpert } from "react-icons/gr";
 import Link from "next/link";
 
 // Components
-import HeroText from "../../Common/HeroText";
 import { CardBody, CardContainer, CardItem } from "../../Common/3DCard";
+import HeroText from "../../Common/TextGenerateEffects/HeroText";
+import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
@@ -54,20 +55,27 @@ const Section02 = () => {
               heroText: styles.heroText,
               heroWord: styles.heroWord,
               nameHighlight: styles.nameHighlight,
-              heroSubText: styles.heroSubText,
             }}
           />
           <HeroText
             heroText="Dhanuka Rathnayake"
             highlightedName={["Dhanuka", "Rathnayake"]}
-            subText="A passionate DevOps Engineer driving innovation in software and infrastructure automation. With over five years of experience, I’m here to bring your projects to life with cutting-edge technology."
             stylesProps={{
               heroText: styles.heroText,
               heroWord: styles.heroWord,
               nameHighlight: styles.nameHighlight,
-              heroSubText: styles.heroSubText,
             }}
           />
+
+          {/* Hero text section */}
+          <TextGenerateEffect
+            words={
+              "A passionate DevOps Engineer driving innovation in software and infrastructure automation. With over five years of experience, I’m here to bring your projects to life with cutting-edge technology."
+            }
+            className={styles.heroSubText}
+            duration={0.5}
+          />
+
           {/* Projects and Contact Buttons */}
           <motion.div
             className={styles.buttonRow}

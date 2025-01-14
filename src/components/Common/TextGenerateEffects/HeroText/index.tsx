@@ -6,19 +6,16 @@ import styles from "./index.module.css";
 interface HeroSectionProps {
   heroText: string;
   highlightedName?: string[]; // Array of words to highlight
-  subText?: string;
   stylesProps: {
     heroText: string;
     heroWord: string;
     nameHighlight: string;
-    heroSubText: string;
   };
 }
 
 const HeroSection: React.FC<HeroSectionProps> = ({
   heroText,
   highlightedName,
-  subText,
   stylesProps,
 }) => {
   // Function to split the text into an array of words and characters
@@ -78,19 +75,6 @@ const HeroSection: React.FC<HeroSectionProps> = ({
       >
         {splitText(heroText, highlightedName)}
       </motion.h1>
-
-      {/* Motion p for sub text animation */}
-      {subText && (
-        <motion.p
-          className={`${stylesProps.heroSubText}`}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 2, ease: "easeInOut", delay: 1.5 }}
-        >
-          {splitText(subText)}
-        </motion.p>
-      )}
     </div>
   );
 };
