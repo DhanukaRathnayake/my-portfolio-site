@@ -11,19 +11,19 @@ const services = [
     id: 1,
     title: "DevOps Consulting",
     description: "Automate your workflows.",
-    icon: <IoInfinite size="40" />,
+    icon: <IoInfinite className={styles.icon} />,
   },
   {
     id: 2,
     title: "Cloud Architecting",
     description: "Leverage cloud solutions.",
-    icon: <TbCloudCode size="40" />,
+    icon: <TbCloudCode className={styles.icon} />,
   },
   {
     id: 3,
     title: "Full-Stack Development",
     description: "End-to-end solutions.",
-    icon: <HiOutlineCode size="40" />,
+    icon: <HiOutlineCode className={styles.icon} />,
   },
 ];
 

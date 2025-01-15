@@ -4,35 +4,35 @@ import { TbCloudCode } from "react-icons/tb";
 import { HiOutlineCode } from "react-icons/hi";
 
 // Styles
-import styles from "./index.module.css"; // Renamed for clarity
+import styles from "./index.module.css";
 
 const blogs = [
   {
     id: 1,
     title: "DevOps Best Practices",
     description: "Learn automation tips.",
-    icon: <IoInfinite size="40" />,
+    icon: <IoInfinite className={styles.icon} />,
   },
   {
     id: 2,
     title: "Cloud Deployment Strategies",
     description: "Efficient AWS hosting.",
-    icon: <TbCloudCode size="40" />,
+    icon: <TbCloudCode className={styles.icon} />,
   },
   {
     id: 3,
     title: "React Tips & Tricks",
     description: "Optimize your components.",
-    icon: <HiOutlineCode size="40" />,
+    icon: <HiOutlineCode className={styles.icon} />,
   },
 ];
 
 const Blogs = () => {
   return (
-    <div className={styles.cardsContainer}>
+    <div className={`${styles.cardsContainer}`}>
       {blogs.map((blog) => (
         <div key={blog.id} className={`${styles.card} primary-card`}>
-          <div className={styles.icon}>{blog.icon}</div>
+          <div>{blog.icon}</div>
           <h3 className={styles.cardTitle}>{blog.title}</h3>
           <p className={styles.cardDescription}>{blog.description}</p>
         </div>

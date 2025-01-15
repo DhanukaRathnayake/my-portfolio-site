@@ -27,3 +27,44 @@
   height: 50px;
   text-align: center;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .cardsContainer {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(75px, 1fr)
+    ); /* Smaller cards on tablets */
+    gap: var(--spacing-sm); /* Reduce gap between cards */
+  }
+
+  .card {
+    width: 75px;
+    height: 75px;
+  }
+
+  .icon {
+    height: 45px;
+    width: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardsContainer {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(70px, 1fr)
+    ); /* Smaller cards on tablets */
+    gap: var(--spacing-sm); /* Reduce gap between cards */
+  }
+
+  .card {
+    width: 70px;
+    height: 70px;
+  }
+
+  .icon {
+    height: 35px;
+    width: 35px;
+  }
+}

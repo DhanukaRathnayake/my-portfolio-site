@@ -6,25 +6,83 @@
 }
 
 .card {
-  padding: var(--spacing-lg); /* Using global spacing variable */
+  padding: var(--spacing-md); /* Using global spacing variable */
   text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  border-radius: var(--border-radius-md); /* Using global border radius */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 .card:hover {
   transform: translateY(-10px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
 .icon {
+  height: 30px;
+  width: 30px;
   margin-bottom: var(--spacing-md); /* Using global spacing variable */
 }
 
 .cardTitle {
   font-size: var(--font-size-lg); /* Using global font size */
-  font-weight: bold;
+  font-weight: 700;
   margin-bottom: var(--spacing-xs); /* Using global spacing variable */
 }
 
 .cardDescription {
-  font-size: var(--font-size-md); /* Using global font size */
+  font-size: var(--font-size-sm); /* Using global font size */
   color: var(--color-text-secondary); /* Using global text color */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .cardsContainer {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(200px, 1fr)
+    ); /* Smaller cards on tablets */
+    gap: var(--spacing-sm); /* Reduce gap between cards */
+  }
+
+  .card {
+    padding: var(--spacing-sm); /* Reduce padding */
+  }
+
+  .icon {
+    margin-bottom: var(--spacing-sm); /* Reduce margin */
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-md); /* Reduce font size */
+  }
+
+  .cardDescription {
+    font-size: var(--font-size-sm); /* Reduce font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .cardsContainer {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: var(--spacing-xs); /* Reduce gap further */
+  }
+
+  .card {
+    padding: var(--spacing-sm); /* Further reduce padding */
+  }
+
+  .icon {
+    height: 20px;
+    width: 20px;
+    margin-bottom: var(--spacing-xs); /* Further reduce margin */
+  }
+
+  .cardTitle {
+    font-size: var(--font-size-sm); /* Further reduce font size */
+  }
+
+  .cardDescription {
+    font-size: var(--font-size-xs); /* Further reduce font size */
+  }
 }

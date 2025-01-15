@@ -26,7 +26,7 @@
 .textArea {
   width: 100%;
   padding: var(--spacing-sm) var(--spacing-md); /* Using global spacing variables */
-  font-size: var(--font-size-md); /* Using global font size */
+  font-size: var(--font-size-sm); /* Using global font size */
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--border-radius-sm); /* Using global border radius */
   background-color: inherit; /* Ensures the input adopts the parent background */
@@ -97,4 +97,58 @@
 .iconButton:hover {
   transform: scale(1.1);
   box-shadow: 0 0 10px var(--color-secondary), 0 0 20px var(--color-secondary); /* Using global secondary color */
+}
+
+/* Responsive Styles */
+@media (max-width: 978px) {
+  .section {
+    flex-direction: column;
+    padding: 0; /* Reduce padding on smaller screens */
+  }
+
+  .intro {
+    max-width: 100%; /* Full width on smaller screens */
+  }
+
+  .contactForm {
+    padding: var(--spacing-md); /* Reduce padding */
+  }
+
+  .inputField,
+  .textArea {
+    font-size: var(--font-size-sm); /* Reduce font size */
+  }
+
+  .submitButton {
+    font-size: var(--font-size-sm); /* Reduce font size */
+  }
+
+  .socialIcons {
+    gap: var(--spacing-lg); /* Reduce gap between icons */
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: var(
+      --spacing-md
+    ); /* Further reduce padding on very small screens */
+  }
+
+  .contactForm {
+    padding: var(--spacing-sm); /* Further reduce padding */
+  }
+
+  .inputField,
+  .textArea {
+    font-size: var(--font-size-xs); /* Further reduce font size */
+  }
+
+  .submitButton {
+    font-size: var(--font-size-xs); /* Further reduce font size */
+  }
+
+  .socialIcons {
+    gap: var(--spacing-md); /* Further reduce gap between icons */
+  }
 }

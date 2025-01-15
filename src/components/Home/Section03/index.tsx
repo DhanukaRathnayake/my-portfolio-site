@@ -36,7 +36,7 @@ const Section03 = () => {
   return (
     <div className={styles.section}>
       {/* Hero Section */}
-      <div className={styles.hero}>
+      <div className={styles.intro}>
         <HeroHighlight>
           <Highlight>Portfolio</Highlight> ShowCast
         </HeroHighlight>

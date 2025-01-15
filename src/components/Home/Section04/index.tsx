@@ -19,7 +19,7 @@ const Section04 = () => {
   return (
     <div className={styles.section}>
       {/* Hero Section */}
-      <div className={styles.hero}>
+      <div className={styles.intro}>
         <HeroHighlight>
           Contact <Highlight>Me</Highlight>
         </HeroHighlight>
@@ -32,7 +32,7 @@ const Section04 = () => {
 
       <div className={styles.intro}>
         <form className={`${styles.contactForm} primary-card`}>
-          <h2 className={styles.formTitle}>Get In Touch</h2>
+          <h2>Get In Touch</h2>
           <input
             type="name"
             placeholder="Your Name"
