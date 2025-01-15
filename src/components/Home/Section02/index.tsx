@@ -5,7 +5,7 @@ import { MdArrowOutward } from "react-icons/md";
 import Link from "next/link";
 
 // Components
-import { CardContainer, CardItem } from "../../Common/3DCard";
+import { GlareCard } from "../../Common/GloreCaard";
 import {
   HeroHighlight,
   Highlight,
@@ -49,20 +49,20 @@ const Section02 = () => {
             </button>
           </motion.div>
         </div>
+
         <div className={styles.imageWrapper}>
-          <CardContainer>
-            <CardItem translateZ="40" rotateX={-6}>
-              <Image
-                src={Info.profilePicture}
-                height={10}
-                width={10}
-                alt={`${Info.firstName} ${Info.lastName}`}
-                className={styles.profileImage}
-              />
-            </CardItem>
-          </CardContainer>
+          <GlareCard>
+            <Image
+              src={Info.profilePicture}
+              height={1} // Placeholder value
+              width={1} // Placeholder value
+              alt={`${Info.firstName} ${Info.lastName}`}
+              className={styles.profileImage}
+            />
+          </GlareCard>
         </div>
       </div>
+
       <div className={styles.cardContainer}>
         {Info.summaryCounts.map((item) => (
           <div key={item.id} className={`${styles.cardWrapper} primary-card`}>
