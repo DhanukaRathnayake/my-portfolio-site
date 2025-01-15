@@ -1,14 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaCode, FaLaptop } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
-import { MdOutlineVerifiedUser } from "react-icons/md";
-import { GrUserExpert } from "react-icons/gr";
+
 import Link from "next/link";
 
 // Components
-import { CardBody, CardContainer, CardItem } from "../../Common/3DCard";
-import HeroText from "../../Common/TextGenerateEffects/HeroText";
+import { CardContainer, CardItem } from "../../Common/3DCard";
+import {
+  HeroHighlight,
+  Highlight,
+} from "../../Common/TextGenerateEffects/HeroHighlight";
 import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 
 // Styles
@@ -16,63 +17,20 @@ import styles from "./index.module.css"; // Renamed for clarity
 import Image from "next/image";
 
 // Data
-const summary = [
-  {
-    id: 1,
-    title: "Total Projects",
-    count: 15,
-    description: "Innovation web solutions crafted",
-    link: "",
-    icon: <FaCode size="20" />,
-  },
-  {
-    id: 2,
-    title: "Services",
-    count: 4,
-    description: "Trusted service provider",
-    link: "",
-    icon: <MdOutlineVerifiedUser size="20" />,
-  },
-  {
-    id: 3,
-    title: "Years of experience",
-    count: 5,
-    description: "Continuous learning journey",
-    link: "",
-    icon: <GrUserExpert size="20" />,
-  },
-];
+import { Info } from "../../../data/info";
 
 const Section02 = () => {
   return (
     <div className={styles.section}>
       <div className={styles.detailsWrapper}>
         <div className={styles.introWrapper}>
-          <HeroText
-            heroText="Hello, I'm"
-            highlightedName={[""]}
-            stylesProps={{
-              heroText: styles.heroText,
-              heroWord: styles.heroWord,
-              nameHighlight: styles.nameHighlight,
-            }}
-          />
-          <HeroText
-            heroText="Dhanuka Rathnayake"
-            highlightedName={["Dhanuka", "Rathnayake"]}
-            stylesProps={{
-              heroText: styles.heroText,
-              heroWord: styles.heroWord,
-              nameHighlight: styles.nameHighlight,
-            }}
-          />
+          <HeroHighlight>
+            Hello, I'm <Highlight>{`${Info.firstName}`}</Highlight>
+          </HeroHighlight>
 
           {/* Hero text section */}
           <TextGenerateEffect
-            words={
-              "A passionate DevOps Engineer driving innovation in software and infrastructure automation. With over five years of experience, I’m here to bring your projects to life with cutting-edge technology."
-            }
-            className={styles.heroSubText}
+            words={Info.sections.section02.description}
             duration={0.5}
           />
 
@@ -95,10 +53,10 @@ const Section02 = () => {
           <CardContainer>
             <CardItem translateZ="40" rotateX={-6}>
               <Image
-                src="/dp.jpeg"
+                src={Info.profilePicture}
                 height={10}
                 width={10}
-                alt="Dhanuka Rathnayake"
+                alt={`${Info.firstName} ${Info.lastName}`}
                 className={styles.profileImage}
               />
             </CardItem>
@@ -106,7 +64,7 @@ const Section02 = () => {
         </div>
       </div>
       <div className={styles.cardContainer}>
-        {summary.map((item) => (
+        {Info.summaryCounts.map((item) => (
           <div key={item.id} className={`${styles.cardWrapper} primary-card`}>
             <div className={styles.cardHeader}>
               {item.icon}

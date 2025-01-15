@@ -21,7 +21,7 @@
 
 /* Logo */
 .logo {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-lg);
   font-weight: bold;
   color: var(--color-primary);
   text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
@@ -41,7 +41,7 @@
   justify-content: center;
   color: var(--color-text);
   text-decoration: none;
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-sm);
   position: relative;
   transition: color var(--transition-medium);
 }
@@ -155,7 +155,6 @@
     width: 100%;
     text-align: center;
     color: var(--color-text);
-    font-size: var(--font-size-md);
     margin-top: var(--spacing-sm);
     transition: color var(--transition-fast);
   }

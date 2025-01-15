@@ -11,33 +11,6 @@
   max-width: 600px;
 }
 
-/* Hero Text */
-.heroText {
-  font-size: var(--font-size-xxl); /* Using global font size */
-  font-weight: bold;
-  line-height: 60px;
-  color: var(--color-text); /* Using global text color */
-  display: inline-block;
-  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
-}
-
-.heroWord {
-  display: inline-block;
-  margin-right: var(--spacing-xs); /* Using global spacing variable */
-}
-
-.nameHighlight {
-  color: var(--color-primary); /* Using global primary color */
-  text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
-    0 0 1px var(--color-primary); /* Using global primary color */
-}
-
-.heroSubText {
-  font-size: var(--font-size-lg); /* Using global font size */
-  color: var(--color-text); /* Using global text color */
-  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
-}
-
 .contactForm {
   display: flex;
   flex-direction: column;

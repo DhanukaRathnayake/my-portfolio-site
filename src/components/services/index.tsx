@@ -5,7 +5,7 @@ import React, { FunctionComponent } from "react";
 import styles from "./index.module.css";
 
 // Data
-import services from "../../data/services.json";
+import { ServicesList } from "../../data/info";
 
 // Define the type for a service
 interface Service {
@@ -22,8 +22,6 @@ interface ServicesData {
 }
 
 const Services: FunctionComponent = () => {
-  const servicesData: ServicesData | null = services;
-
   return (
     <div className={styles.servicesContainer}>
       {/* Title and Subtitle */}
@@ -36,7 +34,7 @@ const Services: FunctionComponent = () => {
 
       {/* Service Packages Grid */}
       <div className={styles.servicePackagesGrid}>
-        {servicesData.items.map((service: Service, index: number) => (
+        {ServicesList.map((service: Service, index: number) => (
           <div key={index} className={`${styles.serviceCard} primary-card`}>
             <div className={styles.serviceCardContent}>
               <h3 className={styles.serviceTitle}>{service.title}</h3>

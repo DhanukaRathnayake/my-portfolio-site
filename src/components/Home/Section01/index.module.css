@@ -4,38 +4,11 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  padding: var(--spacing-md);
 }
 
 .intro {
-  flex: 1;
-  max-width: 800px;
-}
-
-/* Hero Text */
-.heroText {
-  font-size: var(--font-size-xxl);
-  font-weight: bold;
-  color: var(--color-text);
-  display: inline-block;
-  margin-bottom: var(--spacing-lg);
-}
-
-.heroWord {
-  display: inline-block;
-  margin-right: var(--spacing-xs);
-}
-
-.nameHighlight {
-  color: var(--color-primary);
-  text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
-    0 0 1px var(--color-primary);
-}
-
-.heroSubText {
-  font-size: var(--font-size-lg);
-  color: var(--color-text);
-  margin-bottom: var(--spacing-lg);
+  flex: 2;
+  max-width: 700px;
 }
 
 /* Button Row */
@@ -57,36 +30,21 @@
 
 /* Image Animation */
 .lottieSVG {
-  flex: 0 0 40%; /* This keeps the Lottie animation on the right side */
-  max-width: 500px; /* Limit size */
+  flex: 1; /* This keeps the Lottie animation on the right side */
+  max-width: 40vw; /* Limit size */
   position: relative; /* Optional if needed */
   margin-left: var(--spacing-lg);
+  /* background-color: antiquewhite; */
 }
 
 /* Responsive Styles */
 @media (max-width: 1200px) {
-  .heroText {
-    font-size: var(--font-size-xxl); /* Adjust font size for large tablets */
-  }
-
-  .heroSubText {
-    font-size: var(--font-size-md); /* Adjust font size for large tablets */
-  }
-
   .lottieSVG {
     max-width: 500px; /* Adjust Lottie animation size */
   }
 }
 
 @media (max-width: 992px) {
-  .heroText {
-    font-size: var(--font-size-xl); /* Adjust font size for tablets */
-  }
-
-  .heroSubText {
-    font-size: var(--font-size-sm); /* Adjust font size for tablets */
-  }
-
   .lottieSVG {
     max-width: 400px; /* Adjust Lottie animation size */
   }
@@ -102,22 +60,6 @@
 
   .intro {
     max-width: 100%;
-  }
-
-  .gradientTagContainer {
-    margin: 0 auto var(--spacing-lg); /* Center the gradient tag */
-  }
-
-  .heroText {
-    font-size: var(--font-size-xxl); /* Adjust font size for small tablets */
-  }
-
-  .heroSubText {
-    font-size: var(--font-size-sm); /* Adjust font size for small tablets */
-  }
-
-  .tagContainer {
-    justify-content: center; /* Center tags on small tablets */
   }
 
   .buttonRow {
@@ -144,30 +86,6 @@
 }
 
 @media (max-width: 480px) {
-  .heroText {
-    font-size: var(--font-size-md); /* Adjust font size for mobile */
-  }
-
-  .heroSubText {
-    font-size: var(--font-size-xs); /* Adjust font size for mobile */
-  }
-
-  .gradientTagInner {
-    font-size: smaller; /* Reduce font size for gradient tags */
-  }
-
-  .tag {
-    font-size: var(--font-size-xs); /* Reduce font size for tags */
-  }
-
-  .iconButton {
-    padding: 1px; /* Reduce padding for social icons */
-  }
-
-  .iconButtonInner {
-    padding: var(--spacing-xs); /* Reduce padding for social icons */
-  }
-
   .lottieSVG {
     max-width: 100%; /* Make the animation full-width on mobile */
     margin-left: 0;

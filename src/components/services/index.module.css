@@ -1,5 +1,6 @@
 .servicesContainer {
   text-align: center;
+  padding: var(--spacing-xl) var(--spacing-md);
 }
 
 .servicesHeader {
@@ -20,7 +21,7 @@
 
 .servicePackagesGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-lg);
   max-width: 1200px;
   margin: 0 auto;
@@ -34,7 +35,7 @@
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   padding: var(--spacing-lg);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  height: 400px; /* Fixed height */
+  height: auto; /* Changed to auto for better responsiveness */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -102,14 +103,42 @@
   .servicePackagesGrid {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }
-}
 
-@media (max-width: 480px) {
   .servicesTitle {
     font-size: var(--font-size-xl);
   }
 
+  .servicesSubtitle {
+    font-size: var(--font-size-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .servicesContainer {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+
   .servicePackagesGrid {
     grid-template-columns: 1fr;
+  }
+
+  .servicesTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .servicesSubtitle {
+    font-size: var(--font-size-sm);
+  }
+
+  .serviceCard {
+    padding: var(--spacing-md);
+  }
+
+  .serviceTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .servicePrice {
+    font-size: var(--font-size-xl);
   }
 }

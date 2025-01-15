@@ -5,14 +5,12 @@ import { cn } from "@/utils/shadcn";
 
 interface TextGenerateEffectProps {
   words: string;
-  className?: string;
   filter?: boolean;
   duration?: number;
 }
 
 const TextGenerateEffect: React.FC<TextGenerateEffectProps> = ({
   words,
-  className,
   filter = true,
   duration = 0.5,
 }) => {
@@ -39,7 +37,6 @@ const TextGenerateEffect: React.FC<TextGenerateEffectProps> = ({
         {wordsArray.map((word, idx) => (
           <motion.span
             key={word + idx}
-            className="dark:text-white text-black opacity-0"
             style={{
               filter: filter ? "blur(10px)" : "none",
             }}
@@ -52,7 +49,7 @@ const TextGenerateEffect: React.FC<TextGenerateEffectProps> = ({
   };
 
   return (
-    <div className={cn(className)}>
+    <div className="heroSubText">
       <div className="leading-snug tracking-wide">{renderWords()}</div>
     </div>
   );

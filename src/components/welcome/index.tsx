@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import LiquidBackground from "./LiqudBackground";
-import HeroText from "../Common/TextGenerateEffects/HeroText";
+import HeroText from "../Common/TextGenerateEffects/HeroHighlight";
 import styles from "./index.module.css";
 import TextGenerateEffect from "../Common/TextGenerateEffects";
 

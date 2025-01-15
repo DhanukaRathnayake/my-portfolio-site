@@ -73,7 +73,7 @@ const TopNavBar: React.FC = () => {
     >
       {/* Logo */}
       <Link href="/" className={styles.logo}>
-        <h1>Portfolio</h1>
+        Portfolio
       </Link>
 
       {/* Navigation Links and Contact Button */}

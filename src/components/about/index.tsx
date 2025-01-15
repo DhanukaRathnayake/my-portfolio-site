@@ -1,12 +1,13 @@
 import React from "react";
 
+// Components
+import Tags from "@/components/Common/Tags";
+
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
 
 // Data
-import experience from "../../data/experience.json";
-import education from "../../data/education.json";
-import certification from "../../data/certification.json";
+import { Education, Experience, Certification } from "../../data/info";
 import { Timeline } from "../Common/Timeline";
 
 type TimelineDataType = {
@@ -31,13 +32,8 @@ const formattedData = (data: TimelineDataType[]) =>
             </li>
           ))}
         </ul>
-        <div className={styles.gradientTagContainer}>
-          {entry.skills.map((tag, index) => (
-            <div key={index} className={styles.gradientTag}>
-              <div className={styles.gradientTagInner}>{tag}</div>
-            </div>
-          ))}
-        </div>
+
+        <Tags tags={entry.skills} />
       </div>
     ),
   }));
@@ -48,9 +44,9 @@ const About: React.FC = () => {
       {/* Experience Section */}
       <div className={`${styles.flowContainer} primary-card`}>
         <Timeline
-          data={formattedData(experience.items)}
-          category={experience.category}
-          description={experience.description}
+          data={formattedData(Experience.items)}
+          category={Experience.category}
+          description={Experience.description}
         />
       </div>
 
@@ -59,9 +55,9 @@ const About: React.FC = () => {
       {/* Education Section */}
       <div className={`${styles.flowContainer} primary-card`}>
         <Timeline
-          data={formattedData(education.items)}
-          category={education.category}
-          description={education.description}
+          data={formattedData(Education.items)}
+          category={Education.category}
+          description={Education.description}
         />
       </div>
     </div>

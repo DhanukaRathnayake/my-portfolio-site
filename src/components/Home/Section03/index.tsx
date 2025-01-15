@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 // Components
-import HeroText from "../../Common/TextGenerateEffects/HeroText";
+import {
+  HeroHighlight,
+  Highlight,
+} from "../../Common/TextGenerateEffects/HeroHighlight";
 import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 import Blogs from "./Blogs";
 import Services from "./Services/services";
@@ -9,6 +13,9 @@ import Skills from "./Skills/skills";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
+
+// Data
+import { Info } from "../../../data/info";
 
 const Section03 = () => {
   const [currentSection, setCurrentSection] = useState("blogs");
@@ -30,21 +37,12 @@ const Section03 = () => {
     <div className={styles.section}>
       {/* Hero Section */}
       <div className={styles.hero}>
-        <HeroText
-          heroText="Portfolio Showcase"
-          highlightedName={["Portfolio", "Showcase"]}
-          stylesProps={{
-            heroText: styles.heroText,
-            heroWord: styles.heroWord,
-            nameHighlight: styles.nameHighlight,
-          }}
-        />
+        <HeroHighlight>
+          <Highlight>Portfolio</Highlight> ShowCast
+        </HeroHighlight>
 
         <TextGenerateEffect
-          words={
-            "Explore my work, skills, and services crafted with cutting-edge technologies."
-          }
-          className={styles.heroSubText}
+          words={Info.sections.section03.description}
           duration={0.5}
         />
       </div>

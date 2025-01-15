@@ -6,12 +6,15 @@ import { motion } from "framer-motion";
 // Components
 import LottieAnimation from "./LottieAnimation";
 import Tags from "@/components/Common/Tags";
-import HeroText from "../../Common/TextGenerateEffects/HeroText";
+import {
+  HeroHighlight,
+  Highlight,
+} from "../../Common/TextGenerateEffects/HeroHighlight";
 import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
-import GradientButton from "@/components/Common/GradientButton";
+import { IconButton } from "@/components/Common/Buttons";
 
 // Data
 import { Info } from "../../../data/info";
@@ -26,21 +29,13 @@ const Section01 = () => {
         <Tags tags={[Info.status]} />
 
         {/* Hero text section */}
-        <HeroText
-          heroText={Info.roles}
-          highlightedName={Info.roleHighlights}
-          stylesProps={{
-            heroText: styles.heroText,
-            heroWord: styles.heroWord,
-            nameHighlight: styles.nameHighlight,
-          }}
-        />
+        <HeroHighlight>
+          <Highlight>Full Stack</Highlight> & <Highlight>DevOps</Highlight>{" "}
+          Engineering
+        </HeroHighlight>
 
         <TextGenerateEffect
-          words={
-            "I specialize in building scalable web applications, mobile apps, and full-stack solutions tailored to your business needs."
-          }
-          className={styles.heroSubText}
+          words={Info.sections.section01.description}
           duration={0.5}
         />
 
@@ -76,7 +71,7 @@ const Section01 = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <GradientButton
+              <IconButton
                 content={item.icon}
                 onClick={() => console.log(item.name)}
               />
