@@ -1,6 +1,9 @@
 .aboutContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: var(--spacing-xxl); /* Using global spacing variable */
-  max-width: 1200px; /* Limit container width for better readability */
   margin: 0; /* Center the container */
 }
 

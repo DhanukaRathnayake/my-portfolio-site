@@ -212,7 +212,7 @@ p {
   font-weight: bold;
   color: var(--color-text);
   display: inline-block;
-  margin-bottom: var(--spacing-md);
+  line-height: var(--spacing-xxl);
 }
 
 .heroTextHighlight {
@@ -232,8 +232,8 @@ p {
 }
 
 .heroSubText {
-  font-size: var(--font-size-md); /* Using global font size */
-  color: var(--color-text); /* Using global text color */
+  font-size: var(--font-size-sm); /* Using global font size */
+  color: var(--color-text-secondary); /* Using global text color */
   margin-bottom: var(--spacing-lg); /* Using global spacing variable */
 }
 
@@ -278,62 +278,6 @@ p {
   cursor: not-allowed;
 }
 
-.icon-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-md);
-  background: var(--gradient-primary);
-  padding: 1.5px;
-  color: var(--color-text);
-  transition: background var(--transition-medium),
-    box-shadow var(--transition-medium);
-}
-
-.icon-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px var(--color-secondary), 0 0 20px var(--color-secondary);
-}
-
-.icon-button-inner {
-  display: flex;
-  font-size: var(--font-size-sm);
-  padding: var(--spacing-sm);
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-md);
-  background: var(--color-background);
-  transition: background var(--transition-medium);
-}
-
-/* Gradient Tag */
-.gradient-tag {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-full);
-  background: var(--gradient-primary);
-  padding: 1.5px;
-  color: var(--color-text);
-  transition: background var(--transition-medium),
-    box-shadow var(--transition-medium);
-}
-
-.gradient-tag-inner {
-  display: flex;
-  font-size: small;
-  padding: var(--spacing-xs) var(--spacing-md);
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-full);
-  background: var(--color-background);
-  transition: background var(--transition-medium);
-}
-
 /* WebKit-based browsers (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {
   width: 6px; /* Thin scrollbar width */
@@ -371,4 +315,11 @@ p {
     102,
     0.8
   ); /* Even lighter gray when active */
+}
+
+/* Responsive Styles */
+@media (max-width: 480px) {
+  .heroText {
+    line-height: var(--spacing-xl);
+  }
 }

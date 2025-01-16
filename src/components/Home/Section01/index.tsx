@@ -14,10 +14,11 @@ import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
-import { IconButton } from "@/components/Common/Buttons";
+import { IconButton } from "@/components/Common/Buttons/IconButton";
 
 // Data
 import { Info } from "../../../data/info";
+import GradientButton from "@/components/Common/Buttons/GradientButton";
 
 const Section01 = () => {
   const router = useRouter();
@@ -26,18 +27,22 @@ const Section01 = () => {
     <div className={styles.section}>
       <motion.div className={styles.intro}>
         {/* Ready to Innovate Button */}
-        <Tags tags={[Info.status]} />
+        <GradientButton>{Info.status}</GradientButton>
 
         {/* Hero text section */}
-        <HeroHighlight>
-          <Highlight>Full Stack</Highlight> & <Highlight>DevOps</Highlight>{" "}
-          Engineering
-        </HeroHighlight>
+        <div className="mt-4">
+          <HeroHighlight>
+            <Highlight>Full Stack</Highlight> & <Highlight>DevOps</Highlight>{" "}
+            Engineering
+          </HeroHighlight>
+        </div>
 
-        <TextGenerateEffect
-          words={Info.sections.section01.description}
-          duration={0.5}
-        />
+        <div className="mt-5">
+          <TextGenerateEffect
+            words={Info.sections.section01.description}
+            duration={0.5}
+          />
+        </div>
 
         {/* Rounded Tags */}
         <Tags tags={Info.tags} />
@@ -49,10 +54,16 @@ const Section01 = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <button className={`${styles.button} primary-button`}>
+          <button
+            className={`${styles.button} primary-button`}
+            onClick={() => router.push("/services")}
+          >
             Services
           </button>
-          <button className={`${styles.button} primary-button`}>
+          <button
+            className={`${styles.button} primary-button`}
+            onClick={() => router.push("/blogs?category=Projects")}
+          >
             Projects
           </button>
         </motion.div>

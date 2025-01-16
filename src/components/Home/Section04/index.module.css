@@ -12,14 +12,23 @@
 }
 
 .contactForm {
+  flex: 1;
   display: flex;
   flex-direction: column;
+  max-width: 600px;
+  width: 100%;
   gap: var(--spacing-md); /* Using global spacing variable */
   padding: var(--spacing-lg); /* Using global spacing variable */
 }
 
 .contactForm:hover {
   transform: none;
+}
+
+.formTitle {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  text-align: center;
 }
 
 .inputField,
@@ -69,48 +78,20 @@
   justify-content: center;
 }
 
-.iconButton {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-md); /* Using global border radius */
-  background: var(--gradient-primary); /* Using global gradient */
-  padding: 1.5px;
-  color: var(--color-text); /* Using global text color */
-  transition: background var(--transition-medium),
-    box-shadow var(--transition-medium);
-}
-
-.iconButtonInner {
-  display: flex;
-  font-size: small;
-  padding: var(--spacing-sm); /* Using global spacing variable */
-  height: 100%;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--border-radius-md); /* Using global border radius */
-  background: var(--color-background); /* Using global background color */
-  transition: background var(--transition-medium);
-}
-
-.iconButton:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px var(--color-secondary), 0 0 20px var(--color-secondary); /* Using global secondary color */
-}
-
 /* Responsive Styles */
 @media (max-width: 978px) {
   .section {
     flex-direction: column;
-    padding: 0; /* Reduce padding on smaller screens */
+    width: 100%;
   }
 
   .intro {
-    max-width: 100%; /* Full width on smaller screens */
+    width: 100%;
+    text-align: center;
   }
 
   .contactForm {
+    width: 100%;
     padding: var(--spacing-md); /* Reduce padding */
   }
 
@@ -136,7 +117,7 @@
   }
 
   .contactForm {
-    padding: var(--spacing-sm); /* Further reduce padding */
+    padding: var(--spacing-md); /* Further reduce padding */
   }
 
   .inputField,

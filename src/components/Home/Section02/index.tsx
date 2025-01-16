@@ -5,7 +5,7 @@ import { MdArrowOutward } from "react-icons/md";
 import Link from "next/link";
 
 // Components
-import { GlareCard } from "../../Common/GloreCaard";
+import { GlareCard } from "../../Common/GloreCard";
 import {
   HeroHighlight,
   Highlight,

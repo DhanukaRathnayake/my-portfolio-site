@@ -57,10 +57,7 @@ const Blog: FunctionComponent<Props> = ({
     <div className={styles.blogContainer}>
       <div className={styles.categoryContainer}>
         {categories.map((item: TypeBlogCategory, index: number) => (
-          <button
-            className={`${styles.btnCategory} primary-button`}
-            key={index}
-          >
+          <button className={`${styles.btnCategory}`} key={index}>
             {item.name}
           </button>
         ))}

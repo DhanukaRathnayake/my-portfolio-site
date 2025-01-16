@@ -49,7 +49,7 @@ export const Highlight = ({
       transition={{
         duration: 2,
         ease: "linear",
-        delay: 0.5,
+        delay: 0.2,
       }}
       className="heroTextHighlight"
     >

@@ -17,8 +17,8 @@ const Tags: React.FC<TagsProps> = ({ tags }) => {
       transition={{ duration: 0.5, delay: 0.2 }}
     >
       {tags.map((tag, index) => (
-        <div key={index} className={`gradient-tag`}>
-          <div className={`gradient-tag-inner`}>{tag}</div>
+        <div key={index} className={styles.tag}>
+          {tag}
         </div>
       ))}
     </motion.div>

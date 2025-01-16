@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
-import Divider from "@mui/material/Divider";
 
 // Components
 import PageLoader from "@/components/Common/Loaders/PageLoader";
@@ -50,20 +49,19 @@ export const getServerSideProps: GetServerSideProps =
     try {
       const category = context.query?.category;
       const search = context.query?.search;
-      const status = context.query?.status;
+
+      console.log(category, "cate");
 
       const blogsResponse = await store.dispatch(
         getAllBlogs.initiate({
           category: typeof category === "string" ? category : null,
           search: typeof search === "string" ? search : null,
-          status: typeof status === "string" ? status : null,
+          status: "published",
         })
       );
 
       if (blogsResponse.isSuccess) {
         props.blogs = blogsResponse.data;
-
-        console.log(blogsResponse, "BBB");
       } else {
         console.error("Failed to fetch blogs:", blogsResponse.error);
       }
