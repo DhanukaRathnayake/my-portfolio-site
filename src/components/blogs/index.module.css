@@ -1,60 +1,32 @@
 .blogContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-}
-
-.categoryContainer {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.btnCategory {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 35px;
-  min-width: 80px;
-  padding: 5px 15px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: 500;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  backdrop-filter: var(--glass-blur);
-  color: var(--text-color);
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-.btnCategory:hover {
-  background: var(--hover-bg);
+  padding: var(--spacing-md);
 }
 
 .blogCards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
-  margin-bottom: 20px;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
 }
 
 .paginationContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 30px;
+  margin-top: var(--spacing-lg);
 }
 
 .paginationButton {
-  padding: 10px 20px;
-  border-radius: 8px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   backdrop-filter: var(--glass-blur);
-  color: var(--text-color);
+  color: var(--color-text);
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background var(--transition-fast);
 }
 
 .paginationButton:disabled {
@@ -68,18 +40,18 @@
 
 .pageNumbers {
   display: flex;
-  gap: 10px;
+  gap: var(--spacing-sm);
 }
 
 .pageButton {
-  padding: 10px 15px;
-  border-radius: 8px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   backdrop-filter: var(--glass-blur);
-  color: var(--text-color);
+  color: var(--color-text);
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background var(--transition-fast);
 }
 
 .pageButton:hover {
@@ -87,59 +59,93 @@
 }
 
 .activePage {
-  background: var(--primary-color);
-  border-color: var(--primary-color);
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }
 
-.card {
+.cardContainer {
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensure the card takes full height */
+  height: 100%;
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast);
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
   backdrop-filter: var(--glass-blur);
   border-radius: var(--border-radius-md);
-  overflow: hidden;
   box-shadow: var(--shadow-md);
-  transition: transform var(--transition-medium),
-    box-shadow var(--transition-medium);
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.cardContainer:hover {
   box-shadow: var(--shadow-lg);
+  transform: scale(1.01);
+}
+
+.imageContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
 }
 
 .cardImage {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
+  transition: transform var(--transition-fast),
+    border-radius var(--transition-fast);
+}
+
+.cardContainer:hover .cardImage {
+  transform: scale(0.95);
+  border-radius: var(--border-radius-lg);
 }
 
 .cardContent {
-  flex: 1; /* Allow content to grow and push the button to the bottom */
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: var(--spacing-md);
 }
 
 .cardTitle {
-  font-size: var(--font-size-lg);
-  font-weight: 600;
-  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-md);
+  font-weight: 700;
   color: var(--color-text);
+  margin-bottom: var(--spacing-md);
 }
 
 .cardDescription {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  opacity: 0.8;
   margin-bottom: var(--spacing-md);
-  flex: 1; /* Allow description to grow and push the button to the bottom */
+  flex: 1;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.cardDate {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
 }
 
 .readMoreButton {
-  width: 100%;
-  text-align: center;
-  margin-top: auto; /* Push the button to the bottom */
+  font-size: var(--font-size-xs);
+  background: var(--gradient-button);
+  color: var(--color-text);
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  cursor: pointer;
+  transition: background var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.readMoreButton:hover {
+  background: var(--button-hover-bg);
+  transform: scale(1.02);
 }

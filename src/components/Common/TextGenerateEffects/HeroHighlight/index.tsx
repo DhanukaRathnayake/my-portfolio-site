@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import React from "react";
 
 export const HeroHighlight = ({
+  className,
   children,
 }: {
   children: React.ReactNode;
@@ -23,12 +24,13 @@ export const HeroHighlight = ({
         ease: [0.4, 0.0, 0.2, 1],
       }}
     >
-      <div className="heroText">{children}</div>
+      <div className={`heroText ${className}`}>{children}</div>
     </motion.h1>
   );
 };
 
 export const Highlight = ({
+  className,
   children,
 }: {
   children: React.ReactNode;
@@ -51,7 +53,7 @@ export const Highlight = ({
         ease: "linear",
         delay: 0.2,
       }}
-      className="heroTextHighlight"
+      className={`heroTextHighlight ${className}`}
     >
       {children}
     </motion.span>

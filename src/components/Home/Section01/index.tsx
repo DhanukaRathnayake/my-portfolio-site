@@ -31,9 +31,9 @@ const Section01 = () => {
 
         {/* Hero text section */}
         <div className="mt-4">
-          <HeroHighlight>
-            <Highlight>Full Stack</Highlight> & <Highlight>DevOps</Highlight>{" "}
-            Engineering
+          <HeroHighlight className={styles.mainTitle}>
+            Innovative <Highlight>Web</Highlight>& <Highlight>Mobile</Highlight>
+            & <Highlight>Cloud</Highlight> Solutions
           </HeroHighlight>
         </div>
 

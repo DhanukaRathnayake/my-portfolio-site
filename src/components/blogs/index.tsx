@@ -7,6 +7,8 @@ import styles from "./index.module.css";
 
 // Types
 import { TypeBlogCategory, TypeBlog } from "@/types/blog";
+import Tags from "../Common/Tags";
+import Image from "next/image";
 
 interface Props {
   categories: TypeBlogCategory[] | [];
@@ -53,38 +55,44 @@ const Blog: FunctionComponent<Props> = ({
     router.push(`/blogs/${blog.id}`);
   };
 
+  // Format the date safely
+  const formatDate = (dateString: string | undefined): string => {
+    if (!dateString) return "Unknown date";
+    return new Date(dateString).toLocaleDateString();
+  };
+
   return (
     <div className={styles.blogContainer}>
-      <div className={styles.categoryContainer}>
-        {categories.map((item: TypeBlogCategory, index: number) => (
-          <button className={`${styles.btnCategory}`} key={index}>
-            {item.name}
-          </button>
-        ))}
-      </div>
+      <Tags
+        tags={categories.map(
+          (item: TypeBlogCategory, index: number) => item.name
+        )}
+      />
       <div className={styles.blogCards}>
         {currentBlogs &&
           currentBlogs.length > 0 &&
           currentBlogs.map((item: TypeBlog, index: number) => (
-            <div className={`primary-card`}>
-              <img
-                src={item.coverImageUrl}
-                alt={item.title}
-                className={styles.cardImage}
-              />
+            <div key={index} className={`${styles.cardContainer} primary-card`}>
+              <div className={styles.imageContainer}>
+                <Image
+                  src={item.coverImageUrl}
+                  alt="thumbnail"
+                  layout="fill"
+                  objectFit="cover"
+                  className={styles.cardImage}
+                />
+              </div>
               <div className={styles.cardContent}>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardDescription}>
-                  {item.excerpt.length > 95
-                    ? `${item.excerpt.substring(0, 95)}...`
-                    : item.excerpt}
-                </p>
-                <button
-                  className={`${styles.readMoreButton} primary-button`}
-                  onClick={() => handleBlogView(item)}
-                >
-                  Read More
-                </button>
+                <h2 className={styles.cardTitle}>{item.title}</h2>
+                <p className={styles.cardDescription}>{item.excerpt}</p>
+                <div className={styles.cardFooter}>
+                  <span className={styles.cardDate}>
+                    {formatDate(item.publishedAt || item.createdAt)}
+                  </span>
+                  <button className={`${styles.readMoreButton} primary-button`}>
+                    Read More
+                  </button>
+                </div>
               </div>
             </div>
           ))}

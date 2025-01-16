@@ -11,6 +11,10 @@
   max-width: 700px;
 }
 
+.mainTitle {
+  line-height: 110%;
+}
+
 /* Button Row */
 .buttonRow {
   display: flex;
