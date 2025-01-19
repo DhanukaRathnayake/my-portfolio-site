@@ -50,13 +50,10 @@ export const getServerSideProps: GetServerSideProps =
       const category = context.query?.category;
       const search = context.query?.search;
 
-      console.log(category, "cate");
-
       const blogsResponse = await store.dispatch(
         getAllBlogs.initiate({
           category: typeof category === "string" ? category : null,
           search: typeof search === "string" ? search : null,
-          status: "published",
         })
       );
 

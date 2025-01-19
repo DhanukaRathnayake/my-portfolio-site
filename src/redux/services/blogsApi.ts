@@ -32,12 +32,12 @@ export const blogsApi = createApi({
       },
     }),
     getAllBlogs: builder.query({
-      query: ({ category, search, slug }) => ({
+      query: ({ category, search, status }) => ({
         body: getAllBlogsGQL,
         variables: {
-          category: "",
-          search: "",
-          status: "",
+          category: category,
+          search: search,
+          status: "published",
         },
       }),
       transformResponse: async (response: any) => {

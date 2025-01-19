@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@apollo/client": "^3.12.6",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/lab": "^6.0.0-beta.20",
@@ -32,6 +33,7 @@
     "developer-icons": "^5.2.2",
     "dompurify": "^3.2.3",
     "framer-motion": "^11.18.0",
+    "graphql": "^16.10.0",
     "graphql-request": "^7.1.2",
     "highlight.js": "^11.11.0",
     "lottie-react": "^2.4.0",
