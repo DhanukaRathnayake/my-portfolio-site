@@ -1,9 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import LiquidBackground from "./LiqudBackground";
-import HeroText from "../Common/TextGenerateEffects/HeroHighlight";
+import {
+  HeroHighlight,
+  Highlight,
+} from "../Common/TextGenerateEffects/HeroHighlight";
 import styles from "./index.module.css";
 import TextGenerateEffect from "../Common/TextGenerateEffects";
+import { GoDotFill } from "react-icons/go";
 
 const WelcomePage: React.FC = () => {
   return (
@@ -14,49 +18,43 @@ const WelcomePage: React.FC = () => {
 
         {/* Hero text animation */}
         <div className={styles.contentContainer}>
-          <HeroText
-            heroText="Welcome to my Portfolio"
-            highlightedName={["Portfolio"]}
-            stylesProps={{
-              heroText: styles.heroText,
-              heroWord: styles.heroWord,
-              nameHighlight: styles.nameHighlight,
-            }}
-          />
+          <div className="mb-6">
+            <HeroHighlight>
+              Welcome to my <Highlight>Portfolio</Highlight>
+            </HeroHighlight>
+          </div>
 
-          <TextGenerateEffect
-            words={"portfolio.tagzy.site"}
-            className={styles.heroSubText}
-            duration={0.5}
-          />
+          <div className="mb-8">
+            <TextGenerateEffect words={"portfolio.tagzy.site"} duration={0.5} />
+          </div>
 
           {/* Motion div for loading dots animation */}
           <motion.div
-            className={styles.loadingDots}
+            className={`flex`}
             initial={{ opacity: 0 }}
             animate={{
               opacity: 1,
               transition: { duration: 1, repeat: Infinity, repeatType: "loop" },
             }}
           >
-            <motion.span
+            <motion.div
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 0.6, repeat: Infinity }}
             >
-              .
-            </motion.span>
-            <motion.span
+              <GoDotFill className={styles.loadingDot} />
+            </motion.div>
+            <motion.div
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
             >
-              .
-            </motion.span>
-            <motion.span
+              <GoDotFill className={styles.loadingDot} />
+            </motion.div>
+            <motion.div
               animate={{ opacity: [0, 1, 0] }}
               transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
             >
-              .
-            </motion.span>
+              <GoDotFill className={styles.loadingDot} />
+            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: var(--spacing-xl) 0; /* Using global spacing variable */
   color: var(--color-text); /* Using global text color */
 }
 
@@ -14,7 +13,6 @@
 .buttonsGroup {
   display: flex;
   justify-content: center;
-  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
   gap: var(--spacing-md); /* Using global spacing variable */
   flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
 }

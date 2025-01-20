@@ -44,7 +44,6 @@ export const Highlight = ({
       }}
       whileInView={{
         opacity: 1,
-
         backgroundSize: "100% 100%",
       }}
       viewport={{ once: true, amount: 0.5 }}

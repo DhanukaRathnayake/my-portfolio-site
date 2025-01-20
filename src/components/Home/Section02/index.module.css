@@ -7,7 +7,6 @@
   flex-direction: column; /* Stack items vertically by default (mobile-first) */
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-lg);
 }
 
 .introWrapper {
@@ -64,7 +63,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-sm);
 }
 
 .cardIcon {
@@ -85,7 +83,6 @@
 .cardTitle {
   font-size: 1.25rem; /* Smaller title on smaller screens */
   color: var(--color-text);
-  margin-bottom: var(--spacing-xs);
 }
 
 .cardDescription {

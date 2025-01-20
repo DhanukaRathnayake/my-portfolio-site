@@ -185,48 +185,46 @@ h1 {
   font-size: var(--font-size-xxl);
   font-weight: 700;
   line-height: 1.2;
-  margin-bottom: var(--spacing-lg);
+  /* margin-bottom: var(--spacing-lg); */
 }
 
 h2 {
   font-size: var(--font-size-xl);
   font-weight: 600;
   line-height: 1.3;
-  margin-bottom: var(--spacing-md);
+  /* margin-bottom: var(--spacing-md); */
 }
 
 h3 {
   font-size: var(--font-size-lg);
   font-weight: 600;
   line-height: 1.4;
-  margin-bottom: var(--spacing-md);
+  /* margin-bottom: var(--spacing-md); */
 }
 
 h4 {
   font-size: var(--font-size-md);
   font-weight: 500;
   line-height: 1.5;
-  margin-bottom: var(--spacing-sm);
+  /* margin-bottom: var(--spacing-sm); */
 }
 
 p {
   font-size: var(--font-size-md);
   line-height: 1.6;
-  margin-bottom: var(--spacing-md);
+  /* margin-bottom: var(--spacing-md); */
 }
 
 .heroText {
-  font-size: var(--font-size-xxl);
-  font-weight: bold;
-  color: var(--color-text);
   display: inline-block;
-  line-height: var(--spacing-xxl);
+  color: var(--color-text);
+  font-weight: bold;
+  font-size: var(--font-size-xxl);
 }
 
 .heroTextHighlight {
   position: relative;
   display: inline;
-  padding: 1rem 1rem 1rem 0;
   background-image: linear-gradient(
     to right,
     var(--color-gradient-start),
@@ -242,7 +240,6 @@ p {
 .heroSubText {
   font-size: var(--font-size-sm); /* Using global font size */
   color: var(--color-text-secondary); /* Using global text color */
-  margin-bottom: var(--spacing-lg); /* Using global spacing variable */
 }
 
 /* Card Style */

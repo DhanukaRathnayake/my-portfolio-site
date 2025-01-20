@@ -27,17 +27,21 @@ const Section01 = () => {
     <div className={styles.section}>
       <motion.div className={styles.intro}>
         {/* Ready to Innovate Button */}
-        <GradientButton>{Info.status}</GradientButton>
+        <div className="mb-4">
+          <GradientButton>{Info.status}</GradientButton>
+        </div>
 
         {/* Hero text section */}
-        <div className="mt-4">
+        <div className="mb-4">
           <HeroHighlight className={styles.mainTitle}>
-            Innovative <Highlight>Web</Highlight>& <Highlight>Mobile</Highlight>
-            & <Highlight>Cloud</Highlight> Solutions
+            Innovative <Highlight>Web </Highlight>&{" "}
+            <Highlight>Mobile </Highlight>& <Highlight>Cloud </Highlight>
+            Solutions
           </HeroHighlight>
         </div>
 
-        <div className="mt-5">
+        {/* Hero sub text */}
+        <div className="mb-6">
           <TextGenerateEffect
             words={Info.sections.section01.description}
             duration={0.5}
@@ -45,11 +49,13 @@ const Section01 = () => {
         </div>
 
         {/* Rounded Tags */}
-        <Tags tags={Info.tags} />
+        <div className="mb-6">
+          <Tags tags={Info.tags} />
+        </div>
 
         {/* Projects and Contact Buttons */}
         <motion.div
-          className={styles.buttonRow}
+          className={`mb-6 ${styles.buttonRow}`}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}

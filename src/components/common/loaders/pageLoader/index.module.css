@@ -23,10 +23,7 @@
   z-index: -1;
 }
 
-.loadingDots {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 3rem; /* Reduced size of the dots */
+.loadingDot {
+  font-size: 1.5rem;
   color: #ffffff;
 }

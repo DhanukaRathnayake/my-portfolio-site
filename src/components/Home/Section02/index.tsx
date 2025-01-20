@@ -22,21 +22,26 @@ import { Info } from "../../../data/info";
 const Section02 = () => {
   return (
     <div className={styles.section}>
-      <div className={styles.detailsWrapper}>
+      <div className={`mb-6 ${styles.detailsWrapper}`}>
         <div className={styles.introWrapper}>
-          <HeroHighlight>
-            Hello, I'm <Highlight>{`${Info.firstName}`}</Highlight>
-          </HeroHighlight>
+          {/* Hero section */}
+          <div className="mb-4">
+            <HeroHighlight>
+              Hello, I'm <Highlight>{`${Info.firstName}`}</Highlight>
+            </HeroHighlight>
+          </div>
 
-          {/* Hero text section */}
-          <TextGenerateEffect
-            words={Info.sections.section02.description}
-            duration={0.5}
-          />
+          {/* Hero sub text */}
+          <div className="mb-6">
+            <TextGenerateEffect
+              words={Info.sections.section02.description}
+              duration={0.5}
+            />
+          </div>
 
           {/* Projects and Contact Buttons */}
           <motion.div
-            className={styles.buttonRow}
+            className={`mb-6 ${styles.buttonRow}`}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
@@ -66,13 +71,13 @@ const Section02 = () => {
       <div className={styles.cardContainer}>
         {Info.summaryCounts.map((item) => (
           <div key={item.id} className={`${styles.cardWrapper} primary-card`}>
-            <div className={styles.cardHeader}>
+            <div className={`mb-2 ${styles.cardHeader}`}>
               {item.icon}
               <span className={styles.cardNumber}>{item.count}</span>
             </div>
             <div className={styles.cardBody}>
               <div>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
+                <h3 className={`mb-2 ${styles.cardTitle}`}>{item.title}</h3>
                 <p className={styles.cardDescription}>{item.description}</p>
               </div>
               <Link href={item.link} className={styles.cardLink}>

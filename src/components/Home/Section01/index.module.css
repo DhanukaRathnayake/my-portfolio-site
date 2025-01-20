@@ -19,7 +19,6 @@
 .buttonRow {
   display: flex;
   gap: var(--spacing-xl);
-  margin-bottom: var(--spacing-xl);
 }
 
 .button {

@@ -21,14 +21,17 @@ const Section04 = () => {
     <div className={styles.section}>
       {/* Hero Section */}
       <div className={styles.intro}>
-        <HeroHighlight>
-          Contact <Highlight>Me</Highlight>
-        </HeroHighlight>
-
-        <TextGenerateEffect
-          words={Info.sections.section04.description}
-          duration={0.5}
-        />
+        <div className="mb-2">
+          <HeroHighlight>
+            Contact <Highlight>Me</Highlight>
+          </HeroHighlight>
+        </div>
+        <div className="mb-4">
+          <TextGenerateEffect
+            words={Info.sections.section04.description}
+            duration={0.5}
+          />
+        </div>
       </div>
 
       <form className={`${styles.contactForm} primary-card`}>

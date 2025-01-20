@@ -37,18 +37,22 @@ const Section03 = () => {
     <div className={styles.section}>
       {/* Hero Section */}
       <div className={styles.intro}>
-        <HeroHighlight>
-          <Highlight>Portfolio</Highlight> ShowCast
-        </HeroHighlight>
+        <div className="mb-2">
+          <HeroHighlight>
+            <Highlight>Portfolio</Highlight> ShowCast
+          </HeroHighlight>
+        </div>
 
-        <TextGenerateEffect
-          words={Info.sections.section03.description}
-          duration={0.5}
-        />
+        <div className="mb-4">
+          <TextGenerateEffect
+            words={Info.sections.section03.description}
+            duration={0.5}
+          />
+        </div>
       </div>
 
       {/* Buttons Section */}
-      <div className={styles.buttonsGroup}>
+      <div className={`mb-4 ${styles.buttonsGroup}`}>
         <button
           className={`${styles.glassyButton} ${
             currentSection === "blogs" ? styles.active : ""

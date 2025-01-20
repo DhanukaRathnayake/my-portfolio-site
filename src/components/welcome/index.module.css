@@ -24,29 +24,8 @@
   color: var(--color-text); /* Using global text color */
 }
 
-.heroText {
-  font-size: var(--font-size-xxl); /* Using global font size variable */
-  font-weight: bold;
-  color: var(--color-text); /* Using global text color */
-  display: inline-block;
-}
-
-.heroWord {
-  display: inline-block;
-  margin-right: var(--spacing-xs); /* Using global spacing variable */
-}
-
-.nameHighlight {
-  color: var(--color-primary); /* Using global primary color */
-  text-shadow: 0 0 3px var(--color-primary), 0 0 5px var(--color-primary),
-    0 0 8px var(--color-primary); /* Using global primary color */
-}
-
 /* Loading Dots Animation */
-.loadingDots {
-  display: flex;
-  justify-content: center;
-  gap: var(--spacing-xs); /* Using global spacing variable */
-  font-size: var(--font-size-xxl); /* Using global font size variable */
-  color: var(--color-text); /* Using global text color */
+.loadingDot {
+  font-size: 1.5rem;
+  color: #ffffff;
 }
