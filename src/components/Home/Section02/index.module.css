@@ -1,0 +1,142 @@
+.section {
+  min-height: 80vh;
+}
+
+.detailsWrapper {
+  display: flex;
+  flex-direction: column; /* Stack items vertically by default (mobile-first) */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.introWrapper {
+  flex: 2;
+  max-width: 100%; /* Full width on smaller screens */
+  text-align: center; /* Center text on smaller screens */
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: var(
+    --spacing-lg
+  ); /* Add margin to separate image from text on smaller screens */
+}
+
+.profileImage {
+  width: 200px; /* Smaller image on smaller screens */
+  height: 200px;
+}
+
+/* Button Row */
+.buttonRow {
+  display: flex;
+  gap: var(--spacing-md); /* Smaller gap on smaller screens */
+  justify-content: center; /* Center buttons on smaller screens */
+  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+}
+
+.button {
+  width: 140px; /* Slightly smaller buttons on smaller screens */
+}
+
+/* Cards */
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(250px, 1fr)
+  ); /* Smaller cards on smaller screens */
+  gap: var(--spacing-md);
+}
+
+.cardWrapper {
+  padding: var(--spacing-md);
+}
+
+.cardWrapper:hover {
+  transform: translateY(-5px);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardIcon {
+  width: 40px;
+  height: 40px;
+}
+
+.cardNumber {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+}
+
+.cardBody {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cardTitle {
+  font-size: 1.25rem; /* Smaller title on smaller screens */
+  color: var(--color-text);
+}
+
+.cardDescription {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.cardFooter {
+  text-align: right;
+}
+
+.cardLink {
+  color: var(--color-primary);
+  font-weight: bold;
+  align-self: flex-end;
+}
+
+/* Media Queries for Larger Screens (overrides mobile styles) */
+@media (min-width: 768px) {
+  .detailsWrapper {
+    flex-direction: row; /* Horizontal layout on larger screens */
+  }
+
+  .introWrapper {
+    max-width: 700px; /* Revert to original max-width */
+    text-align: left; /* Left-aligned text on larger screens */
+  }
+
+  .imageWrapper {
+    margin-top: 0; /* Remove margin on larger screens */
+  }
+
+  .profileImage {
+    width: 300px; /* Revert to original size */
+    height: 300px;
+  }
+
+  .buttonRow {
+    gap: var(--spacing-xl); /* Revert to original gap */
+    justify-content: flex-start; /* Left-aligned buttons on larger screens */
+  }
+
+  .button {
+    width: 150px; /* Revert to original size */
+  }
+
+  .cardContainer {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(300px, 1fr)
+    ); /* Revert to original card size */
+  }
+
+  .cardTitle {
+    font-size: 1.5rem; /* Revert to original title size */
+  }
+}

@@ -1,0 +1,57 @@
+.liquidBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: var(--z-index-blob-container); /* Using global z-index variable */
+  overflow: hidden;
+}
+
+.blob {
+  position: absolute;
+  width: var(--size);
+  height: var(--size);
+  background: var(--blob-color);
+  filter: var(--blur-lg); /* Using global blur effect */
+  border-radius: 50%;
+  animation: fadeInOut var(--fade-duration) ease-in-out infinite,
+    blobMotion var(--motion-duration) ease-in-out infinite;
+  left: var(--x1);
+  top: var(--y1);
+}
+
+/* Blob Motion Animation */
+@keyframes blobMotion {
+  0% {
+    transform: translate(var(--x1), var(--y1)) scale(1); /* Start at x1, y1 */
+  }
+  25% {
+    transform: translate(var(--x2), var(--y2)) scale(1.1);
+  }
+  50% {
+    transform: translate(var(--x3), var(--y3)) scale(0.9);
+  }
+  75% {
+    transform: translate(var(--x4), var(--y4)) scale(1.05);
+  }
+  100% {
+    transform: translate(var(--x1), var(--y1)) scale(1); /* End back at x1, y1 */
+  }
+}
+
+/* Fade In and Out Animation */
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}

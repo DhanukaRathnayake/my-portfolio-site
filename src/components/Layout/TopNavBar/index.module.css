@@ -1,0 +1,179 @@
+.navBar {
+  position: fixed;
+  top: 0;
+  z-index: var(--z-index-navbar);
+  backdrop-filter: var(--blur-sm);
+  height: 70px;
+  width: 100%;
+  padding: 0 var(--spacing-md);
+  color: var(--color-text);
+  background-color: var(--color-navbar-bg);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: backdrop-filter var(--transition-medium);
+}
+
+.navBar:hover {
+  backdrop-filter: var(--blur-md);
+}
+
+/* Logo */
+.logo {
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  color: var(--color-primary);
+  text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
+    0 0 1px var(--color-primary); /* Using global primary color */
+}
+
+/* Navigation Links */
+.navLinks {
+  display: flex;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+.navLink {
+  width: 65px;
+  display: flex;
+  justify-content: center;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  position: relative;
+  transition: color var(--transition-medium);
+}
+
+/* Bottom Line (Hidden by Default) */
+.navLink::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition-medium);
+}
+
+/* Hover Effect for Non-Active Links */
+.navLink:hover::after {
+  transform: scaleX(1);
+}
+
+/* Active Link Styles */
+.activeNavLink {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.activeNavLink::after {
+  transform: scaleX(1);
+}
+
+/* Desktop Contact Button */
+.desktopContactButton {
+  display: block;
+}
+
+/* Mobile Contact Button */
+.mobileContactButton {
+  display: none;
+}
+
+/* Hamburger Menu */
+.hamburgerMenu {
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--color-text);
+  border-radius: var(--border-radius-sm);
+  transition: transform var(--transition-medium),
+    opacity var(--transition-medium);
+}
+
+/* Hamburger Menu Animation */
+.bar1 {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bar2 {
+  opacity: 0;
+}
+
+.bar3 {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    flex-direction: column;
+    background-color: var(--color-background); /* Solid background color */
+    width: 100%;
+    padding: var(--spacing-md);
+    box-shadow: var(--shadow-md);
+  }
+
+  .navLinks.mobileMenuOpen {
+    display: flex;
+  }
+
+  .navLink {
+    width: 100%;
+    justify-content: flex-start;
+    padding: var(--spacing-sm) 0;
+  }
+
+  /* Remove bottom line animation for mobile nav links */
+  .navLink::after {
+    display: none; /* Hide the bottom line */
+  }
+
+  /* Hide Desktop Contact Button on Mobile */
+  .desktopContactButton {
+    display: none;
+  }
+
+  /* Show Mobile Contact Button in Dropdown */
+  .mobileContactButton {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: var(--color-text);
+    margin-top: var(--spacing-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .mobileContactButton:hover {
+    color: var(--color-primary);
+  }
+
+  .hamburgerMenu {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: var(--font-size-lg);
+  }
+
+  .navLinks {
+    top: 60px;
+  }
+}
