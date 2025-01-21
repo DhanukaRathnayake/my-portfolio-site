@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import styles from "./index.module.css";
 import BlobBackground from "./BlobBackground";
 import ProgressBar from "../Common/Loaders/ProgressBar";
-import PageLoader from "../Common/Loaders/PageLoader";
+import PageLoader from "../Common/Loaders/pageLoader";
 
 // Dynamically imported components
 const TopNavBar = dynamic(() => import("./TopNavBar"));

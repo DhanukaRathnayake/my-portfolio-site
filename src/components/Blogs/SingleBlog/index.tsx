@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import Divider from "@mui/material/Divider";
 import { generateHTML } from "@tiptap/html";
 import DOMPurify from "dompurify";
 import hljs from "highlight.js";
@@ -13,6 +12,7 @@ import styles from "./index.module.css";
 
 // Types
 import { TypeBlog } from "@/types/blog";
+import Image from "next/image";
 
 interface Props {
   blog: TypeBlog;
@@ -67,7 +67,7 @@ const SingleBlog: React.FC<Props> = ({ blog }) => {
         {/* Cover Image with Animation */}
         {blog.coverImageUrl && (
           <div className={styles.coverImageContainer}>
-            <img
+            <Image
               src={blog.coverImageUrl}
               alt={blog.title}
               className={styles.coverImage}

@@ -29,7 +29,7 @@ const TextGenerateEffect: React.FC<TextGenerateEffectProps> = ({
         delay: stagger(0.2),
       }
     );
-  }, [scope.current]);
+  }, [animate, duration, filter, words]); // Include all dependencies
 
   const renderWords = () => {
     return (

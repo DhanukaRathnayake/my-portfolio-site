@@ -4,7 +4,7 @@ import { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
 
 // Components
-import PageLoader from "@/components/Common/Loaders/PageLoader";
+import PageLoader from "@/components/Common/Loaders/pageLoader";
 const Blogs = dynamic(() => import("../../components/Blogs"), {
   ssr: true,
   loading: () => <PageLoader />,

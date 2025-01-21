@@ -27,7 +27,7 @@ const Section02 = () => {
           {/* Hero section */}
           <div className="mb-4">
             <HeroHighlight>
-              Hello, I'm <Highlight>{`${Info.firstName}`}</Highlight>
+              Hello, I&apos;m <Highlight>{`${Info.firstName}`}</Highlight>
             </HeroHighlight>
           </div>
 
