@@ -63,11 +63,13 @@ const Blog: FunctionComponent<Props> = ({
 
   return (
     <div className={styles.blogContainer}>
-      <Tags
-        tags={categories.map(
-          (item: TypeBlogCategory, index: number) => item.name
-        )}
-      />
+      <div className="mb-4">
+        <Tags
+          tags={categories.map(
+            (item: TypeBlogCategory, index: number) => item.name
+          )}
+        />
+      </div>
       <div className={styles.blogCards}>
         {currentBlogs &&
           currentBlogs.length > 0 &&

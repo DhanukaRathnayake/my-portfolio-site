@@ -1,0 +1,96 @@
+/* Toast Base Styles */
+.toast {
+  position: fixed;
+  bottom: var(--spacing-md); /* Use global spacing variable */
+  right: var(--spacing-md); /* Use global spacing variable */
+  z-index: var(--z-index-navbar); /* Use global z-index variable */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md); /* Use global spacing variable */
+  max-width: 300px;
+  animation: slideIn 0.3s ease-out;
+  background: var(--glass-bg); /* Use glassy background */
+  border: 1px solid var(--glass-border); /* Use glassy border */
+  backdrop-filter: var(--glass-blur); /* Use glassy blur */
+  border-radius: var(--border-radius-md); /* Use global border radius */
+  box-shadow: var(--shadow-md); /* Use global shadow */
+  color: var(--color-text); /* Use global text color */
+}
+
+/* Toast Message Styles */
+.message {
+  font-size: var(--font-size-sm); /* Use global font size */
+  font-weight: 500;
+  color: var(--color-text); /* Use global text color */
+}
+
+/* Close Button Styles */
+.closeButton {
+  margin-left: var(--spacing-sm); /* Use global spacing variable */
+  padding: var(--spacing-xs); /* Use global spacing variable */
+  border-radius: var(--border-radius-full); /* Use global border radius */
+  transition: background-color var(--transition-fast); /* Use global transition */
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  background-color: var(--hover-bg); /* Use hover background */
+}
+
+.closeIcon {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-text); /* Use global text color */
+}
+
+/* Slide-in Animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .toast {
+    bottom: var(--spacing-sm); /* Adjust spacing for smaller screens */
+    right: var(--spacing-sm); /* Adjust spacing for smaller screens */
+    max-width: 250px; /* Reduce max-width for smaller screens */
+    padding: var(--spacing-sm); /* Adjust padding for smaller screens */
+  }
+
+  .message {
+    font-size: var(
+      --font-size-xs
+    ); /* Use smaller font size for smaller screens */
+  }
+
+  .closeButton {
+    margin-left: var(--spacing-xs); /* Adjust spacing for smaller screens */
+    padding: var(--spacing-xxs); /* Adjust padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .toast {
+    bottom: var(--spacing-xs); /* Adjust spacing for mobile screens */
+    right: var(--spacing-xs); /* Adjust spacing for mobile screens */
+    max-width: 200px; /* Reduce max-width for mobile screens */
+    padding: var(--spacing-xs); /* Adjust padding for mobile screens */
+  }
+
+  .message {
+    font-size: 0.75rem; /* Use even smaller font size for mobile screens */
+  }
+
+  .closeButton {
+    margin-left: var(--spacing-xxs); /* Adjust spacing for mobile screens */
+    padding: var(--spacing-xxs); /* Adjust padding for mobile screens */
+  }
+}
