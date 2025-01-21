@@ -14,6 +14,7 @@
 
 .mainContent {
   width: 100%;
+  padding: 0 var(--spacing-xxl); /* Using global spacing variables */
 }
 
 .footer {

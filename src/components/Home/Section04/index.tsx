@@ -3,10 +3,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 // Components
-import {
-  HeroHighlight,
-  Highlight,
-} from "../../Common/TextGenerateEffects/HeroHighlight";
+import { HeroText, Highlight } from "../../Common/TextGenerateEffects/HeroText";
 import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 import { IconButton } from "@/components/Common/Buttons/IconButton";
 import { useToast } from "@/components/Common/Toast/ToastContext";
@@ -66,9 +63,9 @@ const Section04 = () => {
       {/* Hero Section */}
       <div className={styles.intro}>
         <div className="mb-2">
-          <HeroHighlight>
+          <HeroText>
             Contact <Highlight>Me</Highlight>
-          </HeroHighlight>
+          </HeroText>
         </div>
         <div className="mb-4">
           <TextGenerateEffect
@@ -117,7 +114,7 @@ const Section04 = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className={`${styles.submitButton} primary-button`}
+          className={`${styles.submitButton} mb-4 primary-button`}
           disabled={isLoading}
         >
           {isLoading ? "Sending..." : "Send Message"}

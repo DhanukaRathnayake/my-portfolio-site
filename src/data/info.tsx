@@ -1,7 +1,7 @@
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { SiUpwork } from "react-icons/si";
 import { TbBrandFiverr } from "react-icons/tb";
-import { FaCode, FaLaptop } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
 import { MdOutlineVerifiedUser } from "react-icons/md";
 import { GrUserExpert } from "react-icons/gr";
 

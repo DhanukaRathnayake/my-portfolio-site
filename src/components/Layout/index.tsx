@@ -1,23 +1,22 @@
 import React, { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 import { motion, AnimatePresence } from "framer-motion";
 
 // Styles
 import styles from "./index.module.css";
-import BlobBackground from "./BlobBackground";
-import ProgressBar from "../Common/Loaders/ProgressBar";
-import PageLoader from "../Common/Loaders/pageLoader";
 
-// Dynamically imported components
-const TopNavBar = dynamic(() => import("./TopNavBar"));
-const WelcomePage = dynamic(() => import("../Welcome"));
+// Components
+import BlobBackground from "./BlobBackground";
+import PageLoader from "../Common/Loaders/pageLoader";
+import ProgressBar from "../Common/Loaders/ProgressBar";
+import WelcomePage from "../Welcome";
+import TopNavBar from "./TopNavBar";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const [showWelcomePage, setShowWelcomePage] = useState<boolean>(true);
+  const [showWelcomePage, setShowWelcomePage] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -25,62 +24,52 @@ const Layout = ({ children }: LayoutProps) => {
     const now = Date.now();
     const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
-    // Simulate a delay for checking the visit status
     setTimeout(() => {
       if (!lastVisit || now - parseInt(lastVisit) > oneWeek) {
         setShowWelcomePage(true);
         localStorage.setItem("lastVisit", now.toString());
-      } else {
-        setShowWelcomePage(false);
+        setTimeout(() => setShowWelcomePage(false), 6000);
       }
       setIsLoading(false);
-    }, 100);
+    }, 1000);
   }, []);
-
-  if (isLoading) {
-    return <PageLoader />;
-  }
 
   return (
     <div className={styles.layoutContainer}>
-      <AnimatePresence>
-        {showWelcomePage ? (
-          <motion.div
-            key="welcome"
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1, delay: 6 }}
-            onAnimationComplete={() => setShowWelcomePage(false)}
-          >
-            <WelcomePage />
-          </motion.div>
-        ) : (
-          <motion.div
-            key="main"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <BlobBackground />
-
-            {/* Top Navigation and Progress Bar */}
-            <div className={styles.topSection}>
-              <TopNavBar />
-              <ProgressBar />
-            </div>
-
-            {/* Main Content */}
-            <div className={styles.mainContent}>
-              <main>{children}</main>
-            </div>
-
-            {/* Footer */}
-            <div className={styles.footer}></div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isLoading ? (
+        <PageLoader />
+      ) : (
+        <AnimatePresence mode="wait">
+          {showWelcomePage ? (
+            <motion.div
+              key="welcome"
+              initial={{ opacity: 1, scale: 1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 1, ease: "easeInOut" }}
+            >
+              <WelcomePage />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="main"
+              initial={{ opacity: 0, scale: 1 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
+            >
+              <BlobBackground />
+              <div className={styles.topSection}>
+                <TopNavBar />
+                <ProgressBar />
+              </div>
+              <div className={styles.mainContent}>
+                <main>{children}</main>
+              </div>
+              <div className={styles.footer}></div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      )}
     </div>
   );
 };

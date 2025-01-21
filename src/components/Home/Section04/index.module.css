@@ -78,18 +78,6 @@
   justify-content: center;
 }
 
-.successMessage {
-  color: green;
-  margin-top: 10px;
-  text-align: center;
-}
-
-.errorMessage {
-  color: red;
-  margin-top: 10px;
-  text-align: center;
-}
-
 /* Responsive Styles */
 @media (max-width: 978px) {
   .section {

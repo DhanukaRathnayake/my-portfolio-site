@@ -6,10 +6,7 @@ import { motion } from "framer-motion";
 // Components
 import LottieAnimation from "./LottieAnimation";
 import Tags from "@/components/Common/Tags";
-import {
-  HeroHighlight,
-  Highlight,
-} from "../../Common/TextGenerateEffects/HeroHighlight";
+import { HeroText, Highlight } from "../../Common/TextGenerateEffects/HeroText";
 import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 
 // Styles
@@ -33,11 +30,11 @@ const Section01 = () => {
 
         {/* Hero text section */}
         <div className="mb-4">
-          <HeroHighlight className={styles.mainTitle}>
+          <HeroText className={styles.mainTitle}>
             Innovative <Highlight>Web </Highlight>&{" "}
             <Highlight>Mobile </Highlight>& <Highlight>Cloud </Highlight>
             Solutions
-          </HeroHighlight>
+          </HeroText>
         </div>
 
         {/* Hero sub text */}
@@ -55,7 +52,7 @@ const Section01 = () => {
 
         {/* Projects and Contact Buttons */}
         <motion.div
-          className={`mb-6 ${styles.buttonRow}`}
+          className={`mb-8 ${styles.buttonRow}`}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}

@@ -173,6 +173,7 @@
 html {
   scrollbar-width: thin; /* Firefox: Thin scrollbar */
   scrollbar-color: rgba(68, 68, 68, 0.8) rgba(34, 34, 34, 0.8); /* Firefox: Thumb and track colors with transparency */
+  scroll-behavior: smooth;
 }
 
 /* Typography */

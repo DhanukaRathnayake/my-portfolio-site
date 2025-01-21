@@ -6,10 +6,7 @@ import Link from "next/link";
 
 // Components
 import { GlareCard } from "../../Common/GloreCard";
-import {
-  HeroHighlight,
-  Highlight,
-} from "../../Common/TextGenerateEffects/HeroHighlight";
+import { HeroText, Highlight } from "../../Common/TextGenerateEffects/HeroText";
 import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 
 // Styles
@@ -26,9 +23,9 @@ const Section02 = () => {
         <div className={styles.introWrapper}>
           {/* Hero section */}
           <div className="mb-4">
-            <HeroHighlight>
+            <HeroText>
               Hello, I&apos;m <Highlight>{`${Info.firstName}`}</Highlight>
-            </HeroHighlight>
+            </HeroText>
           </div>
 
           {/* Hero sub text */}

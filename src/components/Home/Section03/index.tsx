@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 // Components
-import {
-  HeroHighlight,
-  Highlight,
-} from "../../Common/TextGenerateEffects/HeroHighlight";
+import { HeroText, Highlight } from "../../Common/TextGenerateEffects/HeroText";
 import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 import Blogs from "./Blogs";
 import Services from "./Services/services";
@@ -38,9 +35,9 @@ const Section03 = () => {
       {/* Hero Section */}
       <div className={styles.intro}>
         <div className="mb-2">
-          <HeroHighlight>
+          <HeroText>
             <Highlight>Portfolio</Highlight> ShowCast
-          </HeroHighlight>
+          </HeroText>
         </div>
 
         <div className="mb-4">

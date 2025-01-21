@@ -1,10 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import LiquidBackground from "./LiqudBackground";
+import { Vortex } from "./Vortex";
 import {
-  HeroHighlight,
+  HeroSection,
+  HeroText,
   Highlight,
-} from "../Common/TextGenerateEffects/HeroHighlight";
+} from "../Common/TextGenerateEffects/HeroText";
 import styles from "./index.module.css";
 import TextGenerateEffect from "../Common/TextGenerateEffects";
 import { GoDotFill } from "react-icons/go";
@@ -14,49 +15,61 @@ const WelcomePage: React.FC = () => {
     <div className="overflow-hidden">
       <div className={styles.welcomePage}>
         {/* Motion background animation */}
-        <LiquidBackground />
-
-        {/* Hero text animation */}
-        <div className={styles.contentContainer}>
-          <div className="mb-6">
-            <HeroHighlight>
-              Welcome to my <Highlight>Portfolio</Highlight>
-            </HeroHighlight>
-          </div>
-
-          <div className="mb-8">
-            <TextGenerateEffect words={"portfolio.tagzy.site"} duration={0.5} />
-          </div>
-
-          {/* Motion div for loading dots animation */}
+        <Vortex
+          backgroundColor="black"
+          className="flex items-center flex-col justify-center px-2 md:px-10 py-4 w-full h-full"
+        >
           <motion.div
-            className={`flex`}
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              transition: { duration: 1, repeat: Infinity, repeatType: "loop" },
-            }}
+            className={styles.contentContainer}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 1.05 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
           >
+            {/* Hero text animation */}
+            <HeroSection className="mb-6">
+              <HeroText>
+                Welcome to my <Highlight>Portfolio</Highlight>
+              </HeroText>
+            </HeroSection>
+
             <motion.div
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{ duration: 0.6, repeat: Infinity }}
+              className="mb-6 py-2 px-4 primary-card"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.05 }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
             >
-              <GoDotFill className={styles.loadingDot} />
+              <TextGenerateEffect
+                words={"portfolio.tagzy.site"}
+                duration={1.2}
+              />
             </motion.div>
-            <motion.div
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{ duration: 0.6, repeat: Infinity, delay: 0.2 }}
-            >
-              <GoDotFill className={styles.loadingDot} />
-            </motion.div>
-            <motion.div
-              animate={{ opacity: [0, 1, 0] }}
-              transition={{ duration: 0.6, repeat: Infinity, delay: 0.4 }}
-            >
-              <GoDotFill className={styles.loadingDot} />
+
+            {/* Smooth Loading Dots Animation */}
+            <motion.div className={`flex`}>
+              {[0, 0.2, 0.4].map((delay, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0.3, y: 0 }}
+                  animate={{
+                    opacity: [0.3, 1, 0.3],
+                    y: [-3, 3, -3],
+                  }}
+                  transition={{
+                    duration: 0.6,
+                    repeat: Infinity,
+                    repeatType: "loop",
+                    ease: "easeInOut",
+                    delay,
+                  }}
+                >
+                  <GoDotFill className={styles.loadingDot} />
+                </motion.div>
+              ))}
             </motion.div>
           </motion.div>
-        </div>
+        </Vortex>
       </div>
     </div>
   );

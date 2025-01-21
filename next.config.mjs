@@ -1,4 +1,9 @@
-/** @type {import('next').NextConfig} */
+import withBundleAnalyzer from "@next/bundle-analyzer";
+
+const bundleAnalyzer = withBundleAnalyzer({
+  enabled: process.env.ANALYZE === "true", // Enable only when ANALYZE env is set to true
+});
+
 const nextConfig = {
   reactStrictMode: true,
   devIndicators: {
@@ -13,8 +18,9 @@ const nextConfig = {
     LOGO_URL: process.env.LOGO_URL,
   },
   images: {
-    unoptimized: true,
+    unoptimized: true, // Disable Next.js default image optimization
   },
 };
 
-export default nextConfig;
+// Export the configuration
+export default bundleAnalyzer(nextConfig);
