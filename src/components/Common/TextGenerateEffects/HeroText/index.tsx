@@ -76,7 +76,7 @@ export const HeroText = ({
             animate={{ opacity: 1 }}
             transition={{
               delay: index * 0.1, // Slower delay for each character (0.1s per character)
-              duration: 0.5, // Slower duration for each character
+              duration: 0.1, // Slower duration for each character
               ease: "easeOut",
             }}
             className={isHighlighted ? "heroTextHighlight" : ""}

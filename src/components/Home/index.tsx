@@ -1,42 +1,82 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 // Components
-// import useSmoothScroll from "../Common/Scroll/SmoothScroll";
 import Section01 from "./Section01";
 import Section02 from "./Section02";
 import Section03 from "./Section03";
 import Section04 from "./Section04";
 
-// Framer Motion
-// import { motion, useScroll, useSpring } from "framer-motion";
-
 // Styles
 import styles from "./index.module.css";
 
 const Home: React.FC = () => {
+  const [section01Ref, section01InView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const [section02Ref, section02InView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const [section03Ref, section03InView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const [section04Ref, section04InView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+
   return (
     <div>
       {/* Section 1: Introduction */}
-      <section className={`${styles.section}`}>
-        <Section01 />
-      </section>
+      <motion.section
+        ref={section01Ref}
+        initial={{ opacity: 0 }}
+        animate={section01InView ? { opacity: 1 } : {}}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className={`${styles.section}`}
+      >
+        {section01InView && <Section01 />}
+      </motion.section>
 
       {/* Section 2: About Me */}
-      <section className={`${styles.section}`}>
-        <Section02 />
-      </section>
+      <motion.section
+        ref={section02Ref}
+        initial={{ opacity: 0 }}
+        animate={section02InView ? { opacity: 1 } : {}}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className={`${styles.section}`}
+      >
+        {section02InView && <Section02 />}
+      </motion.section>
 
       {/* Section 3: What I’m Doing */}
-      <section className={`${styles.section}`}>
-        <Section03 />
-      </section>
+      <motion.section
+        ref={section03Ref}
+        initial={{ opacity: 0 }}
+        animate={section03InView ? { opacity: 1 } : {}}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className={`${styles.section}`}
+      >
+        {section03InView && <Section03 />}
+      </motion.section>
 
       {/* Section 4: Showcase Summary */}
-      <section id="contact-section" className={`${styles.section}`}>
-        <Section04 />
-      </section>
+      <motion.section
+        ref={section04Ref}
+        id="contact-section"
+        initial={{ opacity: 0 }}
+        animate={section04InView ? { opacity: 1 } : {}}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className={`${styles.section}`}
+      >
+        {section04InView && <Section04 />}
+      </motion.section>
     </div>
   );
 };
