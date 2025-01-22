@@ -63,7 +63,7 @@ const Blog: FunctionComponent<Props> = ({
 
   return (
     <div className={styles.blogContainer}>
-      <div className="mb-4">
+      <div className="mb-6">
         <Tags
           tags={categories.map(
             (item: TypeBlogCategory, index: number) => item.name

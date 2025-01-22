@@ -1,6 +1,6 @@
 .servicesContainer {
   text-align: center;
-  padding: var(--spacing-xl) var(--spacing-md);
+  padding: var(--spacing-xxxl) 0 var(--spacing-xxl) 0;
 }
 
 .servicesHeader {
