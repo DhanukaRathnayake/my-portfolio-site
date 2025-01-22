@@ -1,14 +1,10 @@
-.homeContainer {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xxl); /* Using global spacing variable */
-  padding: var(--spacing-md); /* Using global spacing variable */
-}
-
 .section {
   color: var(--color-text); /* Using global text color */
-}
-
-.sectionCards {
-  color: var(--color-text); /* Using global text color */
+  height: 100vh;
+  padding-top: 50px;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

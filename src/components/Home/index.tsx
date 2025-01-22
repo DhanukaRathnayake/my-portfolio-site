@@ -1,62 +1,42 @@
+"use client";
+
 import React from "react";
-import { motion } from "framer-motion";
 
 // Components
+// import useSmoothScroll from "../Common/Scroll/SmoothScroll";
 import Section01 from "./Section01";
 import Section02 from "./Section02";
 import Section03 from "./Section03";
 import Section04 from "./Section04";
 
+// Framer Motion
+// import { motion, useScroll, useSpring } from "framer-motion";
+
 // Styles
-import styles from "./index.module.css"; // Renamed for clarity
+import styles from "./index.module.css";
 
 const Home: React.FC = () => {
   return (
-    <div className={styles.homeContainer}>
+    <div>
       {/* Section 1: Introduction */}
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ amount: 0.5 }}
-        className={styles.section}
-      >
+      <section className={`${styles.section}`}>
         <Section01 />
-      </motion.section>
+      </section>
 
       {/* Section 2: About Me */}
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ amount: 0.5 }}
-        className={styles.section}
-      >
+      <section className={`${styles.section}`}>
         <Section02 />
-      </motion.section>
+      </section>
 
       {/* Section 3: What I’m Doing */}
-      <motion.section
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ amount: 0.5 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className={styles.sectionCards}
-      >
+      <section className={`${styles.section}`}>
         <Section03 />
-      </motion.section>
+      </section>
 
       {/* Section 4: Showcase Summary */}
-      <motion.section
-        id="contact-section"
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ amount: 0.5 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className={styles.sectionCards}
-      >
+      <section id="contact-section" className={`${styles.section}`}>
         <Section04 />
-      </motion.section>
+      </section>
     </div>
   );
 };

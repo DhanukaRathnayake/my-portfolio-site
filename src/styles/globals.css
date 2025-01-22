@@ -70,6 +70,7 @@
   --spacing-lg: 24px; /* Large spacing */
   --spacing-xl: 32px; /* Extra large spacing */
   --spacing-xxl: 48px; /* Extra extra large spacing */
+  --spacing-xxxl: 100px; /* Extra extra large spacing */
 
   /* Border Radius */
   --border-radius-sm: 5px;
@@ -147,6 +148,7 @@
     --spacing-lg: 20px;
     --spacing-xl: 24px;
     --spacing-xxl: 32px;
+    --spacing-xxxl: 80px; /* Extra extra large spacing */
   }
 }
 
@@ -174,6 +176,7 @@ html {
   scrollbar-width: thin; /* Firefox: Thin scrollbar */
   scrollbar-color: rgba(68, 68, 68, 0.8) rgba(34, 34, 34, 0.8); /* Firefox: Thumb and track colors with transparency */
   scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 
 /* Typography */

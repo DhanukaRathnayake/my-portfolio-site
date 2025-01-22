@@ -35,7 +35,7 @@ const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   return (
-    <div className={styles.layoutContainer}>
+    <div>
       {isLoading ? (
         <PageLoader />
       ) : (
@@ -51,7 +51,7 @@ const Layout = ({ children }: LayoutProps) => {
               <WelcomePage />
             </motion.div>
           ) : (
-            <motion.div>
+            <motion.div className={styles.layoutContainer}>
               <BlobBackground />
               <div className={styles.topSection}>
                 <TopNavBar />

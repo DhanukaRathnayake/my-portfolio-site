@@ -1,7 +1,6 @@
 .layoutContainer {
   height: 100vh;
   width: 100%;
-  padding: 0 var(--spacing-xxl); /* Using global spacing variables */
 }
 
 .topSection {
@@ -9,52 +8,34 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  padding-bottom: 70px; /* Using global spacing variables */
 }
 
 .mainContent {
   width: 100%;
-  padding: 0 var(--spacing-xxl); /* Using global spacing variables */
-}
-
-.footer {
-  padding: var(--spacing-sm) var(--spacing-xxl); /* Using global spacing variables */
-  width: 100%;
-  display: flex;
-  justify-content: center;
+  padding: 0 var(--spacing-xxxl);
 }
 
 /* Responsive Styles */
-@media (min-width: 1024px) {
-  .layoutContainer {
-    padding: 0 var(--spacing-xxl); /* Reduce padding for tablets */
-  }
-
-  .footer {
-    padding: var(--spacing-sm) var(--spacing-xl); /* Reduce padding for tablets */
+@media (max-width: 968px) {
+  .mainContent {
+    width: 100%;
+    padding: 0 var(--spacing-xxl); /* Using global spacing variables */
   }
 }
 
 @media (max-width: 768px) {
-  .layoutContainer {
-    padding: 0 var(--spacing-md); /* Further reduce padding for smaller tablets */
-  }
-
-  .footer {
-    padding: var(--spacing-sm) var(--spacing-lg); /* Further reduce padding for smaller tablets */
+  .mainContent {
+    width: 100%;
+    padding: 0 var(--spacing-xxl); /* Using global spacing variables */
   }
 }
 
 @media (max-width: 480px) {
-  .layoutContainer {
-    padding: 0 var(--spacing-sm); /* Adjust padding for mobile devices */
-  }
-
   .topSection {
     align-items: center; /* Center align items on mobile */
   }
 
-  .footer {
-    padding: var(--spacing-sm) var(--spacing-md); /* Adjust padding for mobile devices */
+  .mainContent {
+    padding: 5px; /* Using global spacing variables */
   }
 }
