@@ -38,7 +38,7 @@ const Home: React.FC = () => {
         ref={section01Ref}
         initial={{ opacity: 0 }}
         animate={section01InView ? { opacity: 1 } : {}}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className={`${styles.section}`}
       >
         {section01InView && <Section01 />}
@@ -49,7 +49,7 @@ const Home: React.FC = () => {
         ref={section02Ref}
         initial={{ opacity: 0 }}
         animate={section02InView ? { opacity: 1 } : {}}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className={`${styles.section}`}
       >
         {section02InView && <Section02 />}
@@ -60,7 +60,7 @@ const Home: React.FC = () => {
         ref={section03Ref}
         initial={{ opacity: 0 }}
         animate={section03InView ? { opacity: 1 } : {}}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className={`${styles.section}`}
       >
         {section03InView && <Section03 />}
@@ -72,7 +72,7 @@ const Home: React.FC = () => {
         id="contact-section"
         initial={{ opacity: 0 }}
         animate={section04InView ? { opacity: 1 } : {}}
-        transition={{ duration: 1, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className={`${styles.section}`}
       >
         {section04InView && <Section04 />}

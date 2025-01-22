@@ -55,7 +55,7 @@ export const Info = {
     link: "https://goo.gl/maps/nPW1gLNiarB3gi3t5",
   },
   cv: "https://drive.google.com/file/d/12acCJrOtr3l2dOz_k_gcWO3Hm4kvCDla/view?usp=sharing",
-  profilePicture: "/dp.jpeg",
+  profilePicture: "/dp.jpg",
   status: "Ready To Innovate",
   company: {
     name: "Sonic Labs (Pvt) Ltd",

@@ -32,13 +32,13 @@
   display: flex;
   justify-content: space-between;
   margin-top: 40px;
-  gap: var(--spacing-xxl);
+  gap: var(--spacing-xl);
 }
 
 .timelineMarker {
   position: sticky;
   align-self: flex-start;
-  top: 40%;
+  top: 36%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -61,18 +61,17 @@
 .timelineItemDate {
   flex: 1;
   display: block;
-  width: 250px;
+  width: 200px;
   font-weight: 700;
   color: var(--color-text-primary);
   padding-left: var(--spacing-xxl);
 }
 
 .timelineItemContent {
-  flex: 1;
+  flex: 4;
   position: relative;
   width: 100%;
   top: 40%;
-  max-width: 600px;
 }
 
 .timelineItemTitle {
@@ -111,7 +110,8 @@
   width: 2px;
   background: linear-gradient(
     to top,
-    var(--color-gradient-start),
+    var(--color-blob-1),
+    var(--color-blob-4),
     var(--color-gradient-end)
   );
   border-radius: 2px;

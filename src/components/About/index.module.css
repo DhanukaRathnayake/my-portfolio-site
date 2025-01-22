@@ -1,21 +1,9 @@
 .aboutContainer {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: var(--spacing-xxl); /* Using global spacing variable */
+  padding: 80px var(--spacing-md); /* Using global spacing variable */
   margin: 0; /* Center the container */
-}
-
-.flowContainer {
-  padding: var(--spacing-xl); /* Using global spacing variable */
-  overflow: inherit;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
-}
-
-.flowContainer:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md); /* Using global shadow variable */
 }
 
 /* Responsive Styles */

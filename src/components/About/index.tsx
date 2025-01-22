@@ -42,7 +42,7 @@ const About: React.FC = () => {
   return (
     <div className={styles.aboutContainer}>
       {/* Experience Section */}
-      <div className={`${styles.flowContainer} primary-card`}>
+      <div className={`${styles.flowContainer}`}>
         <Timeline
           data={formattedData(Experience.items)}
           category={Experience.category}
@@ -53,7 +53,7 @@ const About: React.FC = () => {
       <br />
 
       {/* Education Section */}
-      <div className={`${styles.flowContainer} primary-card`}>
+      <div className={`${styles.flowContainer}`}>
         <Timeline
           data={formattedData(Education.items)}
           category={Education.category}

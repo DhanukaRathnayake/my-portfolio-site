@@ -58,7 +58,7 @@ export const Timeline = ({
               <h3 className={styles.timelineItemDate}>{item.date}</h3>
             </div>
 
-            <div className={styles.timelineItemContent}>
+            <div className={`${styles.timelineItemContent} primary-card p-10`}>
               <h3 className={styles.timelineItemTitle}>{item.title}</h3>
               {item.content}
             </div>
