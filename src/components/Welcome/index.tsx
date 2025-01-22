@@ -1,11 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Vortex } from "./Vortex";
-import {
-  HeroSection,
-  HeroText,
-  Highlight,
-} from "../Common/TextGenerateEffects/HeroText";
+import { HeroText, Highlight } from "../Common/TextGenerateEffects/HeroText";
 import styles from "./index.module.css";
 import TextGenerateEffect from "../Common/TextGenerateEffects";
 import { GoDotFill } from "react-icons/go";
@@ -27,27 +23,19 @@ const WelcomePage: React.FC = () => {
             transition={{ duration: 1.2, ease: "easeInOut" }}
           >
             {/* Hero text animation */}
-            <HeroSection className="mb-6">
-              <HeroText>
-                Welcome to my <Highlight>Portfolio</Highlight>
-              </HeroText>
-            </HeroSection>
+            <HeroText>
+              Welcome to my <Highlight>Portfolio</Highlight>
+            </HeroText>
 
-            <motion.div
-              className="mb-6 py-2 px-4 primary-card"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.05 }}
-              transition={{ duration: 1.2, ease: "easeInOut" }}
-            >
+            <div className="mt-6 py-2 px-4 primary-card">
               <TextGenerateEffect
                 words={"portfolio.tagzy.site"}
                 duration={1.2}
               />
-            </motion.div>
+            </div>
 
             {/* Smooth Loading Dots Animation */}
-            <motion.div className={`flex`}>
+            <div className="mt-8 flex">
               {[0, 0.2, 0.4].map((delay, index) => (
                 <motion.div
                   key={index}
@@ -67,7 +55,7 @@ const WelcomePage: React.FC = () => {
                   <GoDotFill className={styles.loadingDot} />
                 </motion.div>
               ))}
-            </motion.div>
+            </div>
           </motion.div>
         </Vortex>
       </div>

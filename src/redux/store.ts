@@ -14,12 +14,12 @@ export const makeStore = () =>
       [contactMeApi.reducerPath]: contactMeApi.reducer,
     },
     devTools: isDevelopment,
-    // middleware: (getDefaultMiddleware) =>
-    //   getDefaultMiddleware({
-    //     serializableCheck: isDevelopment ? false : true,
-    //   })
-    //     .concat([blogsApi.middleware])
-    //     .concat(contactMeApi.middleware),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        serializableCheck: isDevelopment ? false : true,
+      })
+        .concat([blogsApi.middleware])
+        .concat(contactMeApi.middleware),
   });
 
 export type AppStore = ReturnType<typeof makeStore>;

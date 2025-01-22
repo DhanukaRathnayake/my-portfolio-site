@@ -28,7 +28,7 @@ const Layout = ({ children }: LayoutProps) => {
       if (!lastVisit || now - parseInt(lastVisit) > oneWeek) {
         setShowWelcomePage(true);
         localStorage.setItem("lastVisit", now.toString());
-        setTimeout(() => setShowWelcomePage(false), 6000);
+        setTimeout(() => setShowWelcomePage(false), 7000);
       }
       setIsLoading(false);
     }, 1000);
@@ -51,12 +51,7 @@ const Layout = ({ children }: LayoutProps) => {
               <WelcomePage />
             </motion.div>
           ) : (
-            <motion.div
-              key="main"
-              initial={{ opacity: 0, scale: 1 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, ease: "easeInOut", delay: 0.2 }}
-            >
+            <motion.div>
               <BlobBackground />
               <div className={styles.topSection}>
                 <TopNavBar />

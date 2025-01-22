@@ -26,7 +26,7 @@ const TextGenerateEffect: React.FC<TextGenerateEffectProps> = ({
       },
       {
         duration: duration,
-        delay: stagger(0.2),
+        delay: stagger(0.1),
       }
     );
   }, [animate, duration, filter, words]); // Include all dependencies
