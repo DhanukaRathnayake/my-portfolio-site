@@ -4,10 +4,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 // Components
-import LottieAnimation from "./LottieAnimation";
 import Tags from "@/components/Common/Tags";
 import { HeroText, Highlight } from "../../Common/TextGenerateEffects/HeroText";
 import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
+import GradientButton from "@/components/Common/Buttons/GradientButton";
+import ThreeScene from "./ThreeScene";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
@@ -15,7 +16,6 @@ import { IconButton } from "@/components/Common/Buttons/IconButton";
 
 // Data
 import { Info } from "../../../data/info";
-import GradientButton from "@/components/Common/Buttons/GradientButton";
 
 const Section01 = () => {
   const router = useRouter();
@@ -96,20 +96,15 @@ const Section01 = () => {
 
       {/* Animated Image */}
       <motion.div
-        initial={{ opacity: 0, x: 50 }} // Start slightly to the right and invisible
-        animate={{ opacity: 1, x: 0 }} // Animate to fully visible and centered
+        initial={{ opacity: 0 }} // Start slightly to the right and invisible
+        animate={{ opacity: 1 }} // Animate to fully visible and centered
         transition={{
           duration: 0.8, // Smooth and slightly slower animation
-          delay: 0.6, // Delay before animation starts
-          ease: [0.6, -0.05, 0.01, 0.99], // Custom easing for smooth motion
         }}
         className={styles.lottieSVG}
       >
-        <div style={{ filter: "brightness(0.9) saturate(0.9)" }}>
-          {" "}
-          {/* Adjust brightness and saturation */}
-          <LottieAnimation />
-        </div>
+        {/* Adjust brightness and saturation */}
+        <ThreeScene />
       </motion.div>
     </div>
   );

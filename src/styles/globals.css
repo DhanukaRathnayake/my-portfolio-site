@@ -26,6 +26,9 @@
   --color-success: #28a745;
   --color-danger: #dc3545;
 
+  --inner-wireframe-color: #660099; /* Inner wireframe color */
+  --outer-wireframe-color: #3bafbb; /* Outer wireframe color */
+
   /* Colors */
   /* https://qawebstudio.com/trending-color-palette/ */
   /* --color-primary: #52154e;

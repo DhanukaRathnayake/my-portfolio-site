@@ -16,6 +16,8 @@
     "@mui/lab": "^6.0.0-beta.20",
     "@mui/material": "^6.3.1",
     "@radix-ui/react-toast": "^1.2.4",
+    "@react-three/drei": "^9.121.3",
+    "@react-three/fiber": "^8.17.12",
     "@reduxjs/toolkit": "^2.5.0",
     "@tabler/icons-react": "^3.28.1",
     "@tiptap/extension-bullet-list": "^2.10.4",
@@ -59,7 +61,8 @@
     "react-toastify": "^11.0.3",
     "simplex-noise": "^4.0.3",
     "styled-components": "^6.1.14",
-    "tailwind-merge": "^2.6.0"
+    "tailwind-merge": "^2.6.0",
+    "three": "^0.172.0"
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^15.1.5",
@@ -67,6 +70,7 @@
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/three": "^0.172.0",
     "eslint": "^9.18.0",
     "eslint-config-next": "^15.1.5",
     "postcss": "^8",

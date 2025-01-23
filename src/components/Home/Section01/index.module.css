@@ -36,7 +36,6 @@
   max-width: 40vw; /* Limit size */
   position: relative; /* Optional if needed */
   margin-left: var(--spacing-lg);
-  /* background-color: antiquewhite; */
 }
 
 /* Responsive Styles */
