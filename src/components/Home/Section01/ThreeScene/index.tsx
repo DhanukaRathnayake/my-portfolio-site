@@ -3,7 +3,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import styles from "./index.module.css";
 
-const LavaBall: React.FC = () => {
+const LavaBallWithSatellite: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,6 +26,7 @@ const LavaBall: React.FC = () => {
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.rotateSpeed = 0.5;
+    controls.enableZoom = false; // Disable zooming
 
     // Lights
     const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
@@ -35,36 +36,31 @@ const LavaBall: React.FC = () => {
     directionalLight.position.set(5, 5, 5);
     scene.add(directionalLight);
 
-    // Texture Loader
-    const textureLoader = new THREE.TextureLoader();
-
-    // Load Textures
-    const albedoMap = textureLoader.load("/textures/baseColor.jpg"); // Base color
-    const normalMap = textureLoader.load("/textures/normal.png"); // Surface details
-    const roughnessMap = textureLoader.load("/textures/roughness.jpg"); // Roughness
-    const metallicMap = textureLoader.load("/textures/normalDX.jpg"); // Metallic
-    const aoMap = textureLoader.load("/textures/normalGL.jpg"); // Ambient occlusion
-    const displacementMap = textureLoader.load("/textures/displacement.jpg"); // Displacement
-    const emissiveMap = textureLoader.load("/textures/emission.jpg"); // Glow
-
-    // Create Material
+    // Lava Ball
+    const lavaGeometry = new THREE.SphereGeometry(1.5, 64, 64); // Smaller size
     const lavaMaterial = new THREE.MeshStandardMaterial({
-      map: albedoMap, // Base color
-      normalMap: normalMap, // Surface details
-      roughnessMap: roughnessMap, // Roughness
-      metalnessMap: metallicMap, // Metallic
-      aoMap: aoMap, // Ambient occlusion
-      displacementMap: displacementMap, // Displacement
-      displacementScale: 0.1, // Adjust displacement strength
-      emissiveMap: emissiveMap, // Glow
+      color: 0xff4500, // Base color (orange)
       emissive: 0xff4500, // Glow color
       emissiveIntensity: 1.5, // Glow intensity
+      roughness: 0.5, // Slightly rough
+      metalness: 0.1, // Slightly metallic
     });
-
-    // Create Sphere
-    const lavaGeometry = new THREE.SphereGeometry(3, 64, 64);
     const lavaMesh = new THREE.Mesh(lavaGeometry, lavaMaterial);
     scene.add(lavaMesh);
+
+    // Satellite
+    const satelliteGeometry = new THREE.SphereGeometry(0.2, 16, 16); // Small sphere
+    const satelliteMaterial = new THREE.MeshStandardMaterial({
+      color: 0x00aaff, // Blue color
+      emissive: 0x00aaff, // Glow color
+      emissiveIntensity: 1.0, // Glow intensity
+    });
+    const satelliteMesh = new THREE.Mesh(satelliteGeometry, satelliteMaterial);
+    scene.add(satelliteMesh);
+
+    // Satellite Orbit
+    const satelliteOrbitRadius = 3; // Distance from the lava ball
+    let satelliteAngle = 0; // Angle for orbit rotation
 
     // Handle Resize
     const handleResize = () => {
@@ -84,9 +80,19 @@ const LavaBall: React.FC = () => {
     const animate = () => {
       requestAnimationFrame(animate);
 
-      // Rotate the lava ball smoothly
+      // Rotate the lava ball
       lavaMesh.rotation.x += 0.001;
       lavaMesh.rotation.y += 0.001;
+
+      // Animate the satellite orbit
+      satelliteAngle += 0.01; // Speed of orbit
+      satelliteMesh.position.x =
+        Math.cos(satelliteAngle) * satelliteOrbitRadius;
+      satelliteMesh.position.z =
+        Math.sin(satelliteAngle) * satelliteOrbitRadius;
+
+      // Animate the lava ball's emissive intensity
+      lavaMaterial.emissiveIntensity = Math.sin(Date.now() * 0.001) * 0.5 + 1.5;
 
       controls.update(); // Update controls
       renderer.render(scene, camera);
@@ -105,4 +111,4 @@ const LavaBall: React.FC = () => {
   return <div ref={mountRef} className={styles.container} />;
 };
 
-export default LavaBall;
+export default LavaBallWithSatellite;
