@@ -2,39 +2,39 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 80px var(--spacing-md); /* Using global spacing variable */
+  padding: 90px var(--spacing-sm) 10px var(--spacing-sm); /* Using global spacing variable */
   margin: 0; /* Center the container */
 }
 
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .aboutContainer {
-    padding: var(--spacing-xl) 0; /* Reduce padding for tablets */
+    padding: var(--spacing-lg) 0; /* Reduce padding for tablets */
   }
 
   .flowContainer {
-    padding: var(--spacing-lg); /* Reduce padding for tablets */
+    padding: var(--spacing-lg) 0; /* Reduce padding for tablets */
   }
 }
 
 @media (max-width: 768px) {
   .aboutContainer {
-    padding: var(--spacing-lg) 0; /* Further reduce padding for smaller tablets */
+    padding: 60px 0 20px 0; /* Using global spacing variable */
     max-width: 100%; /* Allow container to take full width */
   }
 
   .flowContainer {
-    padding: var(--spacing-xl); /* Further reduce padding for smaller tablets */
+    padding: var(--spacing-xl) 0; /* Further reduce padding for smaller tablets */
   }
 }
 
 @media (max-width: 480px) {
   .aboutContainer {
-    padding: var(--spacing-md) 0; /* Adjust padding for mobile devices */
+    padding: 70px 0 10px 0; /* Using global spacing variable */
   }
 
   .flowContainer {
-    padding: var(--spacing-lg); /* Adjust padding for mobile devices */
+    padding: var(--spacing-xs); /* Adjust padding for mobile devices */
   }
 
   .flowContainer:hover {

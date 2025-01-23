@@ -1,7 +1,8 @@
 // Libraries
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GetServerSideProps, NextPage } from "next";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/router";
 
 // Components
 import PageLoader from "@/components/Common/Loaders/pageLoader";
@@ -16,6 +17,7 @@ import {
   getRunningQueriesThunk,
   getAllCategories,
   getAllBlogs,
+  useGetAllBlogsQuery,
 } from "@/redux/services/blogsApi";
 
 // Types
@@ -27,7 +29,30 @@ interface Props {
 }
 
 const BlogsPage: NextPage<Props> = ({ categories, blogs: initialBlogs }) => {
-  const [blogs] = useState<TypeBlog[] | []>(initialBlogs);
+  const [blogs, setBlogs] = useState<TypeBlog[] | []>(initialBlogs);
+
+  const router = useRouter();
+
+  // Add query hook with current URL parameters
+  const { refetch } = useGetAllBlogsQuery({
+    category:
+      typeof router.query.category === "string" ? router.query.category : null,
+    search:
+      typeof router.query.search === "string" ? router.query.search : null,
+  });
+
+  const refreshBlogs = async () => {
+    const result = await refetch();
+    if (result.data) {
+      console.log(result, "rrr");
+      setBlogs(result.data);
+    }
+  };
+
+  // Refresh the data on page
+  useEffect(() => {
+    refreshBlogs();
+  }, [router.query]);
 
   return (
     <div>
@@ -45,11 +70,12 @@ export const getServerSideProps: GetServerSideProps =
       categories: [],
     };
 
-    // Fetch contents
-    try {
-      const category = context.query?.category;
-      const search = context.query?.search;
+    // Extract query parameters
+    const category = context.query?.category;
+    const search = context.query?.search;
 
+    // Fetch blogs based on query parameters
+    try {
       const blogsResponse = await store.dispatch(
         getAllBlogs.initiate({
           category: typeof category === "string" ? category : null,

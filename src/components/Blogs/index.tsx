@@ -65,14 +65,15 @@ const Blog: FunctionComponent<Props> = ({
     <div className={styles.blogContainer}>
       <div className="mb-6">
         <Tags
-          tags={categories.map(
-            (item: TypeBlogCategory, index: number) => item.name
-          )}
+          type="category"
+          tags={[
+            "All",
+            ...categories.map((item: TypeBlogCategory) => item.name),
+          ]}
         />
       </div>
       <div className={styles.blogCards}>
-        {currentBlogs &&
-          currentBlogs.length > 0 &&
+        {currentBlogs && currentBlogs.length > 0 ? (
           currentBlogs.map((item: TypeBlog, index: number) => (
             <div key={index} className={`${styles.cardContainer} primary-card`}>
               <div className={styles.imageContainer}>
@@ -89,15 +90,44 @@ const Blog: FunctionComponent<Props> = ({
                 <p className={styles.cardDescription}>{item.excerpt}</p>
                 <div className={styles.cardFooter}>
                   <span className={styles.cardDate}>
-                    {formatDate(item.publishedAt || item.createdAt)}
+                    {item.createdAt ? formatDate(item.updatedAt) : "N/A"}
                   </span>
-                  <button className={`${styles.readMoreButton} primary-button`}>
+                  <button
+                    className={`${styles.readMoreButton} primary-button`}
+                    onClick={() => handleBlogView(item)}
+                  >
                     Read More
                   </button>
                 </div>
               </div>
             </div>
-          ))}
+          ))
+        ) : (
+          // Empty card placeholder
+          <div className={`${styles.cardContainer} primary-card`}>
+            <div className={styles.imageContainer}>
+              <div className={styles.emptyImagePlaceholder}>
+                No Image Available
+              </div>
+            </div>
+            <div className={styles.cardContent}>
+              <h2 className={styles.cardTitle}>No Blogs Found</h2>
+              <p className={styles.cardDescription}>
+                There are no blogs to display at the moment. Click to explore
+                other categories.
+              </p>
+              <div className={styles.cardFooter}>
+                <div></div>
+                <button
+                  className={`${styles.readMoreButton} primary-button`}
+                  onClick={() => router.push(`/blogs`)} // Add click handler for redirect
+                >
+                  All Blogs
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Pagination Controls */}
