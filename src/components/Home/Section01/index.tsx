@@ -95,9 +95,22 @@ const Section01 = () => {
       </motion.div>
 
       {/* Animated Image */}
-      <div className={styles.lottieSVG}>
-        <LottieAnimation />
-      </div>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }} // Start slightly to the right and invisible
+        animate={{ opacity: 1, x: 0 }} // Animate to fully visible and centered
+        transition={{
+          duration: 0.8, // Smooth and slightly slower animation
+          delay: 0.6, // Delay before animation starts
+          ease: [0.6, -0.05, 0.01, 0.99], // Custom easing for smooth motion
+        }}
+        className={styles.lottieSVG}
+      >
+        <div style={{ filter: "brightness(0.9) saturate(0.9)" }}>
+          {" "}
+          {/* Adjust brightness and saturation */}
+          <LottieAnimation />
+        </div>
+      </motion.div>
     </div>
   );
 };

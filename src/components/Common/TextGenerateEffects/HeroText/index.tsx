@@ -75,7 +75,7 @@ export const HeroText = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              delay: index * 0.1, // Slower delay for each character (0.1s per character)
+              delay: index * 0.08, // Slower delay for each character (0.1s per character)
               duration: 0.1, // Slower duration for each character
               ease: "easeOut",
             }}

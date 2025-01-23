@@ -23,6 +23,7 @@ import {
   CSS3,
   TailwindCSS,
 } from "developer-icons"; // Ensure these icons exist in your package
+import { motion } from "framer-motion";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
@@ -55,13 +56,18 @@ const skills = [
 
 const Skills = () => {
   return (
-    <div className={styles.cardsContainer}>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.2 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 0.5 }}
+      className={styles.cardsContainer}
+    >
       {skills.map((skill) => (
         <div key={skill.id} className={`${styles.card} primary-card`}>
           <div>{skill.icon}</div>
         </div>
       ))}
-    </div>
+    </motion.div>
   );
 };
 

@@ -75,9 +75,36 @@ const Section02 = () => {
         </div>
       </div>
 
-      <div className={styles.cardContainer}>
+      <motion.div
+        className={styles.cardContainer} // Container for all cards
+        initial="hidden" // Initial state for the container
+        animate="visible" // Animate to this state
+        variants={{
+          hidden: { opacity: 0 }, // Hidden state for the container
+          visible: {
+            opacity: 1,
+            transition: {
+              staggerChildren: 0.2, // Stagger the animation of each child by 0.2s
+            },
+          },
+        }}
+      >
         {Info.summaryCounts.map((item) => (
-          <div key={item.id} className={`${styles.cardWrapper} primary-card`}>
+          <motion.div
+            key={item.id}
+            className={`${styles.cardWrapper} primary-card`}
+            variants={{
+              hidden: { opacity: 0, scale: 0.9, y: 10 }, // Initial state for each card
+              visible: { opacity: 1, scale: 1, y: 0 }, // Animated state for each card
+            }}
+            transition={{
+              duration: 0.5,
+              ease: [0.6, -0.05, 0.01, 0.99], // Custom easing for smooth motion
+              type: "spring", // Spring animation for bounce
+              stiffness: 120, // Adjust stiffness for spring
+              damping: 12, // Adjust damping for spring
+            }}
+          >
             <div className={`mb-2 ${styles.cardHeader}`}>
               {item.icon}
               <span className={styles.cardNumber}>{item.count}</span>
@@ -94,9 +121,9 @@ const Section02 = () => {
                 <MdArrowOutward size={"20px"} />
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 };
