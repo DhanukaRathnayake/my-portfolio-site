@@ -25,10 +25,3 @@
 .tag:hover {
   background: var(--hover-bg);
 }
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .tagContainer {
-    justify-content: center; /* Center tags on smaller screens */
-  }
-}

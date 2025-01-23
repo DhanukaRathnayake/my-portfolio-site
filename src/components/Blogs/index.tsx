@@ -1,14 +1,17 @@
 // Libraries
 import React, { FunctionComponent, useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/router";
 
 // Styles
 import styles from "./index.module.css";
 
+// Components
+import Tags from "../Common/Tags";
+
 // Types
 import { TypeBlogCategory, TypeBlog } from "@/types/blog";
-import Tags from "../Common/Tags";
-import Image from "next/image";
+import Breadcrumb from "../Common/BreadCrumb";
 
 interface Props {
   categories: TypeBlogCategory[] | [];
@@ -63,6 +66,10 @@ const Blog: FunctionComponent<Props> = ({
 
   return (
     <div className={styles.blogContainer}>
+      <div className="mb-4">
+        <Breadcrumb />
+      </div>
+
       <div className="mb-6">
         <Tags
           type="category"

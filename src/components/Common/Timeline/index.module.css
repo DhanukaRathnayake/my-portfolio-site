@@ -28,6 +28,10 @@
   margin: 0 auto;
 }
 
+.timelineItemContent:hover {
+  transform: none;
+}
+
 .timelineItem {
   display: flex;
   justify-content: space-between;
@@ -192,7 +196,7 @@
   }
 
   .timelineSubtitle {
-    font-size: var(--font-size-xxs);
+    font-size: var(--font-size-xs);
   }
 
   .timelineItemTitle {

@@ -36,6 +36,6 @@
   }
 
   .mainContent {
-    padding: 5px; /* Using global spacing variables */
+    padding: 0 15px; /* Using global spacing variables */
   }
 }

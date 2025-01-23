@@ -15,8 +15,11 @@ import Image from "next/image";
 
 // Data
 import { Info } from "../../../data/info";
+import { useRouter } from "next/router";
 
 const Section02 = () => {
+  const router = useRouter();
+
   return (
     <div className={styles.section}>
       <div className={`mb-6 ${styles.detailsWrapper}`}>
@@ -43,10 +46,17 @@ const Section02 = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <button className={`${styles.button} primary-button`}>
+            <Link
+              className={`${styles.button} flex justify-center primary-button`}
+              href={Info.cv}
+              target="_blank"
+            >
               Download CV
-            </button>
-            <button className={`${styles.button} primary-button`}>
+            </Link>
+            <button
+              className={`${styles.button} primary-button`}
+              onClick={() => router.push(`/about`)}
+            >
               About Me
             </button>
           </motion.div>
@@ -77,9 +87,12 @@ const Section02 = () => {
                 <h3 className={`mb-2 ${styles.cardTitle}`}>{item.title}</h3>
                 <p className={styles.cardDescription}>{item.description}</p>
               </div>
-              <Link href={item.link} className={styles.cardLink}>
+              <div
+                onClick={() => router.push(`${item.link}`)}
+                className={styles.cardLink}
+              >
                 <MdArrowOutward size={"20px"} />
-              </Link>
+              </div>
             </div>
           </div>
         ))}

@@ -6,10 +6,15 @@
   margin: 0; /* Center the container */
 }
 
+.description {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+}
+
 /* Responsive Styles */
 @media (max-width: 1024px) {
   .aboutContainer {
-    padding: var(--spacing-lg) 0; /* Reduce padding for tablets */
+    padding: 60px 0 10px 0; /* Using global spacing variable */
   }
 
   .flowContainer {

@@ -27,13 +27,15 @@ const formattedData = (data: TimelineDataType[]) =>
       <div>
         <ul className="list-disc pl-5">
           {entry.contents.map((content, index) => (
-            <li key={index} className="mb-2">
+            <li key={index} className={`"mb-2" ${styles.description}`}>
               {content.description}
             </li>
           ))}
         </ul>
 
-        <Tags tags={entry.skills} />
+        <div className="mt-6">
+          <Tags tags={entry.skills} />
+        </div>
       </div>
     ),
   }));

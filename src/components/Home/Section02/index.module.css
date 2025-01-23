@@ -101,6 +101,7 @@
   color: var(--color-primary);
   font-weight: bold;
   align-self: flex-end;
+  cursor: pointer;
 }
 
 /* Media Queries for Larger Screens (overrides mobile styles) */

@@ -67,7 +67,7 @@ export const Info = {
       title: "Total Projects",
       count: 15,
       description: "Innovation web solutions crafted",
-      link: "",
+      link: "/blogs?category=Projects",
       icon: <FaCode size="20" />,
     },
     {
@@ -75,7 +75,7 @@ export const Info = {
       title: "Services",
       count: 4,
       description: "Trusted service provider",
-      link: "",
+      link: "/services",
       icon: <MdOutlineVerifiedUser size="20" />,
     },
     {
@@ -83,7 +83,7 @@ export const Info = {
       title: "Years of experience",
       count: 5,
       description: "Continuous learning journey",
-      link: "",
+      link: "/about",
       icon: <GrUserExpert size="20" />,
     },
   ],

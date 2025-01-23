@@ -21,7 +21,11 @@ const BlogPage: NextPage<Props> = ({ blog }) => {
     return <div>Blog not found</div>;
   }
 
-  return <SingleBlog blog={blog} />;
+  return (
+    <div>
+      <SingleBlog blog={blog} />
+    </div>
+  );
 };
 
 export default BlogPage;

@@ -1,18 +1,20 @@
 import React, { useEffect } from "react";
+import Image from "next/image";
 import { generateHTML } from "@tiptap/html";
 import DOMPurify from "dompurify";
 import hljs from "highlight.js";
 import "highlight.js/styles/vs2015.css";
 
 // Components
+import Breadcrumb from "@/components/Common/BreadCrumb";
 import extensions from "@/components/Common/EditorExtension";
+import Tags from "@/components/Common/Tags";
 
 // Styles
 import styles from "./index.module.css";
 
 // Types
 import { TypeBlog } from "@/types/blog";
-import Image from "next/image";
 
 interface Props {
   blog: TypeBlog;
@@ -37,30 +39,22 @@ const SingleBlog: React.FC<Props> = ({ blog }) => {
 
   return (
     <div className={styles.blogContainer}>
+      <div className="mb-4">
+        <Breadcrumb />
+      </div>
+
       {/* Row Layout for Cover Image, Title, and Metadata */}
       <div className={styles.headerRow}>
         {/* Title and Metadata */}
         <div className={styles.titleAndMetadata}>
           <h1 className={styles.blogTitle}>{blog.title}</h1>
           <div className={styles.metadata}>
-            <span className={styles.author}>By {blog.author}</span>
             <span className={styles.publishedAt}>
-              Published on {formatDate(blog.publishedAt || blog.createdAt)}
+              Published on {blog.createdAt ? formatDate(blog.updatedAt) : "N/A"}
             </span>
             <span className={styles.readingTime}>
               {blog.readingTime} min read
             </span>
-
-            {/* Tags */}
-            {blog.tags && blog.tags.length > 0 && (
-              <div className={styles.tagsContainer}>
-                {blog.tags.map((tag, index) => (
-                  <span key={index} className={styles.tag}>
-                    #{tag}
-                  </span>
-                ))}
-              </div>
-            )}
           </div>
         </div>
 
@@ -69,6 +63,8 @@ const SingleBlog: React.FC<Props> = ({ blog }) => {
           <div className={styles.coverImageContainer}>
             <Image
               src={blog.coverImageUrl}
+              width={1}
+              height={1}
               alt={blog.title}
               className={styles.coverImage}
             />
@@ -84,6 +80,11 @@ const SingleBlog: React.FC<Props> = ({ blog }) => {
         className={`${styles.blogBody} tiptap`}
         dangerouslySetInnerHTML={{ __html: sanitizedHTML }}
       />
+
+      {/* Tags */}
+      <div className={styles.tagsContainer}>
+        <Tags tags={blog.tags} />
+      </div>
     </div>
   );
 };
