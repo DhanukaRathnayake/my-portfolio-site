@@ -12,10 +12,17 @@
 
 .mainContent {
   width: 100%;
-  padding: 0 var(--spacing-xxxl);
+  padding: 0 var(--spacing-xxxxl);
 }
 
 /* Responsive Styles */
+@media (max-width: 1200px) {
+  .mainContent {
+    width: 100%;
+    padding: 0 var(--spacing-xxxl); /* Using global spacing variables */
+  }
+}
+
 @media (max-width: 968px) {
   .mainContent {
     width: 100%;

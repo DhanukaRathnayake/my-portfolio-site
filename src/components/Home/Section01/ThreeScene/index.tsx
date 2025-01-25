@@ -3,8 +3,20 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import styles from "./index.module.css";
 
-const LavaBallWithSatellite: React.FC = () => {
+const DotSphere: React.FC = () => {
   const mountRef = useRef<HTMLDivElement>(null);
+  const dotSphere = useRef<THREE.Points | null>(null);
+  const originalSpherePositions = useRef<THREE.Vector3[]>([]);
+  const cubePositions = useRef<THREE.Vector3[]>([]);
+  const clock = useRef(new THREE.Clock()); // Track time for smooth morphing
+
+  const morphDuration = 3; // Time to morph fully (3 seconds)
+  const stayDuration = 5; // Time to stay in one shape (5 seconds)
+  const sphereRadius = 7; // Custom sphere radius
+
+  const transitionStartTime = useRef<number | null>(null); // To track when the transformation starts
+  const isMorphing = useRef<boolean>(false); // Flag to track whether morphing is in progress
+  const isSphereShape = useRef<boolean>(true); // Flag to track which shape is current (true for sphere, false for cube)
 
   useEffect(() => {
     if (!mountRef.current) return;
@@ -14,53 +26,115 @@ const LavaBallWithSatellite: React.FC = () => {
 
     // Camera
     const camera = new THREE.PerspectiveCamera(50, 1, 0.1, 1000);
-    camera.position.z = 10;
+    camera.position.set(10, 10, 20); // Adjusted for a better 3D view
+    camera.lookAt(0, 0, 0);
 
     // Renderer
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setClearColor(0x000000, 0); // Transparent background
     mountRef.current.appendChild(renderer.domElement);
 
-    // Add OrbitControls
+    // Add OrbitControls for manual rotation
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.05;
     controls.rotateSpeed = 0.5;
-    controls.enableZoom = false; // Disable zooming
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-    scene.add(ambientLight);
+    // Create a Dot-Based Sphere (starting shape is a sphere)
+    const sphereGeometry = new THREE.SphereGeometry(sphereRadius, 64, 64); // Sphere geometry with custom radius
 
+    const rootStyles = getComputedStyle(document.documentElement);
+
+    const pointsMaterial = new THREE.PointsMaterial({
+      color: rootStyles.getPropertyValue("--color-blob-4").trim(), // Blue color for dots
+      size: 0.1, // Size of each dot
+      sizeAttenuation: true, // Dots appear smaller as they move away
+    });
+
+    // Convert the sphere geometry into points
+    dotSphere.current = new THREE.Points(sphereGeometry, pointsMaterial);
+    scene.add(dotSphere.current);
+
+    // Store original sphere positions
+    const positions = sphereGeometry.attributes.position.array;
+    for (let i = 0; i < positions.length; i += 3) {
+      originalSpherePositions.current.push(
+        new THREE.Vector3(positions[i], positions[i + 1], positions[i + 2])
+      );
+    }
+
+    // Create cube positions on the surfaces
+    const cubeSize = 6; // Size of the cube
+    const cubeGeometry = new THREE.BoxGeometry(
+      cubeSize * 2,
+      cubeSize * 2,
+      cubeSize * 2,
+      20,
+      20,
+      20
+    ); // Cube geometry with more segments
+    const cubeVertices = cubeGeometry.attributes.position.array;
+    for (let i = 0; i < cubeVertices.length; i += 3) {
+      const x = cubeVertices[i];
+      const y = cubeVertices[i + 1];
+      const z = cubeVertices[i + 2];
+      if (
+        Math.abs(x) === cubeSize ||
+        Math.abs(y) === cubeSize ||
+        Math.abs(z) === cubeSize
+      ) {
+        cubePositions.current.push(new THREE.Vector3(x, y, z));
+      }
+    }
+
+    // Ensure both shapes have the same number of points
+    while (
+      cubePositions.current.length < originalSpherePositions.current.length
+    ) {
+      const randomFace = Math.floor(Math.random() * 6);
+      let x, y, z;
+      switch (randomFace) {
+        case 0: // +X face
+          x = cubeSize;
+          y = (Math.random() - 0.5) * cubeSize * 2;
+          z = (Math.random() - 0.5) * cubeSize * 2;
+          break;
+        case 1: // -X face
+          x = -cubeSize;
+          y = (Math.random() - 0.5) * cubeSize * 2;
+          z = (Math.random() - 0.5) * cubeSize * 2;
+          break;
+        case 2: // +Y face
+          x = (Math.random() - 0.5) * cubeSize * 2;
+          y = cubeSize;
+          z = (Math.random() - 0.5) * cubeSize * 2;
+          break;
+        case 3: // -Y face
+          x = (Math.random() - 0.5) * cubeSize * 2;
+          y = -cubeSize;
+          z = (Math.random() - 0.5) * cubeSize * 2;
+          break;
+        case 4: // +Z face
+          x = (Math.random() - 0.5) * cubeSize * 2;
+          y = (Math.random() - 0.5) * cubeSize * 2;
+          z = cubeSize;
+          break;
+        case 5: // -Z face
+          x = (Math.random() - 0.5) * cubeSize * 2;
+          y = (Math.random() - 0.5) * cubeSize * 2;
+          z = -cubeSize;
+          break;
+      }
+      cubePositions.current.push(new THREE.Vector3(x, y, z));
+    }
+
+    // Add Lighting
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-    directionalLight.position.set(5, 5, 5);
+    directionalLight.position.set(5, 10, 7.5).normalize();
     scene.add(directionalLight);
 
-    // Lava Ball
-    const lavaGeometry = new THREE.SphereGeometry(1.5, 64, 64); // Smaller size
-    const lavaMaterial = new THREE.MeshStandardMaterial({
-      color: 0xff4500, // Base color (orange)
-      emissive: 0xff4500, // Glow color
-      emissiveIntensity: 1.5, // Glow intensity
-      roughness: 0.5, // Slightly rough
-      metalness: 0.1, // Slightly metallic
-    });
-    const lavaMesh = new THREE.Mesh(lavaGeometry, lavaMaterial);
-    scene.add(lavaMesh);
-
-    // Satellite
-    const satelliteGeometry = new THREE.SphereGeometry(0.2, 16, 16); // Small sphere
-    const satelliteMaterial = new THREE.MeshStandardMaterial({
-      color: 0x00aaff, // Blue color
-      emissive: 0x00aaff, // Glow color
-      emissiveIntensity: 1.0, // Glow intensity
-    });
-    const satelliteMesh = new THREE.Mesh(satelliteGeometry, satelliteMaterial);
-    scene.add(satelliteMesh);
-
-    // Satellite Orbit
-    const satelliteOrbitRadius = 3; // Distance from the lava ball
-    let satelliteAngle = 0; // Angle for orbit rotation
+    const ambientLight = new THREE.AmbientLight(0x404040); // Soft ambient light
+    scene.add(ambientLight);
 
     // Handle Resize
     const handleResize = () => {
@@ -80,21 +154,75 @@ const LavaBallWithSatellite: React.FC = () => {
     const animate = () => {
       requestAnimationFrame(animate);
 
-      // Rotate the lava ball
-      lavaMesh.rotation.x += 0.001;
-      lavaMesh.rotation.y += 0.001;
+      if (!dotSphere.current) return;
 
-      // Animate the satellite orbit
-      satelliteAngle += 0.01; // Speed of orbit
-      satelliteMesh.position.x =
-        Math.cos(satelliteAngle) * satelliteOrbitRadius;
-      satelliteMesh.position.z =
-        Math.sin(satelliteAngle) * satelliteOrbitRadius;
+      // Rotate the sphere around the Y-axis
+      dotSphere.current.rotation.y += 0.0005;
 
-      // Animate the lava ball's emissive intensity
-      lavaMaterial.emissiveIntensity = Math.sin(Date.now() * 0.001) * 0.5 + 1.5;
+      // Get elapsed time since the start of the animation
+      const time = clock.current.getElapsedTime();
 
-      controls.update(); // Update controls
+      // If the transition hasn't started yet, check if we need to start it
+      if (!isMorphing.current && time >= stayDuration) {
+        // Start morphing after 5 seconds of staying in the current shape
+        transitionStartTime.current = time;
+        isMorphing.current = true; // Set the flag to indicate morphing is in progress
+      }
+
+      // Calculate the morph progress
+      let morphProgress = 0;
+      if (isMorphing.current && transitionStartTime.current !== null) {
+        const elapsedTime = time - transitionStartTime.current;
+        // If elapsed time is within the morph duration, interpolate between shapes
+        if (elapsedTime <= morphDuration) {
+          morphProgress = elapsedTime / morphDuration;
+        } else {
+          // Once the morphing is complete, reset the flag for the next loop
+          morphProgress = 1;
+          isMorphing.current = false;
+          transitionStartTime.current = null;
+          isSphereShape.current = !isSphereShape.current; // Toggle between sphere and cube
+
+          // Reset the clock to start the next cycle
+          clock.current.start();
+        }
+      }
+
+      // Morph between sphere and cube
+      const positionsArray =
+        dotSphere.current.geometry.attributes.position.array;
+      for (let i = 0; i < positionsArray.length; i += 3) {
+        const point = new THREE.Vector3(
+          positionsArray[i],
+          positionsArray[i + 1],
+          positionsArray[i + 2]
+        );
+
+        // Get the target position based on the current shape
+        const targetPosition = isSphereShape.current
+          ? originalSpherePositions.current[i / 3]
+          : cubePositions.current[i % cubePositions.current.length];
+
+        // Interpolate between the current shape and the target shape based on morph progress
+        point.lerpVectors(
+          isSphereShape.current
+            ? cubePositions.current[i % cubePositions.current.length]
+            : originalSpherePositions.current[i / 3],
+          targetPosition,
+          morphProgress
+        );
+        positionsArray[i] = point.x;
+        positionsArray[i + 1] = point.y;
+        positionsArray[i + 2] = point.z;
+      }
+
+      // Mark the position attribute as needing an update
+      dotSphere.current.geometry.attributes.position.needsUpdate = true;
+
+      // Update controls
+      controls.update();
+
+      // Render the scene
       renderer.render(scene, camera);
     };
 
@@ -111,4 +239,4 @@ const LavaBallWithSatellite: React.FC = () => {
   return <div ref={mountRef} className={styles.container} />;
 };
 
-export default LavaBallWithSatellite;
+export default DotSphere;

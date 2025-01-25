@@ -26,9 +26,6 @@
   --color-success: #28a745;
   --color-danger: #dc3545;
 
-  --inner-wireframe-color: #660099; /* Inner wireframe color */
-  --outer-wireframe-color: #3bafbb; /* Outer wireframe color */
-
   /* Colors */
   /* https://qawebstudio.com/trending-color-palette/ */
   /* --color-primary: #52154e;
@@ -73,7 +70,8 @@
   --spacing-lg: 24px; /* Large spacing */
   --spacing-xl: 32px; /* Extra large spacing */
   --spacing-xxl: 48px; /* Extra extra large spacing */
-  --spacing-xxxl: 130px; /* Extra extra large spacing */
+  --spacing-xxxl: 100px; /* Extra extra large spacing */
+  --spacing-xxxxl: 130px; /* Extra extra large spacing */
 
   /* Border Radius */
   --border-radius-sm: 5px;
