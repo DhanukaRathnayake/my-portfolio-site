@@ -12,7 +12,7 @@ const DotSphere: React.FC = () => {
 
   const morphDuration = 3; // Time to morph fully (3 seconds)
   const stayDuration = 5; // Time to stay in one shape (5 seconds)
-  const sphereRadius = 7; // Custom sphere radius
+  const sphereRadius = 6; // Custom sphere radius
 
   const transitionStartTime = useRef<number | null>(null); // To track when the transformation starts
   const isMorphing = useRef<boolean>(false); // Flag to track whether morphing is in progress
@@ -47,7 +47,7 @@ const DotSphere: React.FC = () => {
 
     const pointsMaterial = new THREE.PointsMaterial({
       color: rootStyles.getPropertyValue("--color-blob-4").trim(), // Blue color for dots
-      size: 0.1, // Size of each dot
+      size: 0.2, // Size of each dot
       sizeAttenuation: true, // Dots appear smaller as they move away
     });
 
@@ -64,7 +64,7 @@ const DotSphere: React.FC = () => {
     }
 
     // Create cube positions on the surfaces
-    const cubeSize = 6; // Size of the cube
+    const cubeSize = 5; // Size of the cube
     const cubeGeometry = new THREE.BoxGeometry(
       cubeSize * 2,
       cubeSize * 2,
@@ -126,6 +126,18 @@ const DotSphere: React.FC = () => {
           break;
       }
       cubePositions.current.push(new THREE.Vector3(x, y, z));
+    }
+
+    // Ensure both shapes have the same number of points
+    while (
+      originalSpherePositions.current.length < cubePositions.current.length
+    ) {
+      const randomIndex = Math.floor(
+        Math.random() * originalSpherePositions.current.length
+      );
+      originalSpherePositions.current.push(
+        originalSpherePositions.current[randomIndex].clone()
+      );
     }
 
     // Add Lighting
