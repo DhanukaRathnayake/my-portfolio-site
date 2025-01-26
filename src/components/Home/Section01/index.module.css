@@ -34,8 +34,11 @@
 .lottieSVG {
   flex: 1; /* This keeps the Lottie animation on the right side */
   max-width: 40vw; /* Limit size */
-  position: relative; /* Optional if needed */
   margin-left: var(--spacing-lg);
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
 }
 
 /* Responsive Styles */

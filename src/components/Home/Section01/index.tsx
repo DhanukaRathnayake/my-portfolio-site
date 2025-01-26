@@ -8,7 +8,6 @@ import Tags from "@/components/Common/Tags";
 import { HeroText, Highlight } from "../../Common/TextGenerateEffects/HeroText";
 import TextGenerateEffect from "@/components/Common/TextGenerateEffects";
 import GradientButton from "@/components/Common/Buttons/GradientButton";
-import ThreeScene from "./ThreeScene";
 
 // Styles
 import styles from "./index.module.css"; // Renamed for clarity
@@ -16,6 +15,7 @@ import { IconButton } from "@/components/Common/Buttons/IconButton";
 
 // Data
 import { Info } from "../../../data/info";
+import LottieAnimation from "./LottieAnimation";
 
 const Section01 = () => {
   const router = useRouter();
@@ -104,7 +104,7 @@ const Section01 = () => {
         className={styles.lottieSVG}
       >
         {/* Adjust brightness and saturation */}
-        <ThreeScene />
+        <LottieAnimation />
       </motion.div>
     </div>
   );
