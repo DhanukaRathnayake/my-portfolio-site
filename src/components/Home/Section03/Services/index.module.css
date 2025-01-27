@@ -1,38 +1,70 @@
-.cardsContainer {
+.mainContainer {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-md); /* Using global spacing variable */
   width: 100%;
 }
 
-.card {
-  padding: var(--spacing-md); /* Using global spacing variable */
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-  border-radius: var(--border-radius-md); /* Using global border radius */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: box-shadow var(--transition-fast);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+.cardContainer:hover {
+  box-shadow: var(--shadow-lg);
+  transform: none;
 }
 
-.icon {
-  height: 30px;
-  width: 30px;
-  margin-bottom: var(--spacing-md); /* Using global spacing variable */
+.imageContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  aspect-ratio: 20 / 10;
+  overflow: hidden;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-fast),
+    border-radius var(--transition-fast);
+}
+
+.cardContainer:hover .cardImage {
+  transform: scale(0.95);
+  border-radius: var(--border-radius-lg);
+}
+
+.cardContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-md);
 }
 
 .cardTitle {
-  font-size: var(--font-size-lg); /* Using global font size */
+  font-size: var(--font-size-md);
   font-weight: 700;
-  margin-bottom: var(--spacing-xs); /* Using global spacing variable */
+  color: var(--color-text);
+  margin-bottom: var(--spacing-md);
 }
 
 .cardDescription {
-  font-size: var(--font-size-sm); /* Using global font size */
-  color: var(--color-text-secondary); /* Using global text color */
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+  flex: 1;
 }
 
 /* Responsive Styles */

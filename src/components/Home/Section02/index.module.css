@@ -120,8 +120,8 @@
   }
 
   .profileImage {
-    width: 250px; /* Revert to original size */
-    height: 250px;
+    width: 200px; /* Revert to original size */
+    height: 200px;
   }
 
   .buttonRow {

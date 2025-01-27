@@ -1,37 +1,20 @@
 import React from "react";
-import { IoInfinite } from "react-icons/io5";
-import { TbCloudCode } from "react-icons/tb";
-import { HiOutlineCode } from "react-icons/hi";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 // Styles
-import styles from "./index.module.css"; // Renamed for clarity
+import styles from "./index.module.css";
 
-const services = [
-  {
-    id: 1,
-    title: "DevOps Consulting",
-    description: "Automate your workflows.",
-    icon: <IoInfinite className={styles.icon} />,
-  },
-  {
-    id: 2,
-    title: "Cloud Architecting",
-    description: "Leverage cloud solutions.",
-    icon: <TbCloudCode className={styles.icon} />,
-  },
-  {
-    id: 3,
-    title: "Full-Stack Development",
-    description: "End-to-end solutions.",
-    icon: <HiOutlineCode className={styles.icon} />,
-  },
-];
+// Data
+import { MainServices } from "../../../../data/showcast";
 
 const Services = () => {
+  const router = useRouter();
+
   return (
     <motion.div
-      className={styles.cardsContainer} // Container for all cards
+      className={styles.mainContainer} // Container for all cards
       initial="hidden" // Initial state for the container
       animate="visible" // Animate to this state
       variants={{
@@ -44,10 +27,11 @@ const Services = () => {
         },
       }}
     >
-      {services.map((service) => (
+      {MainServices.map((service) => (
         <motion.div
           key={service.id}
-          className={`${styles.card} primary-card`}
+          className={`${styles.cardContainer} primary-card cursor-pointer`}
+          onClick={() => router.push(service.url)}
           variants={{
             hidden: { opacity: 0, scale: 0.8, y: 20 }, // Initial state for each card
             visible: { opacity: 1, scale: 1, y: 0 }, // Animated state for each card
@@ -60,9 +44,19 @@ const Services = () => {
             damping: 10, // Adjust damping for spring
           }}
         >
-          <div className={styles.icon}>{service.icon}</div>
-          <h3 className={styles.cardTitle}>{service.title}</h3>
-          <p className={styles.cardDescription}>{service.description}</p>
+          <div className={styles.imageContainer}>
+            <Image
+              src={service.coverImageUrl}
+              alt="thumbnail"
+              layout="fill"
+              objectFit="cover"
+              className={styles.cardImage}
+            />
+          </div>
+          <div className={styles.cardContent}>
+            <h2 className={styles.cardTitle}>{service.title}</h2>
+            <p className={styles.cardDescription}>{service.description}</p>
+          </div>
         </motion.div>
       ))}
     </motion.div>

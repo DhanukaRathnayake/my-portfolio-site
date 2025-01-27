@@ -9,7 +9,7 @@ export const Info = {
   firstName: "Dhanuka",
   lastName: "Rathnayake",
   roleHighlights: ["Full", "Stack", "DevOps"],
-  tags: ["AWS", "K8S", "Terraform", "NextJs", "NestJs"],
+  tags: ["NextJs", "NestJs", "Flutter", "AWS", "Terraform"],
   connections: [
     {
       name: "GitHub",
@@ -46,7 +46,7 @@ export const Info = {
         "Explore my work, skills, and services crafted with cutting-edge technologies.",
     },
     section04: {
-      description: "Contact once get better service",
+      description: "Let me know if you'd like further refinements!",
     },
   },
   email: "dhanuka.janith@outlook.com",
@@ -88,45 +88,6 @@ export const Info = {
     },
   ],
 };
-
-export const ServicesList = [
-  {
-    title: "Basic Plan",
-    description: "Perfect for small businesses and startups.",
-    price: "$49",
-    duration: "month",
-    features: [
-      "10 GB Storage",
-      "5 Email Accounts",
-      "24/7 Support",
-      "Basic Analytics",
-    ],
-  },
-  {
-    title: "Pro Plan",
-    description: "Ideal for growing businesses with advanced needs.",
-    price: "$99",
-    duration: "month",
-    features: [
-      "50 GB Storage",
-      "20 Email Accounts",
-      "24/7 Priority Support",
-      "Advanced Analytics",
-    ],
-  },
-  {
-    title: "Enterprise Plan",
-    description: "For large organizations with custom requirements.",
-    price: "$199",
-    duration: "month",
-    features: [
-      "Unlimited Storage",
-      "Unlimited Email Accounts",
-      "24/7 Dedicated Support",
-      "Custom Analytics",
-    ],
-  },
-];
 
 export const Education = {
   category: "Education",

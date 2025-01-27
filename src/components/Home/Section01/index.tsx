@@ -96,10 +96,11 @@ const Section01 = () => {
 
       {/* Animated Image */}
       <motion.div
-        initial={{ opacity: 0 }} // Start slightly to the right and invisible
-        animate={{ opacity: 1 }} // Animate to fully visible and centered
+        initial={{ opacity: 0, x: 50 }} // Start slightly to the right and invisible
+        animate={{ opacity: 1, x: 0 }} // Animate to fully visible and centered
         transition={{
-          duration: 0.8, // Smooth and slightly slower animation
+          duration: 0.5,
+          delay: 0.6, // Smooth and slightly slower animation
         }}
         className={styles.lottieSVG}
       >

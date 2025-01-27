@@ -41,7 +41,7 @@ const Section02 = () => {
 
           {/* Projects and Contact Buttons */}
           <motion.div
-            className={`mb-6 ${styles.buttonRow}`}
+            className={`mb-2 ${styles.buttonRow}`}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
