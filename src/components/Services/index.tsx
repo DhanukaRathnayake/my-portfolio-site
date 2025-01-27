@@ -1,5 +1,9 @@
 // Libraries
 import React, { useState, FunctionComponent } from "react";
+import {
+  HeroText,
+  Highlight,
+} from "../../components/Common/TextGenerateEffects/HeroText";
 
 // Styles
 import styles from "./index.module.css";
@@ -38,7 +42,11 @@ const Services: FunctionComponent = () => {
     <div className={styles.servicesContainer}>
       {/* Title and Subtitle */}
       <div className={styles.servicesHeader}>
-        <h2 className={styles.servicesTitle}>My Service Packages</h2>
+        <h2 className={styles.servicesTitle}>
+          <HeroText>
+            My Service <Highlight>Packages</Highlight>
+          </HeroText>
+        </h2>
         <p className={styles.servicesSubtitle}>
           Choose the perfect plan tailored to your needs
         </p>

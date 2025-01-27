@@ -2,6 +2,10 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import {
+  HeroText,
+  Highlight,
+} from "@/components/Common/TextGenerateEffects/HeroText";
 
 // Styles
 import styles from "./index.module.css";
@@ -72,8 +76,10 @@ const TopNavBar: React.FC = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       {/* Logo */}
-      <Link href="/" className={styles.logo}>
-        Portfolio
+      <Link href="/" className="flex items-center cursor-pointer">
+        <HeroText className={styles.logo}>
+          <Highlight>Portfolio</Highlight>
+        </HeroText>
       </Link>
 
       {/* Navigation Links and Contact Button */}

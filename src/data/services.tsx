@@ -57,7 +57,7 @@ export const ServicesList = [
       "Cross-platform development (React Native/Flutter)",
       "Up to 5 screens",
       "Basic push notifications",
-      "User-friendly UI/UX design",
+      // "User-friendly UI/UX design",
       "1-month free support",
     ],
     category: "mobile",
