@@ -4,6 +4,7 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-color: chartreuse;
 }
 
 .intro {
@@ -50,10 +51,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .section {
-    padding: var(--spacing-md); /* Reduce padding on smaller screens */
-  }
-
   .buttonsGroup {
     width: 100%;
     gap: var(--spacing-sm); /* Reduce gap between buttons */
@@ -66,10 +63,6 @@
 }
 
 @media (max-width: 480px) {
-  .section {
-    padding: 0;
-  }
-
   .glassyButton {
     font-size: var(--font-size-sm); /* Using global font size */
     width: 100px;

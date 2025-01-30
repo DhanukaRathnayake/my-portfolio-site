@@ -31,52 +31,27 @@ const Home: React.FC = () => {
     threshold: 0.5,
   });
 
+  const sections = [
+    { ref: section01Ref, inView: section01InView, Component: Section01 },
+    { ref: section02Ref, inView: section02InView, Component: Section02 },
+    { ref: section03Ref, inView: section03InView, Component: Section03 },
+    { ref: section04Ref, inView: section04InView, Component: Section04 },
+  ];
+
   return (
     <div className={styles.container}>
-      {/* Section 1: Introduction */}
-      <motion.section
-        ref={section01Ref}
-        initial={{ opacity: 0 }}
-        animate={section01InView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`${styles.section} ${styles.snapSection}`}
-      >
-        {section01InView && <Section01 />}
-      </motion.section>
-
-      {/* Section 2: About Me */}
-      <motion.section
-        ref={section02Ref}
-        initial={{ opacity: 0 }}
-        animate={section02InView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`${styles.section} ${styles.snapSection}`}
-      >
-        {section02InView && <Section02 />}
-      </motion.section>
-
-      {/* Section 3: What I’m Doing */}
-      <motion.section
-        ref={section03Ref}
-        initial={{ opacity: 0 }}
-        animate={section03InView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`${styles.section} ${styles.snapSection}`}
-      >
-        {section03InView && <Section03 />}
-      </motion.section>
-
-      {/* Section 4: Showcase Summary */}
-      <motion.section
-        ref={section04Ref}
-        id="contact-section"
-        initial={{ opacity: 0 }}
-        animate={section04InView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`${styles.section} ${styles.snapSection}`}
-      >
-        {section04InView && <Section04 />}
-      </motion.section>
+      {sections.map((section, index) => (
+        <motion.section
+          key={index}
+          ref={section.ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={section.inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className={`${styles.section} ${styles.snapSection}`}
+        >
+          {section.inView && <section.Component />}
+        </motion.section>
+      ))}
     </div>
   );
 };
