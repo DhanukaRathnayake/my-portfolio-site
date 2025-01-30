@@ -3,16 +3,16 @@
   top: 0;
   z-index: var(--z-index-navbar);
   backdrop-filter: var(--blur-sm);
-  height: 70px;
+  height: 56px; /* Standardize for modern navbars */
   width: 100%;
-  padding: 0 var(--spacing-md);
+  padding: 0 16px; /* Use rem/em for better accessibility */
   color: var(--color-text);
   background-color: var(--color-navbar-bg);
   box-shadow: var(--shadow-sm);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: backdrop-filter var(--transition-medium);
+  transition: backdrop-filter 0.3s ease; /* Fixed duration */
 }
 
 .navBar:hover {
@@ -21,43 +21,44 @@
 
 /* Logo */
 .logo {
-  font-size: var(--font-size-lg);
+  font-size: 1.25rem; /* Large enough to be noticeable but not overwhelming */
   font-weight: bold;
   color: var(--color-primary);
   text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
-    0 0 1px var(--color-primary); /* Using global primary color */
+    0 0 1px var(--color-primary);
 }
 
 /* Navigation Links */
 .navLinks {
   display: flex;
-  gap: var(--spacing-xl);
+  gap: 24px; /* Standardize spacing */
   align-items: center;
 }
 
 .navLink {
-  width: 65px;
+  width: auto; /* Remove fixed width for flexibility */
+  padding: 0 8px; /* Add padding for touch-friendly areas */
   display: flex;
   justify-content: center;
   color: var(--color-text);
   text-decoration: none;
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem; /* Slightly smaller for cleaner look */
   position: relative;
-  transition: color var(--transition-medium);
+  transition: color 0.3s ease;
 }
 
 /* Bottom Line (Hidden by Default) */
 .navLink::after {
   content: "";
   position: absolute;
-  bottom: -10px;
+  bottom: -8px; /* Adjust for better alignment */
   left: 0;
   right: 0;
   height: 2px;
   background-color: var(--color-primary);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform var(--transition-medium);
+  transition: transform 0.3s ease;
 }
 
 /* Hover Effect for Non-Active Links */
@@ -77,7 +78,23 @@
 
 /* Desktop Contact Button */
 .desktopContactButton {
-  display: block;
+  display: flex;
+  font-size: small;
+  height: 40px; /* Slightly smaller than the nav height for balance */
+  width: 100px; /* Standard width for a button with text */
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px; /* Padding for better spacing */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Indicate clickability */
+  background-color: #007bff; /* Example background color */
+  color: white; /* Example text color */
+  border: none; /* Remove default border */
+  transition: background-color 0.3s ease; /* Smooth hover transition */
+}
+
+.desktopContactButton:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* Mobile Contact Button */
@@ -89,22 +106,21 @@
 .hamburgerMenu {
   display: none;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: 4px; /* Use small, modern spacing */
   cursor: pointer;
 }
 
 .bar {
-  width: 25px;
-  height: 3px;
+  width: 20px; /* Smaller for minimal design */
+  height: 2px;
   background-color: var(--color-text);
-  border-radius: var(--border-radius-sm);
-  transition: transform var(--transition-medium),
-    opacity var(--transition-medium);
+  border-radius: 4px; /* Softer rounded corners */
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 /* Hamburger Menu Animation */
 .bar1 {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(4px, 4px);
 }
 
 .bar2 {
@@ -112,7 +128,7 @@
 }
 
 .bar3 {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(4px, -4px);
 }
 
 /* Responsive Styles */
@@ -120,12 +136,12 @@
   .navLinks {
     display: none;
     position: absolute;
-    top: 70px;
+    top: 64px; /* Adjust for navBar height */
     right: 0;
     flex-direction: column;
-    background-color: var(--color-background); /* Solid background color */
+    background-color: var(--color-background);
     width: 100%;
-    padding: var(--spacing-md);
+    padding: 16px; /* Ensure good spacing */
     box-shadow: var(--shadow-md);
   }
 
@@ -136,27 +152,24 @@
   .navLink {
     width: 100%;
     justify-content: flex-start;
-    padding: var(--spacing-sm) 0;
+    padding: 12px 0; /* Larger padding for touch-friendly links */
   }
 
-  /* Remove bottom line animation for mobile nav links */
   .navLink::after {
-    display: none; /* Hide the bottom line */
+    display: none;
   }
 
-  /* Hide Desktop Contact Button on Mobile */
   .desktopContactButton {
     display: none;
   }
 
-  /* Show Mobile Contact Button in Dropdown */
   .mobileContactButton {
     display: block;
     width: 100%;
     text-align: center;
     color: var(--color-text);
-    margin-top: var(--spacing-sm);
-    transition: color var(--transition-fast);
+    margin-top: 12px; /* Consistent spacing */
+    transition: color 0.2s ease;
   }
 
   .mobileContactButton:hover {
@@ -170,10 +183,10 @@
 
 @media (max-width: 480px) {
   .logo {
-    font-size: var(--font-size-lg);
+    font-size: 1rem; /* Slightly smaller for small screens */
   }
 
   .navLinks {
-    top: 60px;
+    top: 56px; /* Reduce to fit smaller navbar */
   }
 }

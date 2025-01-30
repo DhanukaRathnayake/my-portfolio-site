@@ -25,7 +25,9 @@
 .icon {
   width: 50px; /* Icon size adjustment */
   height: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Responsive Styles */

@@ -1,10 +1,47 @@
+/* Container for all sections */
+.container {
+  scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+  overflow-y: scroll; /* Enable scrolling */
+  height: 100vh; /* Full viewport height */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Base section styling */
 .section {
-  color: var(--color-text); /* Using global text color */
-  height: 100vh;
-  padding-top: 50px;
-  width: 100%;
-  scroll-snap-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: 100vh; /* Each section takes full viewport height */
+  scroll-snap-align: start; /* Snap to the start of each section */
+  display: flex; /* Enable flexible layout */
+  justify-content: center; /* Center items horizontally */
+  align-items: center; /* Center items vertically */
+  padding: 20px; /* Add padding for content spacing */
+  box-sizing: border-box; /* Include padding in height/width calculations */
+  text-align: center; /* Center text alignment for better readability */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .container {
+    padding-top: 50px;
+    scroll-snap-type: none; /* Keep snapping enabled for better UX */
+    overflow-y: scroll; /* Ensure smooth scrolling */
+    height: auto; /* Full viewport height */
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+  }
+
+  .section {
+    flex-direction: column; /* Stack content vertically on mobile */
+    text-align: center; /* Center-align text */
+    padding: 15px; /* Adjust padding for smaller screens */
+    height: auto; /* Allow dynamic height for content-heavy sections */
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center; /* Center items horizontally */
+    box-sizing: border-box; /* Ensure consistent box model */
+  }
 }

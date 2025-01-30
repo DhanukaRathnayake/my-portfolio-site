@@ -32,14 +32,14 @@ const Home: React.FC = () => {
   });
 
   return (
-    <div>
+    <div className={styles.container}>
       {/* Section 1: Introduction */}
       <motion.section
         ref={section01Ref}
         initial={{ opacity: 0 }}
         animate={section01InView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`${styles.section}`}
+        className={`${styles.section} ${styles.snapSection}`}
       >
         {section01InView && <Section01 />}
       </motion.section>
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={section02InView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`${styles.section}`}
+        className={`${styles.section} ${styles.snapSection}`}
       >
         {section02InView && <Section02 />}
       </motion.section>
@@ -61,7 +61,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={section03InView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`${styles.section}`}
+        className={`${styles.section} ${styles.snapSection}`}
       >
         {section03InView && <Section03 />}
       </motion.section>
@@ -73,7 +73,7 @@ const Home: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={section04InView ? { opacity: 1 } : {}}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className={`${styles.section}`}
+        className={`${styles.section} ${styles.snapSection}`}
       >
         {section04InView && <Section04 />}
       </motion.section>

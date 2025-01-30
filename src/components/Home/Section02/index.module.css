@@ -28,6 +28,7 @@
 }
 
 .profileImage {
+  background-color: #020617;
   width: 200px; /* Smaller image on smaller screens */
   height: 200px;
 }

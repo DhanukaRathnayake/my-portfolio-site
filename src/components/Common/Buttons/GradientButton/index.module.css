@@ -6,10 +6,9 @@
   position: relative; /* relative */
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* shadow-2xl shadow-zinc-900 */
   border-radius: 9999px; /* rounded-full */
-  padding: 1px; /* p-px */
-  font-size: 0.75rem; /* text-xs */
+  padding: 0.5px; /* p-px */
+  font-size: var(--font-size-xs); /* text-xs */
   font-weight: 600; /* font-semibold */
-  line-height: 1.5; /* leading-6 */
   color: var(--color-text-secondary); /* text-white */
   display: inline-block; /* inline-block */
 }

@@ -7,39 +7,7 @@ import { LucideBrainCircuit } from "lucide-react";
 import styles from "./index.module.css";
 import { useRouter } from "next/router";
 import Image from "next/image";
-
-const blogs = [
-  {
-    id: 1,
-    title: "Best Libraries for Developers",
-    description:
-      "Leverage pre-built solutions to accelerate development and reduce coding time.",
-    icon: <HiOutlineCode className={styles.icon} />,
-    coverImageUrl:
-      "https://portfolio-cms-storage-1.s3.us-east-1.amazonaws.com/public/blog01.webp",
-    url: "/blogs?category=Libraries",
-  },
-  {
-    id: 2,
-    title: "AI Tools to Simplify Your Workflow",
-    description:
-      "Discover powerful AI tools and automation tips to streamline your tasks and boost productivity.",
-    icon: <LucideBrainCircuit className={styles.icon} />,
-    coverImageUrl:
-      "https://portfolio-cms-storage-1.s3.us-east-1.amazonaws.com/public/blog02.png",
-    url: "/blogs?category=AI",
-  },
-  {
-    id: 3,
-    title: "Cloud Deployment Strategies",
-    description:
-      "Optimize your cloud infrastructure with proven strategies for efficient and scalable deployments.",
-    icon: <TbCloudCode className={styles.icon} />,
-    coverImageUrl:
-      "https://portfolio-cms-storage-1.s3.us-east-1.amazonaws.com/public/blog03.png",
-    url: "/blogs?category=Cloud",
-  },
-];
+import { MainBlogCategories } from "@/data/showcast";
 
 const Blogs = () => {
   const router = useRouter();
@@ -59,7 +27,7 @@ const Blogs = () => {
         },
       }}
     >
-      {blogs.map((blog, index) => (
+      {MainBlogCategories.map((blog, index) => (
         <motion.div
           variants={{
             hidden: { opacity: 0, scale: 0.8, y: 20 },
