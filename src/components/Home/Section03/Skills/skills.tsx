@@ -5,13 +5,10 @@ import { motion } from "framer-motion";
 import styles from "./index.module.css";
 
 // Data
-import { SkillsList } from "../../../../data/showcast";
+import { SkillsList } from "@/data/showcast";
+import Link from "next/link";
 
 const Skills = () => {
-  const handleClick = (url: string) => {
-    window.open(url, "_blank");
-  };
-
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.2 }}
@@ -19,14 +16,15 @@ const Skills = () => {
       transition={{ duration: 0.5 }}
       className={styles.cardsContainer}
     >
-      {SkillsList.map((skill) => (
-        <div
-          key={skill.id}
+      {SkillsList.map((skill, index) => (
+        <Link
+          key={index}
+          href={skill.url}
+          target="_blank"
           className={`${styles.card} primary-card`}
-          onClick={() => handleClick(skill.url)}
         >
           <div className={styles.icon}>{skill.icon}</div>
-        </div>
+        </Link>
       ))}
     </motion.div>
   );

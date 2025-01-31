@@ -14,9 +14,14 @@ import { TypeBlog } from "@/types/blog";
 
 interface Props {
   blog: TypeBlog | null;
+  error: string | null;
 }
 
-const BlogPage: NextPage<Props> = ({ blog }) => {
+const BlogPage: NextPage<Props> = ({ blog, error }) => {
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
+
   if (!blog) {
     return <div>Blog not found</div>;
   }
@@ -34,10 +39,16 @@ export const getServerSideProps: GetServerSideProps =
   wrapper.getServerSideProps((store) => async (context) => {
     const props: Props = {
       blog: null,
+      error: null,
     };
 
     try {
       const id = context.query?.id;
+
+      if (!id || isNaN(Number(id))) {
+        props.error = "Invalid blog ID.";
+        return { props };
+      }
 
       const blogResponse = await store.dispatch(
         getBlogById.initiate({
@@ -48,9 +59,11 @@ export const getServerSideProps: GetServerSideProps =
       if (blogResponse.isSuccess) {
         props.blog = blogResponse.data;
       } else {
+        props.error = "Failed to fetch blog. Please try again later.";
         console.error("Failed to fetch blog:", blogResponse.error);
       }
     } catch (error) {
+      props.error = "An unexpected error occurred while fetching the blog.";
       console.error("Error fetching blog:", error);
     }
 

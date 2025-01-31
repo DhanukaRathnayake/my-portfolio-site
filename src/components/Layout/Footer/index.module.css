@@ -1,0 +1,74 @@
+.footer {
+  width: 100%;
+  background-color: var(--color-navbar-bg);
+  backdrop-filter: var(--blur-sm);
+  box-shadow: var(--shadow-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 1rem 0;
+  transition: backdrop-filter 0.3s ease;
+}
+
+.footer:hover {
+  backdrop-filter: var(--blur-md);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* Add padding to prevent content from touching the edges on smaller screens */
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.9rem; /* Adjust font size for smaller screens */
+}
+
+.highlights {
+  color: var(--color-primary);
+  text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
+    0 0 1px var(--color-primary);
+}
+
+/* Media Queries for Responsiveness */
+
+/* For tablets and smaller desktops */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 90%; /* Adjust container width for smaller screens */
+  }
+
+  .copyright {
+    font-size: 0.85rem; /* Slightly smaller font size for tablets */
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  .footer {
+    padding: 0.75rem 0; /* Reduce padding for smaller screens */
+  }
+
+  .container {
+    max-width: 95%; /* Further adjust container width for mobile */
+  }
+
+  .copyright {
+    font-size: 0.8rem; /* Smaller font size for mobile */
+  }
+
+  .highlights {
+    text-shadow: 0 0 0.5px var(--color-primary), 0 0 0.5px var(--color-primary),
+      0 0 0.5px var(--color-primary); /* Adjust text shadow for smaller screens */
+  }
+}
+
+/* For very small mobile devices */
+@media (max-width: 480px) {
+  .footer {
+    padding: 0.5rem 0; /* Further reduce padding for very small screens */
+  }
+
+  .copyright {
+    font-size: 0.75rem; /* Even smaller font size for very small screens */
+  }
+}

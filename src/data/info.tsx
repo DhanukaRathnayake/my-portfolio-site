@@ -14,22 +14,22 @@ export const Info = {
     {
       name: "GitHub",
       url: "https://github.com/DhanukaRathnayake",
-      icon: <FaGithub size={20} />,
+      icon: <FaGithub style={{ height: "100%", width: "100%" }} />,
     },
     {
       name: "LinkedIn",
       url: "https://www.linkedin.com/in/dhanukarathnayake/",
-      icon: <FaLinkedinIn size={20} />,
+      icon: <FaLinkedinIn style={{ height: "100%", width: "100%" }} />,
     },
     {
       name: "Upwork",
       url: "https://www.upwork.com/freelancers/~01beff29422dd4ac9d?viewMode=1",
-      icon: <SiUpwork size={20} />,
+      icon: <SiUpwork style={{ height: "100%", width: "100%" }} />,
     },
     {
       name: "Fiverr",
       url: "https://www.fiverr.com/dhanuka_devops",
-      icon: <TbBrandFiverr size={20} />,
+      icon: <TbBrandFiverr style={{ height: "100%", width: "100%" }} />,
     },
   ],
   sections: {
@@ -55,7 +55,7 @@ export const Info = {
     link: "https://goo.gl/maps/nPW1gLNiarB3gi3t5",
   },
   cv: "https://drive.google.com/file/d/12acCJrOtr3l2dOz_k_gcWO3Hm4kvCDla/view?usp=sharing",
-  profilePicture: "/dp.png",
+  profilePicture: `${process.env.AWS_S3_URL}/dp.webp`,
   status: "Ready To Innovate",
   company: {
     name: "Sonic Labs (Pvt) Ltd",

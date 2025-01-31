@@ -1,12 +1,11 @@
 /* Container for all sections */
 .container {
-  height: 100vh; /* Full viewport height for the container */
+  min-height: 100vh; /* Full viewport height for the container */
 }
 
 /* Base section styling */
 .section {
   min-height: 100vh; /* Full viewport height */
-  scroll-snap-align: start; /* Snap to the start of each section */
   display: flex; /* Enable flexible layout */
   justify-content: flex-start; /* Center items horizontally */
   align-items: center; /* Center items vertically */
@@ -43,5 +42,11 @@ section .content {
     justify-content: flex-start; /* Align items to the top */
     align-items: center; /* Center items horizontally */
     box-sizing: border-box; /* Ensure consistent box model */
+  }
+}
+
+@media (max-width: 468px) {
+  .section {
+    min-height: 100%; /* Adjust padding for smaller screens */
   }
 }

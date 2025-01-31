@@ -85,10 +85,7 @@ const Section01 = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconButton
-                content={item.icon}
-                onClick={() => console.log(item.name)}
-              />
+              <IconButton content={item.icon} onClick={() => {}} />
             </Link>
           ))}
         </motion.div>

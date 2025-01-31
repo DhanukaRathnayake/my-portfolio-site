@@ -1,13 +1,8 @@
 // Libraries
 import React from "react";
-import dynamic from "next/dynamic";
 import { NextPage } from "next";
 
-import PageLoader from "@/components/Common/Loaders/pageLoader";
-const Services = dynamic(() => import("../../components/Services"), {
-  ssr: true,
-  loading: () => <PageLoader />,
-});
+import Services from "../../components/Services";
 
 const ServicesPage: NextPage<{}> = () => {
   return <Services />;

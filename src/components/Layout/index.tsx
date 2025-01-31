@@ -6,10 +6,11 @@ import styles from "./index.module.css";
 
 // Components
 import BlobBackground from "./BlobBackground";
-import PageLoader from "../Common/Loaders/pageLoader";
+import PageLoader from "../Common/Loaders/PageLoader";
 import ProgressBar from "../Common/Loaders/ProgressBar";
 import WelcomePage from "../Welcome";
 import TopNavBar from "./TopNavBar";
+import Footer from "./Footer";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -35,7 +36,7 @@ const Layout = ({ children }: LayoutProps) => {
   }, []);
 
   return (
-    <div>
+    <div className={styles.layoutWrapper}>
       {isLoading ? (
         <PageLoader />
       ) : (
@@ -60,7 +61,7 @@ const Layout = ({ children }: LayoutProps) => {
               <div className={styles.mainContent}>
                 <main>{children}</main>
               </div>
-              <div className={styles.footer}></div>
+              <Footer />
             </motion.div>
           )}
         </AnimatePresence>

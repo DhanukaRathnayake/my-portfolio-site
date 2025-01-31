@@ -32,11 +32,6 @@ export const getEmailTemplate = (
           padding-bottom: 20px;
           border-bottom: 1px solid #e0e0e0;
         }
-        .header img {
-          width: 120px;
-          height: auto;
-          margin-bottom: 20px;
-        }
         .header h1 {
           font-size: 24px;
           color: #333;
@@ -86,7 +81,6 @@ export const getEmailTemplate = (
     <body>
       <div class="email-container">
         <div class="header">
-          <img src="${process.env.LOGO_URL}" alt="Your Logo">
           <h1>Thank You for Contacting Me!</h1>
         </div>
         <div class="content">

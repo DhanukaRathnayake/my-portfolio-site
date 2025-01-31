@@ -2,13 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(-Border-radius-md);
+  border-radius: var(--border-radius-md);
   background: var(--gradient-primary);
   padding: 1.5px;
-  border-radius: var(--border-radius-md);
   color: var(--color-text);
   transition: background var(--transition-medium),
     box-shadow var(--transition-medium);
+  width: 36px; /* Default size (Medium) */
+  height: 36px; /* Default size (Medium) */
 }
 
 .iconButton:hover {
@@ -19,7 +20,7 @@
 .iconButtonInner {
   display: flex;
   font-size: var(--font-size-sm);
-  padding: 10px;
+  padding: 8px;
   height: 100%;
   width: 100%;
   align-items: center;
@@ -27,4 +28,52 @@
   border-radius: var(--border-radius-md);
   background: var(--color-background);
   transition: background var(--transition-medium);
+}
+
+/* Responsive Sizes */
+@media (max-width: 768px) {
+  .iconButton {
+    width: 32px; /* Small size for tablets */
+    height: 32px;
+  }
+
+  .iconButtonInner {
+    font-size: var(--font-size-xs);
+    padding: 6px;
+  }
+
+  .iconButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 5px var(--color-secondary), 0 0 10px var(--color-secondary);
+  }
+}
+
+@media (max-width: 480px) {
+  .iconButton {
+    width: 32px; /* Medium size for mobile (touch-friendly) */
+    height: 32px;
+  }
+
+  .iconButtonInner {
+    font-size: var(--font-size-sm);
+    padding: 8px;
+  }
+
+  .iconButton:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 3px var(--color-secondary), 0 0 6px var(--color-secondary);
+  }
+}
+
+/* Large Screens (e.g., desktops) */
+@media (min-width: 1024px) {
+  .iconButton {
+    width: 48px; /* Large size for desktops */
+    height: 48px;
+  }
+
+  .iconButtonInner {
+    font-size: var(--font-size-md);
+    padding: 12px;
+  }
 }

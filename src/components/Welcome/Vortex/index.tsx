@@ -19,7 +19,8 @@ interface VortexProps {
 export const Vortex = (props: VortexProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef(null);
-  const particleCount = props.particleCount || 400;
+  const particleCount =
+    props.particleCount || (window.innerWidth < 768 ? 200 : 400); // Adjust particle count for mobile
   const particlePropCount = 9;
   const particlePropsLength = particleCount * particlePropCount;
   const rangeY = props.rangeY || 100;
@@ -39,7 +40,6 @@ export const Vortex = (props: VortexProps) => {
   let particleProps = new Float32Array(particlePropsLength);
   let center: [number, number] = [0, 0];
 
-  // Custom colors
   const customColors =
     typeof document !== "undefined"
       ? [
@@ -108,7 +108,6 @@ export const Vortex = (props: VortexProps) => {
     speed = baseSpeed + rand(rangeSpeed);
     radius = baseRadius + rand(rangeRadius);
 
-    // Assign a custom color index (0 to 3) for the particle
     hue = Math.floor(Math.random() * customColors.length);
 
     particleProps.set([x, y, vx, vy, life, ttl, speed, radius, hue], i);
@@ -162,7 +161,6 @@ export const Vortex = (props: VortexProps) => {
     radius = particleProps[i8];
     hueIndex = particleProps[i9];
 
-    // Get the hex color from the customColors array
     const hue = customColors[Math.floor(hueIndex)];
 
     drawParticle(x, y, x2, y2, life, ttl, radius, hue, ctx);
@@ -186,7 +184,7 @@ export const Vortex = (props: VortexProps) => {
     life: number,
     ttl: number,
     radius: number,
-    hue: string, // Hex color
+    hue: string,
     ctx: CanvasRenderingContext2D
   ) => {
     ctx.save();
@@ -194,7 +192,7 @@ export const Vortex = (props: VortexProps) => {
     ctx.lineWidth = radius;
     ctx.strokeStyle = `${hue}${Math.floor(fadeInOut(life, ttl) * 255)
       .toString(16)
-      .padStart(2, "0")}`; // Add opacity to the hex color
+      .padStart(2, "0")}`;
     ctx.beginPath();
     ctx.moveTo(x, y);
     ctx.lineTo(x2, y2);

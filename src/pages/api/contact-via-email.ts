@@ -20,7 +20,7 @@ export default async function handler(
     });
 
     const mailOptions = {
-      from: `Your Name <${process.env.CONTACT_EMAIL}>`,
+      from: `Dhanuka Rathnayake <${process.env.CONTACT_EMAIL}>`,
       to,
       subject,
       text,

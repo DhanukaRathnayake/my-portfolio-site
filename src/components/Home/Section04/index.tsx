@@ -114,7 +114,7 @@ const Section04 = () => {
         {/* Submit Button */}
         <button
           type="submit"
-          className={`${styles.submitButton} mb-4 primary-button`}
+          className={`${styles.submitButton} md:mb-2 primary-button`}
           disabled={isLoading}
         >
           {isLoading ? "Sending..." : "Send Message"}
@@ -134,11 +134,7 @@ const Section04 = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <IconButton
-                key={index}
-                content={item.icon}
-                onClick={() => console.log(item.name)}
-              />
+              <IconButton key={index} content={item.icon} onClick={() => {}} />
             </Link>
           ))}
         </motion.div>

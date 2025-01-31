@@ -78,7 +78,7 @@ const TopNavBar: React.FC = () => {
       {/* Logo */}
       <Link href="/" className="flex items-center cursor-pointer">
         <HeroText className={styles.logo}>
-          <Highlight>Portfolio</Highlight>
+          <Highlight>TAGZY</Highlight>
         </HeroText>
       </Link>
 

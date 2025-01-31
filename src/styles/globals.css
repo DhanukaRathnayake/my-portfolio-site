@@ -26,9 +26,6 @@
   --color-success: #28a745;
   --color-danger: #dc3545;
 
-  /* Blur Effect */
-  --blur-lg: blur(150px);
-
   /* Z-Index */
   --z-index-blob-container: -1;
   --z-index-welcome-page: 10000;
@@ -78,7 +75,7 @@
 
   /* Blur Effects */
   --blur-sm: blur(10px);
-  --blur-md: blur(12px);
+  --blur-md: blur(20px);
   --blur-lg: blur(150px);
 
   /* Gradients */

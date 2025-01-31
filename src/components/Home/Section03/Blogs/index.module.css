@@ -60,13 +60,12 @@
   font-size: var(--font-size-md);
   font-weight: 700;
   color: var(--color-text);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: var(--spacing-sm);
 }
 
 .cardDescription {
   font-size: var(--font-size-sm);
   color: var(--color-text-secondary);
-  margin-bottom: var(--spacing-md);
   flex: 1;
 }
 

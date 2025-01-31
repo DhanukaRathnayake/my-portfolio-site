@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: var(--z-index-blob-container); /* Using global z-index variable */
+  z-index: var(--z-index-blob-container);
   overflow: hidden;
 }
 
@@ -13,7 +13,7 @@
   width: var(--size);
   height: var(--size);
   background: var(--blob-color);
-  filter: var(--blur-lg); /* Using global blur effect */
+  filter: var(--blur-lg);
   border-radius: 50%;
   animation: fadeInOut var(--fade-duration) ease-in-out infinite,
     blobMotion var(--motion-duration) ease-in-out infinite;
@@ -21,10 +21,9 @@
   top: var(--y1);
 }
 
-/* Blob Motion Animation */
 @keyframes blobMotion {
   0% {
-    transform: translate(var(--x1), var(--y1)) scale(1); /* Start at x1, y1 */
+    transform: translate(var(--x1), var(--y1)) scale(1);
   }
   25% {
     transform: translate(var(--x2), var(--y2)) scale(1.1);
@@ -36,11 +35,10 @@
     transform: translate(var(--x4), var(--y4)) scale(1.05);
   }
   100% {
-    transform: translate(var(--x1), var(--y1)) scale(1); /* End back at x1, y1 */
+    transform: translate(var(--x1), var(--y1)) scale(1);
   }
 }
 
-/* Fade In and Out Animation */
 @keyframes fadeInOut {
   0% {
     opacity: 0;
@@ -53,5 +51,13 @@
   100% {
     opacity: 0;
     transform: scale(1.2);
+  }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+  .blob {
+    --size: 100px; /* Adjust blob size for mobile */
+    --blur-lg: blur(10px); /* Adjust blur for mobile */
   }
 }

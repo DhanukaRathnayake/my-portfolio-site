@@ -110,12 +110,6 @@
 }
 
 @media (max-width: 480px) {
-  .section {
-    padding: var(
-      --spacing-md
-    ); /* Further reduce padding on very small screens */
-  }
-
   .contactForm {
     padding: var(--spacing-md); /* Further reduce padding */
   }
