@@ -1,5 +1,5 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Vortex } from "./Vortex";
 import { HeroText, Highlight } from "../Common/TextGenerateEffects/HeroText";
 import styles from "./index.module.css";

@@ -4,7 +4,7 @@ import {
   useScroll,
   useTransform,
   motion,
-} from "framer-motion";
+} from "motion/react";
 import React, { useEffect, useRef, useState } from "react";
 
 import styles from "./index.module.css";

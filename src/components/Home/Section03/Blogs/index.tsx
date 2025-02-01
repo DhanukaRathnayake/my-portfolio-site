@@ -2,7 +2,7 @@ import React from "react";
 import { IoInfinite } from "react-icons/io5";
 import { TbCloudCode } from "react-icons/tb";
 import { HiOutlineCode } from "react-icons/hi";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { LucideBrainCircuit } from "lucide-react";
 import styles from "./index.module.css";
 import { useRouter } from "next/router";

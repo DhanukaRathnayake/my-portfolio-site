@@ -1,6 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 // Styles
 import styles from "./index.module.css"; // Create a new CSS module for this component

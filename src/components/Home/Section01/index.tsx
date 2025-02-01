@@ -1,7 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 // Components
 import Tags from "@/components/Common/Tags";
