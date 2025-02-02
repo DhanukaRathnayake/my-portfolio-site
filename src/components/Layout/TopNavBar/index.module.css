@@ -136,7 +136,7 @@
   .navLinks {
     display: none;
     position: absolute;
-    top: 64px; /* Adjust for navBar height */
+    top: 56px; /* Adjust for navBar height */
     right: 0;
     flex-direction: column;
     background-color: var(--color-background);
@@ -168,7 +168,7 @@
     width: 100%;
     text-align: center;
     color: var(--color-text);
-    margin-top: 12px; /* Consistent spacing */
+    margin-top: 10px; /* Consistent spacing */
     transition: color 0.2s ease;
   }
 

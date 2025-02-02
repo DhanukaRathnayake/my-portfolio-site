@@ -6,6 +6,9 @@ import { useRouter } from "next/router";
 // Components
 import Blogs from "@/components/Blogs";
 
+// Hooks
+import { useToast } from "@/components/Common/Toast/ToastContext";
+
 // Redux
 import { wrapper } from "@/redux/store";
 import {
@@ -21,18 +24,14 @@ import { TypeBlogCategory, TypeBlog } from "@/types/blog";
 interface Props {
   categories: TypeBlogCategory[] | [];
   blogs: TypeBlog[] | [];
-  error: string | null;
 }
 
-const BlogsPage: NextPage<Props> = ({
-  categories,
-  blogs: initialBlogs,
-  error,
-}) => {
+const BlogsPage: NextPage<Props> = ({ categories, blogs: initialBlogs }) => {
   const [blogs, setBlogs] = useState<TypeBlog[] | []>(initialBlogs);
-  const [localError, setLocalError] = useState<string | null>(error);
 
   const router = useRouter();
+
+  const { addToast } = useToast();
 
   // Add query hook with current URL parameters
   const { refetch, error: refetchError } = useGetAllBlogsQuery({
@@ -47,10 +46,9 @@ const BlogsPage: NextPage<Props> = ({
       const result = await refetch();
       if (result.data) {
         setBlogs(result.data);
-        setLocalError(null);
       }
     } catch (error) {
-      setLocalError("Failed to refresh blogs. Please try again later.");
+      addToast("Failed to refresh blogs. Please try again later.", "error");
       console.error("Error refreshing blogs:", error);
     }
   };
@@ -60,18 +58,8 @@ const BlogsPage: NextPage<Props> = ({
     refreshBlogs();
   }, [router.query]);
 
-  // Handle refetch errors
-  useEffect(() => {
-    if (refetchError) {
-      setLocalError("Failed to fetch blogs. Please try again later.");
-    }
-  }, [refetchError]);
-
   return (
     <div>
-      {/* Display error messages if any */}
-      {localError && <div className="error-message">{localError}</div>}
-
       {/* Render the Blogs component */}
       <Blogs categories={categories} blogs={blogs} />
     </div>
@@ -85,7 +73,6 @@ export const getServerSideProps: GetServerSideProps =
     const props: Props = {
       blogs: [],
       categories: [],
-      error: null,
     };
 
     // Extract query parameters
@@ -104,11 +91,9 @@ export const getServerSideProps: GetServerSideProps =
       if (blogsResponse.isSuccess) {
         props.blogs = blogsResponse.data;
       } else {
-        props.error = "Failed to fetch blogs. Please try again later.";
         console.error("Failed to fetch blogs:", blogsResponse.error);
       }
     } catch (error) {
-      props.error = "An unexpected error occurred while fetching blogs.";
       console.error("Error fetching blogs:", error);
     }
 
@@ -121,11 +106,9 @@ export const getServerSideProps: GetServerSideProps =
       if (categoriesResponse.isSuccess) {
         props.categories = categoriesResponse.data;
       } else {
-        props.error = "Failed to fetch categories. Please try again later.";
         console.error("Failed to fetch categories:", categoriesResponse.error);
       }
     } catch (error) {
-      props.error = "An unexpected error occurred while fetching categories.";
       console.error("Error fetching categories:", error);
     }
 
