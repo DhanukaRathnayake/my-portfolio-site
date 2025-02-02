@@ -5,7 +5,7 @@ import { wrapper } from "../redux/store";
 
 // Global styles
 import "../styles/globals.css";
-import "react-toastify/dist/ReactToastify.css";
+// import "react-toastify/dist/ReactToastify.css";
 
 // Layout component
 import Layout from "../components/Layout";
