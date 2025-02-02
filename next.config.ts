@@ -1,9 +1,6 @@
-// next.config.mjs
+import type { NextConfig } from "next";
 
-/**
- * @type {import('next').NextConfig}
- */
-const nextConfig = {
+const nextConfig: NextConfig = {
   // Enable React Strict Mode
   reactStrictMode: true,
   // trailingSlash: true,
