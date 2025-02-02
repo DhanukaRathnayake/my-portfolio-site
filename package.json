@@ -1,13 +1,11 @@
 {
-  "name": "my-portfolio-site",
-  "version": "0.1.0",
+  "name": "portfolio.tagzy.ste",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "analyze": "set ANALYZE=true&& next build"
+    "start": "next start"
   },
   "dependencies": {
     "@apollo/client": "^3.12.6",
