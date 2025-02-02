@@ -1,6 +1,6 @@
 .servicesContainer {
   text-align: center;
-  padding: var(--spacing-xxxl) var(--spacing-md);
+  padding: var(--spacing-xxxl) var(--spacing-md) 30px var(--spacing-md);
 }
 
 .servicesHeader {
@@ -90,7 +90,7 @@
 .servicePrice {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-secondary);
   margin-top: var(--spacing-md);
 }
 
@@ -122,7 +122,7 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .servicesContainer {
-    padding: 100px var(--spacing-sm);
+    padding: 100px var(--spacing-sm) 20px var(--spacing-sm);
   }
 
   .servicesTitle {
@@ -153,7 +153,7 @@
 
 @media (max-width: 480px) {
   .servicesContainer {
-    padding: 100px var(--spacing-xs);
+    padding: 100px var(--spacing-xs) 20px var(--spacing-xs);
   }
 
   .servicesTitle {
@@ -169,7 +169,11 @@
   }
 
   .serviceCard {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-lg);
+  }
+
+  .serviceCard:hover {
+    transform: none;
   }
 
   .serviceTitle {
@@ -182,6 +186,7 @@
 
   .ctaButton {
     padding: var(--spacing-xs) var(--spacing-sm);
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
+    height: 35px;
   }
 }

@@ -4,6 +4,7 @@ import {
   HeroText,
   Highlight,
 } from "../../components/Common/TextGenerateEffects/HeroText";
+import { GiCheckMark } from "react-icons/gi";
 
 // Styles
 import styles from "./index.module.css";
@@ -64,7 +65,9 @@ const Services: FunctionComponent = () => {
               <ul className={styles.serviceFeatures}>
                 {service.features.map((feature, i) => (
                   <li key={i} className={styles.featureItem}>
-                    <span className={styles.featureIcon}>✔</span>
+                    <span className={styles.featureIcon}>
+                      <GiCheckMark height={"100%"} width={"100%"} />
+                    </span>
                     {feature}
                   </li>
                 ))}
@@ -72,7 +75,7 @@ const Services: FunctionComponent = () => {
 
               {/* Price and Duration */}
               <div className={styles.servicePrice}>
-                <span className={styles.price}>{service.price}</span>
+                <span className={`${styles.price}`}>{service.price}</span>
                 <span className={styles.duration}>/{service.duration}</span>
               </div>
 
