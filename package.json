@@ -30,9 +30,9 @@
     "highlight.js": "^11.11.0",
     "lottie-react": "^2.4.0",
     "lowlight": "^3.3.0",
-    "lucide-react": "^0.473.0",
+    "lucide-react": "^0.474.0",
     "motion": "^12.0.6",
-    "next": "15.1.2",
+    "next": "^15.1.6",
     "next-redux-wrapper": "^8.1.0",
     "nodemailer": "^6.9.16",
     "react": "^19.0.0",
@@ -47,7 +47,7 @@
     "@types/node": "^22.13.0",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19.0.8",
-    "tailwindcss": "^3.4.1",
+    "tailwindcss": "^4.0.3",
     "typescript": "^5.7.3"
   }
 }
