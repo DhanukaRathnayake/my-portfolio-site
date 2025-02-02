@@ -70,18 +70,21 @@ const Blog: FunctionComponent<Props> = ({
         <Breadcrumb />
       </div>
 
-      <div className="mb-6">
-        <Tags
-          type="category"
-          tags={[
-            "All",
-            ...categories.map((item: TypeBlogCategory) => item.name),
-          ]}
-        />
-      </div>
-      <div className={styles.blogCards}>
-        {currentBlogs && currentBlogs.length > 0 ? (
-          currentBlogs.map((item: TypeBlog, index: number) => (
+      {currentBlogs && currentBlogs.length > 0 && (
+        <div className="mb-6">
+          <Tags
+            type="category"
+            tags={[
+              "All",
+              ...categories.map((item: TypeBlogCategory) => item.name),
+            ]}
+          />
+        </div>
+      )}
+
+      {currentBlogs && currentBlogs.length > 0 ? (
+        currentBlogs.map((item: TypeBlog, index: number) => (
+          <div className={styles.blogCards}>
             <div key={index} className={`${styles.cardContainer} primary-card`}>
               <div className={styles.imageContainer}>
                 <Image
@@ -108,34 +111,30 @@ const Blog: FunctionComponent<Props> = ({
                 </div>
               </div>
             </div>
-          ))
-        ) : (
-          // Empty card placeholder
-          <div className={`${styles.cardContainer} primary-card`}>
-            <div className={styles.imageContainer}>
-              <div className={styles.emptyImagePlaceholder}>
-                No Image Available
-              </div>
-            </div>
-            <div className={styles.cardContent}>
-              <h2 className={styles.cardTitle}>No Blogs Found</h2>
-              <p className={styles.cardDescription}>
-                There are no blogs to display at the moment. Click to explore
-                other categories.
-              </p>
-              <div className={styles.cardFooter}>
-                <div></div>
-                <button
-                  className={`${styles.readMoreButton} primary-button`}
-                  onClick={() => router.push(`/blogs`)} // Add click handler for redirect
-                >
-                  All Blogs
-                </button>
-              </div>
+          </div>
+        ))
+      ) : (
+        // Empty card placeholder
+        <div
+          className={`flex justify-center text-center items-center h-96 w-full`}
+        >
+          <div className={styles.cardContent}>
+            <h2 className={styles.cardTitle}>No Blogs Found</h2>
+            <p className={styles.cardDescription}>
+              There are no blogs to display at the moment. Click to explore
+              other categories.
+            </p>
+            <div>
+              <button
+                className={`${styles.readMoreButton} w-20 sm:w-32 primary-button`}
+                onClick={() => router.push(`/blogs`)} // Add click handler for redirect
+              >
+                All Blogs
+              </button>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Pagination Controls */}
       {totalPages > 1 && (
