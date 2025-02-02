@@ -3,13 +3,10 @@
   publish = ".next"
 
 [build.environment]
-  NODE_VERSION = "20"
-
-[build.caching]
-  enabled = true
+  NODE_VERSION = "20"  # or the version you are using
 
 [[plugins]]
-package = "@netlify/plugin-lighthouse"
-  [plugins.inputs]
-  output_path = "lighthouse-report.html"
-  audit_url = "/"  # Use "audit_url" instead of "url"
+  package = "@netlify/plugin-nextjs"
+
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
