@@ -33,9 +33,11 @@ const formattedData = (data: TimelineDataType[]) =>
           ))}
         </ul>
 
-        <div className="mt-6">
-          <Tags tags={entry.skills} />
-        </div>
+        {entry.skills.length > 0 && (
+          <div className="mt-6">
+            <Tags className={styles.tags} tags={entry.skills} />
+          </div>
+        )}
       </div>
     ),
   }));

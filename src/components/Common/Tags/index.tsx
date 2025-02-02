@@ -8,9 +8,10 @@ import styles from "./index.module.css"; // Create a new CSS module for this com
 interface TagsProps {
   type?: string;
   tags: string[];
+  className?: string;
 }
 
-const Tags: React.FC<TagsProps> = ({ type, tags }) => {
+const Tags: React.FC<TagsProps> = ({ type, tags, className }) => {
   const router = useRouter();
 
   const handleSearchBlogByTag = (tag: string) => {
@@ -31,7 +32,7 @@ const Tags: React.FC<TagsProps> = ({ type, tags }) => {
       {tags.map((tag, index) => (
         <div
           key={index}
-          className={styles.tag}
+          className={`${className} ${styles.tag}`}
           onClick={() => handleSearchBlogByTag(tag)}
         >
           {tag}
