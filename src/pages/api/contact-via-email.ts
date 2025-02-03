@@ -27,8 +27,17 @@ export default async function handler(
       html,
     };
 
+    const mailForwardOptions = {
+      from: `Hi, New email contact from <${to}>`,
+      to: process.env.CONTACT_EMAIL,
+      subject: "New Email from my portfolio website",
+      text,
+      html,
+    };
+
     try {
       await transporter.sendMail(mailOptions);
+      await transporter.sendMail(mailForwardOptions);
       res.status(200).json({ message: "Email sent successfully" });
     } catch (error) {
       console.error("Error sending email:", error);
