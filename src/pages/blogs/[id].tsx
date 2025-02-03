@@ -1,14 +1,12 @@
 // Libraries
 import React from "react";
 import { GetServerSideProps, NextPage } from "next";
-import { wrapper } from "@/redux/store";
-
+import Head from "next/head"; // Import the Head component for SEO
 // Redux
+import { wrapper } from "@/redux/store";
 import { getRunningQueriesThunk, getBlogById } from "@/redux/services/blogsApi";
-
 // Components
 import SingleBlog from "@/components/Blogs/SingleBlog";
-
 // Types
 import { TypeBlog } from "@/types/blog";
 
@@ -21,15 +19,53 @@ const BlogPage: NextPage<Props> = ({ blog, error }) => {
   if (error) {
     return <div className="error-message">{error}</div>;
   }
-
   if (!blog) {
     return <div>Blog not found</div>;
   }
 
+  // Generate dynamic SEO title and description
+  const pageTitle = blog.title || "Blog Post";
+  const pageDescription = blog.excerpt || "Read this blog post to learn more.";
+  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.id}`;
+  const pageImage =
+    blog.coverImageUrl ||
+    `${process.env.NEXT_PUBLIC_SITE_URL}/images/default-blog.jpg`;
+
   return (
-    <div>
-      <SingleBlog blog={blog} />
-    </div>
+    <>
+      {/* Add SEO Tags */}
+      <Head>
+        {/* Title Tag */}
+        <title>{pageTitle}</title>
+
+        {/* Meta Description */}
+        <meta name="description" content={pageDescription} />
+
+        {/* Open Graph Tags for Social Media */}
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:image" content={pageImage} />
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={pageImage} />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={pageUrl} />
+
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      {/* Render the SingleBlog component */}
+      <div>
+        <SingleBlog blog={blog} />
+      </div>
+    </>
   );
 };
 
@@ -44,7 +80,6 @@ export const getServerSideProps: GetServerSideProps =
 
     try {
       const id = context.query?.id;
-
       if (!id || isNaN(Number(id))) {
         props.error = "Invalid blog ID.";
         return { props };
@@ -68,6 +103,5 @@ export const getServerSideProps: GetServerSideProps =
     }
 
     await Promise.all(store.dispatch(getRunningQueriesThunk()));
-
     return { props };
   });

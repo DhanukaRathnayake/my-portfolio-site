@@ -21,11 +21,8 @@
 
 /* Logo */
 .logo {
-  font-size: 1.25rem; /* Large enough to be noticeable but not overwhelming */
-  font-weight: bold;
-  color: var(--color-primary);
-  text-shadow: 0 0 1px var(--color-primary), 0 0 1px var(--color-primary),
-    0 0 1px var(--color-primary);
+  font-size: 1.5rem; /* Large enough to be noticeable but not overwhelming */
+  font-weight: bolder;
 }
 
 /* Navigation Links */
@@ -41,7 +38,6 @@
   display: flex;
   justify-content: center;
   color: var(--color-text);
-  text-decoration: none;
   font-size: 0.875rem; /* Slightly smaller for cleaner look */
   position: relative;
   transition: color 0.3s ease;
@@ -68,7 +64,16 @@
 
 /* Active Link Styles */
 .activeNavLink {
-  color: var(--color-primary);
+  background-image: linear-gradient(
+    to right,
+    var(--color-gradient-start),
+    var(--color-gradient-end)
+  ); /* Use gradient text color */
+  color: transparent;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-position: left center;
   font-weight: bold;
 }
 
