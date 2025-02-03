@@ -1,5 +1,5 @@
 "use client";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import React from "react";
 
 export const HeroText = ({
@@ -17,7 +17,6 @@ export const HeroText = ({
     children: React.ReactNode[]
   ): { text: string; isHighlight: boolean }[] => {
     let result: { text: string; isHighlight: boolean }[] = [];
-
     children.forEach((child) => {
       if (React.isValidElement(child) && child.type === Highlight) {
         // If the child is a Highlight component, add its text as highlighted
@@ -33,18 +32,11 @@ export const HeroText = ({
         result.push({ text: child?.toString() || "", isHighlight: false });
       }
     });
-
     return result;
   };
 
   // Process the text and highlighted parts
   const processedText = processText(childrenArray);
-
-  // Flatten the processed text into a single string for animation
-  const fullText = processedText.map((item) => item.text).join("");
-
-  // Split the full text into characters for animation
-  const characters = fullText.split("");
 
   return (
     <motion.h1
@@ -53,37 +45,68 @@ export const HeroText = ({
       transition={{ duration: 0.8, ease: "easeOut" }}
       className={`heroText ${className}`}
     >
-      {characters.map((char, index) => {
-        // Find the corresponding text segment (highlighted or not) for this character
-        let currentCharIndex = 0;
-        let isHighlighted = false;
+      {processedText.map((segment, segmentIndex) => {
+        if (segment.isHighlight) {
+          const characters = segment.text.split("");
 
-        for (const segment of processedText) {
-          if (
-            index >= currentCharIndex &&
-            index < currentCharIndex + segment.text.length
-          ) {
-            isHighlighted = segment.isHighlight;
-            break;
-          }
-          currentCharIndex += segment.text.length;
+          return (
+            <span
+              key={segmentIndex}
+              style={{
+                background:
+                  "linear-gradient(90deg, var(--color-gradient-start), var(--color-gradient-end))",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                display: "inline-block", // Ensure the gradient spans the full word
+              }}
+            >
+              {characters.map((char, charIndex) => {
+                const totalCharsBefore =
+                  processedText
+                    .slice(0, segmentIndex)
+                    .reduce((acc, seg) => acc + seg.text.length, 0) + charIndex;
+
+                return (
+                  <motion.span
+                    key={`${segmentIndex}-${charIndex}`}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      delay: 0.05 * totalCharsBefore, // Delay for each character
+                      duration: 0.1, // Duration for each character
+                      ease: "easeInOut",
+                    }}
+                  >
+                    {char}
+                  </motion.span>
+                );
+              })}
+            </span>
+          );
+        } else {
+          // Animate non-highlighted text character by character
+          return segment.text.split("").map((char, charIndex) => {
+            const totalCharsBefore =
+              processedText
+                .slice(0, segmentIndex)
+                .reduce((acc, seg) => acc + seg.text.length, 0) + charIndex;
+
+            return (
+              <motion.span
+                key={`${segmentIndex}-${charIndex}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{
+                  delay: 0.05 * totalCharsBefore, // Delay for each character
+                  duration: 0.1, // Duration for each character
+                  ease: "easeOut",
+                }}
+              >
+                {char}
+              </motion.span>
+            );
+          });
         }
-
-        return (
-          <motion.span
-            key={index}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: index * 0.08, // Slower delay for each character (0.1s per character)
-              duration: 0.1, // Slower duration for each character
-              ease: "easeOut",
-            }}
-            className={isHighlighted ? "heroTextHighlight" : ""}
-          >
-            {char}
-          </motion.span>
-        );
       })}
     </motion.h1>
   );
