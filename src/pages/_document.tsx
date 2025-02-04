@@ -9,7 +9,6 @@ export default function Document() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Dynamic Meta Tags from Environment Variables */}
-        <title>{process.env.SEO_PUBLIC_SITE_TITLE}</title>
         <meta
           name="description"
           content={process.env.SEO_PUBLIC_SITE_DESCRIPTION || ""}

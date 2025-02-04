@@ -32,8 +32,8 @@ export default async function handler(
         user: process.env.BREVO_SMTP_USER,
         pass: process.env.BREVO_SMTP_KEY,
       },
-      debug: true, // Enable debugging
-      logger: true, // Enable logging
+      // debug: true, // Enable debugging
+      // logger: true, // Enable logging
     });
 
     // Configure mail options for replying to the user
@@ -47,9 +47,8 @@ export default async function handler(
 
     // Configure mail options for forwarding the email to yourself
     const mailForwardOptions = {
-      from: `Portfolio Notifications <${process.env.CONTACT_EMAIL}>`,
+      from: `Portfolio Notifications <portfolio@tagzi.site>`,
       to: `${process.env.CONTACT_EMAIL}`, // Primary recipient
-      cc: `${process.env.CONTACT_EMAIL}`, // CC yourself
       subject: `New message from ${name} (${email})`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: forwardEmailTemplate(name, email, message),

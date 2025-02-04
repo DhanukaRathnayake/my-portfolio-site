@@ -34,7 +34,7 @@ export const replyEmailTemplate = (name: string) => {
         </style>
       </head>
       <body style="margin: 0; padding: 0; font-family: 'Poppins', Arial, sans-serif; background-color: #000; color: #ffffff;">
-        <div class="email-container" style="max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); border-radius: 10px; overflow: hidden;">
+        <div class="email-container" style="max-width: 600px; margin: 0 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); border-radius: 10px; overflow: hidden;">
           <div class="header" style="text-align: center; padding: 20px; background: linear-gradient(to right, #660099, #b136dd); color: #fff;">
             <img src="${
               Info.logo
@@ -101,7 +101,7 @@ export const forwardEmailTemplate = (
         </style>
       </head>
       <body style="margin: 0; padding: 0; font-family: 'Poppins', Arial, sans-serif; background-color: #000; color: #ffffff;">
-        <div class="email-container" style="max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); border-radius: 10px; overflow: hidden;">
+        <div class="email-container" style="max-width: 600px; margin: 0 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); border-radius: 10px; overflow: hidden;">
           <div class="header" style="text-align: center; padding: 20px; background: linear-gradient(to right, #660099, #b136dd); color: #fff;">
             <img src="${
               Info.logo
