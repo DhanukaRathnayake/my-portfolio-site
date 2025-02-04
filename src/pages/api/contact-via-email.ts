@@ -47,7 +47,7 @@ export default async function handler(
 
     // Configure mail options for forwarding the email to yourself
     const mailForwardOptions = {
-      from: `Portfolio Notifications <portfolio@tagzi.site>`,
+      from: `Portfolio Notifications <portfolio@tagzy.site>`,
       to: `${process.env.CONTACT_EMAIL}`, // Primary recipient
       subject: `New message from ${name} (${email})`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,

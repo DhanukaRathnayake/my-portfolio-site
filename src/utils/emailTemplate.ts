@@ -34,7 +34,7 @@ export const replyEmailTemplate = (name: string) => {
         </style>
       </head>
       <body style="margin: 0; padding: 0; font-family: 'Poppins', Arial, sans-serif; background-color: #000; color: #ffffff;">
-        <div class="email-container" style="max-width: 600px; margin: 0 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); border-radius: 10px; overflow: hidden;">
+        <div class="email-container" style="max-width: 600px; margin: 40px auto; padding: 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); border-radius: 10px; overflow: hidden;">
           <div class="header" style="text-align: center; padding: 20px; background: linear-gradient(to right, #660099, #b136dd); color: #fff;">
             <img src="${
               Info.logo
@@ -51,7 +51,7 @@ export const replyEmailTemplate = (name: string) => {
             </p>
             <a href="mailto:${
               process.env.CONTACT_EMAIL
-            }" style="display: inline-block; margin: 20px 0; padding: 12px 24px; font-size: 16px; color: #fff; background: linear-gradient(to right, #660099, #b136dd); border-radius: 5px; text-decoration: none; text-align: center;">Reply to This Email</a>
+            }" style="display: inline-block; margin: 20px 0; padding: 12px 24px; font-size: 16px; color: #fff; background: linear-gradient(to right, #660099, #b136dd); background-color: #660099; /* Fallback for gradient */ border-radius: 5px; text-decoration: none; text-align: center;">Reply to This Email</a>
           </div>
           <div class="footer" style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.1); color: #dcdcdc; font-size: 14px;">
             <p style="margin: 0;">&copy; ${new Date().getFullYear()} ${
@@ -101,7 +101,7 @@ export const forwardEmailTemplate = (
         </style>
       </head>
       <body style="margin: 0; padding: 0; font-family: 'Poppins', Arial, sans-serif; background-color: #000; color: #ffffff;">
-        <div class="email-container" style="max-width: 600px; margin: 0 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); border-radius: 10px; overflow: hidden;">
+        <div class="email-container" style="max-width: 600px; margin: 40px auto; padding: 20px; background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); border-radius: 10px; overflow: hidden;">
           <div class="header" style="text-align: center; padding: 20px; background: linear-gradient(to right, #660099, #b136dd); color: #fff;">
             <img src="${
               Info.logo
@@ -119,7 +119,7 @@ export const forwardEmailTemplate = (
             <p style="font-size: 16px; line-height: 1.6; margin: 0 0 20px;"><strong>Email:</strong> ${email}</p>
             <p style="font-size: 16px; line-height: 1.6; margin: 0 0 20px;"><strong>Message:</strong></p>
             <p style="font-size: 16px; line-height: 1.6; margin: 0 0 20px;">${message}</p>
-            <a href="mailto:${email}" style="display: inline-block; margin: 20px 0; padding: 12px 24px; font-size: 16px; color: #fff; background: linear-gradient(to right, #660099, #b136dd); border-radius: 5px; text-decoration: none; text-align: center;">Reply to This Email</a>
+            <a href="mailto:${email}" style="display: inline-block; margin: 20px 0; padding: 12px 24px; font-size: 16px; color: #fff; background: linear-gradient(to right, #660099, #b136dd); background-color: #660099; /* Fallback for gradient */ border-radius: 5px; text-decoration: none; text-align: center;">Reply to This Email</a>
           </div>
           <div class="footer" style="text-align: center; padding: 20px; background: rgba(255, 255, 255, 0.1); color: #dcdcdc; font-size: 14px;">
             <p style="margin: 0;">&copy; ${new Date().getFullYear()} ${
