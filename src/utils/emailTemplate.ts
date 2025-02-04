@@ -35,13 +35,6 @@ export const replyEmailTemplate = (name: string) => {
             overflow: hidden;
           }
 
-          .header {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(to right, #660099, #b136dd); /* Gradient header */
-            color: #fff;
-          }
-
           .content {
             padding: 20px;
             line-height: 1.6;
@@ -73,6 +66,13 @@ export const replyEmailTemplate = (name: string) => {
               background-color: #1e1e1e; /* Dark mode footer background */
               color: #dcdcdc; /* Dark mode footer text color */
             }
+          }
+
+          .header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #660099, #b136dd); /* Gradient header */
+            color: #fff;
           }
 
           a.reply-button {
@@ -158,13 +158,6 @@ export const forwardEmailTemplate = (
             overflow: hidden;
           }
 
-          .header {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(to right, #660099, #b136dd); /* Gradient header */
-            color: #fff;
-          }
-
           .content {
             padding: 20px;
             line-height: 1.6;
@@ -196,6 +189,13 @@ export const forwardEmailTemplate = (
               background-color: #1e1e1e; /* Dark mode footer background */
               color: #dcdcdc; /* Dark mode footer text color */
             }
+          }
+
+          .header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(to right, #660099, #b136dd); /* Gradient header */
+            color: #fff;
           }
 
           a.reply-button {
