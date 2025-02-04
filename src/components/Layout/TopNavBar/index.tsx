@@ -9,6 +9,7 @@ import {
 
 // Styles
 import styles from "./index.module.css";
+import Image from "next/image";
 
 const TopNavBar: React.FC = () => {
   const router = useRouter();
@@ -77,9 +78,13 @@ const TopNavBar: React.FC = () => {
     >
       {/* Logo */}
       <Link href="/" className="flex items-center cursor-pointer">
-        <HeroText className={styles.logo}>
-          <Highlight>TAGZY</Highlight>
-        </HeroText>
+        <Image
+          src={"/logo.png"}
+          height={1} // Placeholder value
+          width={1} // Placeholder value
+          alt={`Logo`}
+          className={styles.logo}
+        />
       </Link>
 
       {/* Navigation Links and Contact Button */}

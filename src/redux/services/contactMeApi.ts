@@ -2,10 +2,9 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 interface EmailData {
-  to: string;
-  subject: string;
-  text: string;
-  html: string; // Add HTML support
+  email: string;
+  name: string;
+  message: string;
 }
 
 export const contactMeApi = createApi({

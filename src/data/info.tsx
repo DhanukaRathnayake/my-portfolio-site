@@ -56,6 +56,7 @@ export const Info = {
   },
   cv: "https://drive.google.com/file/d/12acCJrOtr3l2dOz_k_gcWO3Hm4kvCDla/view?usp=sharing",
   profilePicture: `${process.env.AWS_S3_URL}/dp.webp`,
+  logo: `${process.env.AWS_S3_URL}/logo.png`,
   status: "Ready To Innovate",
   company: {
     name: "Sonic Labs (Pvt) Ltd",

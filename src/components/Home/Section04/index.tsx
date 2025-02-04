@@ -17,9 +17,6 @@ import styles from "./index.module.css";
 // Data
 import { Info } from "../../../data/info";
 
-// Email Template
-import { getEmailTemplate } from "@/utils/emailTemplate";
-
 const Section04 = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -31,16 +28,9 @@ const Section04 = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const emailData = {
-      to: email, // Recipient email
-      subject: `New message from ${name} (${email})`, // Dynamic subject
-      text: message, // Plain text version of the email
-      html: getEmailTemplate(name, email, message), // HTML version of the email
-    };
-
     try {
       // Send email
-      await sendEmail(emailData).unwrap();
+      await sendEmail({ email, name, message }).unwrap();
 
       // Show success message
       addToast("I'll contact you soon... 😊 Thank you!", "success");

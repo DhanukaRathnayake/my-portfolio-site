@@ -21,8 +21,8 @@
 
 /* Logo */
 .logo {
-  font-size: 1.5rem; /* Large enough to be noticeable but not overwhelming */
-  font-weight: bolder;
+  height: 35px;
+  width: 35px;
 }
 
 /* Navigation Links */
