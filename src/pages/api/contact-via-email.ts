@@ -3,10 +3,9 @@ import nodemailer from "nodemailer";
 import { isEmail } from "validator";
 
 // Email Template
-import {
-  forwardEmailTemplate,
-  replyEmailTemplate,
-} from "@/utils/emailTemplate";
+import { ReplyEmailTemplate } from "@/components/Email/ReplyEmail";
+import { ForwardEmailTemplate } from "@/components/Email/ForwardEmail";
+import { render } from "@react-email/render";
 
 export default async function handler(
   req: NextApiRequest,
@@ -36,31 +35,42 @@ export default async function handler(
       // logger: true, // Enable logging
     });
 
+    const replyHtml = await render(ReplyEmailTemplate({ name }), {
+      pretty: true,
+    });
+    const forwardHtml = await render(
+      ForwardEmailTemplate({ name, email, message }),
+      {
+        pretty: true,
+      }
+    );
+
     // Configure mail options for replying to the user
     const mailReplyOptions = {
       from: `Dhanuka Rathnayake <${process.env.CONTACT_EMAIL}>`,
       to: email,
       subject: `Thank you for contacting me ${name}`,
-      text: `Hi ${name}, thank you for reaching out. We will get back to you soon.`,
-      html: replyEmailTemplate(name),
+      text: `Hi ${name}, Thank you for reaching out. I will get back to you soon.`,
+      html: replyHtml,
     };
 
     // Configure mail options for forwarding the email to yourself
     const mailForwardOptions = {
-      from: `Portfolio Notifications <portfolio@tagzy.site>`,
+      from: `Portfolio Notifications <${process.env.CONTACT_EMAIL}>`,
       to: `${process.env.CONTACT_EMAIL}`, // Primary recipient
       subject: `New message from ${name} (${email})`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-      html: forwardEmailTemplate(name, email, message),
+      html: forwardHtml,
     };
 
     try {
-      // Reply to the user
-      const replyResult = await transporter.sendMail(mailReplyOptions);
-      console.log("Reply email sent successfully:", replyResult);
+      // Send both emails in parallel
+      const [replyResult, forwardResult] = await Promise.all([
+        transporter.sendMail(mailReplyOptions),
+        transporter.sendMail(mailForwardOptions),
+      ]);
 
-      // Forward the email to yourself (with CC)
-      const forwardResult = await transporter.sendMail(mailForwardOptions);
+      console.log("Reply email sent successfully:", replyResult);
       console.log("Forward email sent successfully:", forwardResult);
 
       res.status(200).json({ message: "Email sent successfully" });
