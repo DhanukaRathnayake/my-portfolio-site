@@ -32,7 +32,7 @@ const Section01 = () => {
         <div className="mb-4">
           <HeroText className={styles.mainTitle}>
             Innovative <Highlight>Web </Highlight> &{" "}
-            <Highlight>Mobile </Highlight> & <Highlight>Cloud </Highlight>
+            <Highlight>Mobile </Highlight> & <Highlight>Cloud </Highlight>{" "}
             Solutions
           </HeroText>
         </div>
