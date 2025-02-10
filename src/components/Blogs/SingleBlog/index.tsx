@@ -72,8 +72,6 @@ const SingleBlog: React.FC<Props> = ({ blog }) => {
         )}
       </div>
 
-      {/* Blog Excerpt */}
-      {blog.excerpt && <p className={styles.excerpt}>{blog.excerpt}</p>}
 
       {/* Blog Body */}
       <div
