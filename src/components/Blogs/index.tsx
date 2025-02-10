@@ -12,6 +12,7 @@ import Tags from "../Common/Tags";
 // Types
 import { TypeBlogCategory, TypeBlog } from "@/types/blog";
 import Breadcrumb from "../Common/BreadCrumb";
+import NotFoundBlog from "./NotFoundBlog";
 
 interface Props {
   categories: TypeBlogCategory[] | [];
@@ -55,7 +56,7 @@ const Blog: FunctionComponent<Props> = ({
   };
 
   const handleBlogView = (blog: TypeBlog) => {
-    router.push(`/blogs/${blog.id}`);
+    router.push(`/blogs/${blog.slug}`);
   };
 
   // Format the date safely
@@ -82,59 +83,36 @@ const Blog: FunctionComponent<Props> = ({
         </div>
       )}
 
-      {currentBlogs && currentBlogs.length > 0 ? (
-        <div className={styles.blogCards}>
+      <div className={styles.blogCards}>
         {currentBlogs.map((item: TypeBlog, index: number) => (
-            <div key={index} className={`${styles.cardContainer} primary-card`}>
-              <div className={styles.imageContainer}>
-                <Image
-                  src={item.coverImageUrl}
-                  alt="thumbnail"
-                  layout="fill"
-                  objectFit="cover"
-                  className={styles.cardImage}
-                />
-              </div>
-              <div className={styles.cardContent}>
-                <h2 className={styles.cardTitle}>{item.title}</h2>
-                <p className={styles.cardDescription}>{item.excerpt}</p>
-                <div className={styles.cardFooter}>
-                  <span className={styles.cardDate}>
-                    {item.createdAt ? formatDate(item.updatedAt) : "N/A"}
-                  </span>
-                  <button
-                    className={`${styles.readMoreButton} primary-button`}
-                    onClick={() => handleBlogView(item)}
-                  >
-                    Read More
-                  </button>
-                </div>
-              </div>
+          <div key={index} className={`${styles.cardContainer} primary-card`}>
+            <div className={styles.imageContainer}>
+              <Image
+                src={item.coverImageUrl}
+                alt="thumbnail"
+                layout="fill"
+                objectFit="cover"
+                className={styles.cardImage}
+              />
             </div>
-        ))}
-        </div>
-      ) : (
-        // Empty card placeholder
-        <div
-          className={`flex justify-center text-center items-center h-96 w-full`}
-        >
-          <div className={styles.cardContent}>
-            <h2 className={styles.cardTitle}>No Blogs Found</h2>
-            <p className={styles.cardDescription}>
-              There are no blogs to display at the moment. Click to explore
-              other categories.
-            </p>
-            <div>
-              <button
-                className={`${styles.readMoreButton} w-20 sm:w-32 primary-button`}
-                onClick={() => router.push(`/blogs`)} // Add click handler for redirect
-              >
-                All Blogs
-              </button>
+            <div className={styles.cardContent}>
+              <h2 className={styles.cardTitle}>{item.title}</h2>
+              <p className={styles.cardDescription}>{item.excerpt}</p>
+              <div className={styles.cardFooter}>
+                <span className={styles.cardDate}>
+                  {item.createdAt ? formatDate(item.updatedAt) : "N/A"}
+                </span>
+                <button
+                  className={`${styles.readMoreButton} primary-button`}
+                  onClick={() => handleBlogView(item)}
+                >
+                  Read More
+                </button>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        ))}
+      </div>
 
       {/* Pagination Controls */}
       {totalPages > 1 && (

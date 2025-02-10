@@ -4,11 +4,15 @@ import { GetServerSideProps, NextPage } from "next";
 import Head from "next/head"; // Import the Head component for SEO
 // Redux
 import { wrapper } from "@/redux/store";
-import { getRunningQueriesThunk, getBlogById } from "@/redux/services/blogsApi";
+import {
+  getRunningQueriesThunk,
+  getBlogBySlug,
+} from "@/redux/services/blogsApi";
 // Components
 import SingleBlog from "@/components/Blogs/SingleBlog";
 // Types
 import { TypeBlog } from "@/types/blog";
+import NotFoundBlog from "@/components/Blogs/NotFoundBlog";
 
 interface Props {
   blog: TypeBlog | null;
@@ -17,16 +21,25 @@ interface Props {
 
 const BlogPage: NextPage<Props> = ({ blog, error }) => {
   if (error) {
-    return <div className="error-message">{error}</div>;
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <NotFoundBlog type="blog" />
+      </div>
+    );
   }
+
   if (!blog) {
-    return <div>Blog not found</div>;
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <NotFoundBlog type="blog" />
+      </div>
+    );
   }
 
   // Generate dynamic SEO title and description
   const pageTitle = blog.title || "Blog Post";
   const pageDescription = blog.excerpt || "Read this blog post to learn more.";
-  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.id}`;
+  const pageUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/blog/${blog.slug}`;
   const pageImage =
     blog.coverImageUrl ||
     `${process.env.NEXT_PUBLIC_SITE_URL}/images/default-blog.jpg`;
@@ -79,15 +92,15 @@ export const getServerSideProps: GetServerSideProps =
     };
 
     try {
-      const id = context.query?.id;
-      if (!id || isNaN(Number(id))) {
-        props.error = "Invalid blog ID.";
+      const slug = context.query?.slug;
+      if (!slug || typeof slug !== "string") {
+        props.error = "Invalid blog Slug.";
         return { props };
       }
 
       const blogResponse = await store.dispatch(
-        getBlogById.initiate({
-          id: Number(id),
+        getBlogBySlug.initiate({
+          slug: slug,
         })
       );
 

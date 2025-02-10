@@ -46,9 +46,9 @@ export const getAllBlogsGQL = gql`
   }
 `;
 
-export const getBlogByIdGQL = gql`
-  query findContentById($id: Int!) {
-    findContentById(id: $id) {
+export const getBlogBySlugGQL = gql`
+  query findContentBySlug($slug: String!) {
+    findContentBySlug(slug: $slug) {
       id
       title
       slug

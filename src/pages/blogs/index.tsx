@@ -17,13 +17,19 @@ import {
 } from "@/redux/services/blogsApi";
 // Types
 import { TypeBlogCategory, TypeBlog } from "@/types/blog";
+import NotFoundBlog from "@/components/Blogs/NotFoundBlog";
 
 interface Props {
   categories: TypeBlogCategory[] | [];
   blogs: TypeBlog[] | [];
+  error: string | null;
 }
 
-const BlogsPage: NextPage<Props> = ({ categories, blogs: initialBlogs }) => {
+const BlogsPage: NextPage<Props> = ({
+  categories,
+  blogs: initialBlogs,
+  error,
+}) => {
   const [blogs, setBlogs] = useState<TypeBlog[] | []>(initialBlogs);
   const router = useRouter();
   const { addToast } = useToast();
@@ -52,6 +58,22 @@ const BlogsPage: NextPage<Props> = ({ categories, blogs: initialBlogs }) => {
   useEffect(() => {
     refreshBlogs();
   }, [router.query]);
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <NotFoundBlog type="blogs" />
+      </div>
+    );
+  }
+
+  if (!blogs || blogs.length === 0) {
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        <NotFoundBlog type="blogs" />
+      </div>
+    );
+  }
 
   // Generate dynamic SEO title and description
   const pageTitle = `Blogs${
@@ -118,6 +140,7 @@ export const getServerSideProps: GetServerSideProps =
     const props: Props = {
       blogs: [],
       categories: [],
+      error: null,
     };
 
     // Extract query parameters
@@ -135,9 +158,11 @@ export const getServerSideProps: GetServerSideProps =
       if (blogsResponse.isSuccess) {
         props.blogs = blogsResponse.data;
       } else {
+        props.error = "Failed to fetch blogs. Please try again later.";
         console.error("Failed to fetch blogs:", blogsResponse.error);
       }
     } catch (error) {
+      props.error = "An unexpected error occurred while fetching the blogs.";
       console.error("Error fetching blogs:", error);
     }
 
@@ -149,9 +174,12 @@ export const getServerSideProps: GetServerSideProps =
       if (categoriesResponse.isSuccess) {
         props.categories = categoriesResponse.data;
       } else {
+        props.error = "Failed to fetch categories. Please try again later.";
         console.error("Failed to fetch categories:", categoriesResponse.error);
       }
     } catch (error) {
+      props.error =
+        "An unexpected error occurred while fetching the categories.";
       console.error("Error fetching categories:", error);
     }
 

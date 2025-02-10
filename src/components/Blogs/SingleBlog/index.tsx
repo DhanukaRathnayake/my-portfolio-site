@@ -72,7 +72,6 @@ const SingleBlog: React.FC<Props> = ({ blog }) => {
         )}
       </div>
 
-
       {/* Blog Body */}
       <div
         className={`${styles.blogBody} tiptap`}

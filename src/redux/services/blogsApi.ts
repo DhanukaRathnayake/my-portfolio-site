@@ -11,7 +11,7 @@ import { TypeBlog } from "@/types/blog";
 import {
   getAllCategoriesGQL,
   getAllBlogsGQL,
-  getBlogByIdGQL,
+  getBlogBySlugGQL,
 } from "@/graphql/graphQLMiddleware/queries";
 
 const BACKEND_URL = process.env.BACKEND_URL;
@@ -64,24 +64,25 @@ export const blogsApi = createApi({
         };
       },
     }),
-    getBlogById: builder.query({
-      query: ({ id }) => ({
-        body: getBlogByIdGQL,
+    getBlogBySlug: builder.query({
+      query: ({ slug }) => ({
+        body: getBlogBySlugGQL,
         variables: {
-          id: id,
+          slug: slug,
         },
+
       }),
       transformResponse: async (response: any) => {
-        if (!response.findContentById) {
+        if (!response.findContentBySlug) {
           throw new Error("Blog not found");
         }
-        return response.findContentById;
+        return response.findContentBySlug;
       },
       transformErrorResponse: (response: any) => {
         // Handle specific error responses here
         return {
           status: response.status,
-          message: "Failed to fetch blog by ID",
+          message: "Failed to fetch blog by Slug",
         };
       },
     }),
@@ -92,10 +93,10 @@ export const blogsApi = createApi({
 export const {
   useGetAllCategoriesQuery,
   useGetAllBlogsQuery,
-  useGetBlogByIdQuery,
+  useGetBlogBySlugQuery,
   util: { getRunningQueriesThunk },
 } = blogsApi;
 
 // export endpoints for use in SSR
-export const { getAllCategories, getAllBlogs, getBlogById } =
+export const { getAllCategories, getAllBlogs, getBlogBySlug } =
   blogsApi.endpoints;
