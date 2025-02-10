@@ -83,8 +83,8 @@ const Blog: FunctionComponent<Props> = ({
       )}
 
       {currentBlogs && currentBlogs.length > 0 ? (
-        currentBlogs.map((item: TypeBlog, index: number) => (
-          <div className={styles.blogCards}>
+        <div className={styles.blogCards}>
+        {currentBlogs.map((item: TypeBlog, index: number) => (
             <div key={index} className={`${styles.cardContainer} primary-card`}>
               <div className={styles.imageContainer}>
                 <Image
@@ -111,8 +111,8 @@ const Blog: FunctionComponent<Props> = ({
                 </div>
               </div>
             </div>
-          </div>
-        ))
+        ))}
+        </div>
       ) : (
         // Empty card placeholder
         <div
