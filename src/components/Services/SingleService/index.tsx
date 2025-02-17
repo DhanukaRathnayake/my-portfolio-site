@@ -37,14 +37,8 @@ const SingleService: React.FC<Props> = ({ service }) => {
         <Breadcrumb />
       </div>
 
-      {/* Row Layout for Cover Image, Title, and Metadata */}
+      {/* Cover Image with Animation */}
       <div className={styles.headerRow}>
-        {/* Title and Metadata */}
-        <div className={styles.titleAndMetadata}>
-          <h1 className={styles.serviceTitle}>{service.title}</h1>
-        </div>
-
-        {/* Cover Image with Animation */}
         {service.coverImageUrl && (
           <div className={styles.coverImageContainer}>
             <Image
@@ -56,6 +50,11 @@ const SingleService: React.FC<Props> = ({ service }) => {
             />
           </div>
         )}
+      </div>
+
+      {/* Title and Metadata */}
+      <div className={styles.titleAndMetadata}>
+        <h1 className={styles.serviceTitle}>{service.title}</h1>
       </div>
 
       {/* Blog Body */}
