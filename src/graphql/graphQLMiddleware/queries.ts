@@ -76,3 +76,49 @@ export const getBlogBySlugGQL = gql`
     }
   }
 `;
+
+export const getAllServicesGQL = gql`
+  query findAllServices($search: String, $status: String) {
+    findAllServices(search: $search, status: $status) {
+      id
+      title
+      slug
+      excerpt
+      coverImageUrl
+      body
+      metaTitle
+      metaDescription
+      metaKeywords
+      tags
+      status
+      isPublished
+      publishedAt
+      viewsCount
+      createdAt
+      updatedAt
+    }
+  }
+`;
+
+export const getServiceBySlugGQL = gql`
+  query findServiceBySlug($slug: String!) {
+    findServiceBySlug(slug: $slug) {
+      id
+      title
+      slug
+      excerpt
+      coverImageUrl
+      body
+      metaTitle
+      metaDescription
+      metaKeywords
+      tags
+      status
+      isPublished
+      publishedAt
+      viewsCount
+      createdAt
+      updatedAt
+    }
+  }
+`;

@@ -1,10 +1,82 @@
 // Libraries
-import React from "react";
-import { NextPage } from "next";
+import React, { useState, useEffect } from "react";
+import { NextPage, GetServerSideProps } from "next";
 import Head from "next/head"; // Import the Head component for SEO
 import Services from "../../components/Services";
+import { useToast } from "@/components/Common/Toast/ToastContext";
+import { useRouter } from "next/router";
 
-const ServicesPage: NextPage<{}> = () => {
+// Redux
+import { wrapper } from "@/redux/store";
+import {
+  getRunningQueriesThunk,
+  getAllServices,
+  useGetAllServicesQuery,
+} from "@/redux/services/serviceApi";
+
+// Types
+import { TypeService } from "@/types/service";
+
+interface Props {
+  services: TypeService[] | [];
+  error: string | null;
+}
+
+const ServicesPage: NextPage<Props> = ({
+  services: initialServices,
+  error,
+}) => {
+  const [services, setServices] = useState<TypeService[] | []>(initialServices);
+  const router = useRouter();
+  const { addToast } = useToast();
+
+  // Add query hook with current URL parameters
+  const { refetch, error: refetchError } = useGetAllServicesQuery({
+    search:
+      typeof router.query.search === "string" ? router.query.search : null,
+  });
+
+  const refreshServices = async () => {
+    try {
+      const result = await refetch();
+      if (result.data) {
+        setServices(result.data);
+      }
+    } catch (error) {
+      addToast("Failed to refresh services. Please try again later.", "error");
+      console.error("Error refreshing services:", error);
+    }
+  };
+
+  // Refresh the data on page
+  useEffect(() => {
+    refreshServices();
+  }, [router.query]);
+
+  if (error) {
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        "Something went wrong"
+      </div>
+    );
+  }
+
+  if (!services || services.length === 0) {
+    return (
+      <div className="flex justify-center items-center h-screen w-full">
+        "Something went wrong"
+      </div>
+    );
+  }
+
+  // Generate dynamic SEO title and description
+  const pageTitle = `Services${
+    router.query.search ? ` - Search: ${router.query.search}` : ""
+  }`;
+  const pageDescription = `Explore our latest services${
+    router.query.search ? ` related to "${router.query.search}"` : ""
+  }.`;
+
   return (
     <>
       {/* Add SEO Tags */}
@@ -63,9 +135,43 @@ const ServicesPage: NextPage<{}> = () => {
       </Head>
 
       {/* Render the Services Component */}
-      <Services />
+      <Services services={services} />
     </>
   );
 };
 
 export default ServicesPage;
+
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps((store) => async (context) => {
+    const props: Props = {
+      services: [],
+      error: null,
+    };
+
+    // Extract query parameters
+    const search = context.query?.search;
+
+    // Fetch services based on query parameters
+    try {
+      const servicesResponse = await store.dispatch(
+        getAllServices.initiate({
+          search: typeof search === "string" ? search : null,
+        })
+      );
+      if (servicesResponse.isSuccess) {
+        props.services = servicesResponse.data;
+      } else {
+        props.error = "Failed to fetch services. Please try again later.";
+        console.error("Failed to fetch services:", servicesResponse.error);
+      }
+    } catch (error) {
+      props.error = "An unexpected error occurred while fetching the services.";
+      console.error("Error fetching services:", error);
+    }
+
+    // Run any remaining queries
+    await Promise.all(store.dispatch(getRunningQueriesThunk()));
+
+    return { props };
+  });

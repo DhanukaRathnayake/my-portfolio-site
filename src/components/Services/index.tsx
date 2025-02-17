@@ -12,31 +12,19 @@ import styles from "./index.module.css";
 // Data
 import { ServicesList } from "../../data/services";
 import { useRouter } from "next/router";
+import { TypeService } from "@/types/service";
+import Image from "next/image";
 
 // Define the type for a service
-interface Service {
-  title: string;
-  description: string;
-  price: string;
-  duration: string;
-  features: string[];
+interface Props {
+  services: TypeService[] | [];
 }
 
-const Services: FunctionComponent = () => {
+const Services: FunctionComponent<Props> = ({ services }) => {
   const router = useRouter();
 
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
-
-  const handleServiceClick = (service: Service) => {
-    setSelectedService(service);
-    // Scroll to the contact form section
-    // If not on the home page, navigate to the home page and scroll to the Contact Me section
-    router.push("/#contact-section").then(() => {
-      const contactSection = document.getElementById("contact-section");
-      if (contactSection) {
-        contactSection.scrollIntoView({ behavior: "smooth" });
-      }
-    });
+  const handleServiceView = (service: TypeService) => {
+    router.push(`/services/${service.slug}`);
   };
 
   return (
@@ -55,36 +43,27 @@ const Services: FunctionComponent = () => {
 
       {/* Service Packages Grid */}
       <div className={styles.servicePackagesGrid}>
-        {ServicesList.map((service: Service, index: number) => (
+        {services.map((service: TypeService, index: number) => (
           <div key={index} className={`${styles.serviceCard} primary-card`}>
             <div className={styles.serviceCardContent}>
-              <h3 className={styles.serviceTitle}>{service.title}</h3>
-              <p className={styles.serviceDescription}>{service.description}</p>
-
-              {/* Features List */}
-              <ul className={styles.serviceFeatures}>
-                {service.features.map((feature, i) => (
-                  <li key={i} className={styles.featureItem}>
-                    <span className={styles.featureIcon}>
-                      <GiCheckMark height={"100%"} width={"100%"} />
-                    </span>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-
-              {/* Price and Duration */}
-              <div className={styles.servicePrice}>
-                <span className={`${styles.price}`}>{service.price}</span>
-                <span className={styles.duration}>/{service.duration}</span>
+              <div className={styles.imageContainer}>
+                <Image
+                  src={service.coverImageUrl}
+                  alt="thumbnail"
+                  layout="fill"
+                  objectFit="cover"
+                  className={styles.cardImage}
+                />
               </div>
+              <h3 className={styles.serviceTitle}>{service.title}</h3>
+              <p className={styles.serviceDescription}>{service.excerpt}</p>
 
               {/* Call-to-Action Button */}
               <button
                 className={`${styles.ctaButton} primary-button`}
-                onClick={() => handleServiceClick(service)}
+                onClick={() => handleServiceView(service)}
               >
-                Get Started
+                More Details
               </button>
             </div>
           </div>
