@@ -25,9 +25,9 @@ const formattedData = (data: TimelineDataType[]) =>
     date: entry.date,
     content: (
       <div>
-        <ul className="list-disc pl-5">
+        <ul className="list-disc p-10 sm:p-12 primary-card">
           {entry.contents.map((content, index) => (
-            <li key={index} className={`"mb-2" ${styles.description}`}>
+            <li key={index} className={`${styles.description}`}>
               {content.description}
             </li>
           ))}
@@ -35,7 +35,7 @@ const formattedData = (data: TimelineDataType[]) =>
 
         {entry.skills.length > 0 && (
           <div className="mt-6">
-            <Tags className={styles.tags} tags={entry.skills} />
+            <Tags tags={entry.skills} />
           </div>
         )}
       </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { useRouter } from "next/router";
 import { motion } from "motion/react";
+import { cn } from "@/utils/shadcn";
 
 // Styles
 import styles from "./index.module.css"; // Create a new CSS module for this component
@@ -32,7 +33,7 @@ const Tags: React.FC<TagsProps> = ({ type, tags, className }) => {
       {tags.map((tag, index) => (
         <div
           key={index}
-          className={`${className} ${styles.tag}`}
+          className={cn(`${className} ${styles.tag}`)}
           onClick={() => handleSearchBlogByTag(tag)}
         >
           {tag}

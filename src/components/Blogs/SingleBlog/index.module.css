@@ -1,5 +1,4 @@
 .blogContainer {
-  max-width: 1200px;
   padding: 90px 0 var(--spacing-xxl) 0;
   color: var(--color-text);
   margin: 0 auto;

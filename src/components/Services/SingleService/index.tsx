@@ -9,6 +9,10 @@ import "highlight.js/styles/vs2015.css";
 import Breadcrumb from "@/components/Common/BreadCrumb";
 import extensions from "@/components/Common/EditorExtension";
 import Tags from "@/components/Common/Tags";
+import {
+  HeroText,
+  Highlight,
+} from "../../../components/Common/TextGenerateEffects/HeroText";
 
 // Styles
 import styles from "./index.module.css";
@@ -33,18 +37,14 @@ const SingleService: React.FC<Props> = ({ service }) => {
 
   return (
     <div className={styles.serviceContainer}>
-      <div className="mb-4">
-        <Breadcrumb />
-      </div>
-
       {/* Cover Image with Animation */}
       <div className={styles.headerRow}>
         {service.coverImageUrl && (
           <div className={styles.coverImageContainer}>
             <Image
               src={service.coverImageUrl}
-              width={1}
-              height={1}
+              width={1000}
+              height={1000}
               alt={service.title}
               className={styles.coverImage}
             />
@@ -54,7 +54,11 @@ const SingleService: React.FC<Props> = ({ service }) => {
 
       {/* Title and Metadata */}
       <div className={styles.titleAndMetadata}>
-        <h1 className={styles.serviceTitle}>{service.title}</h1>
+        <h1 className={styles.serviceTitle}>
+          <HeroText>
+            <Highlight>{service.title}</Highlight>
+          </HeroText>
+        </h1>
       </div>
 
       {/* Blog Body */}

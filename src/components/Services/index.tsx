@@ -45,16 +45,16 @@ const Services: FunctionComponent<Props> = ({ services }) => {
       <div className={styles.servicePackagesGrid}>
         {services.map((service: TypeService, index: number) => (
           <div key={index} className={`${styles.serviceCard} primary-card`}>
+            <div className={styles.imageContainer}>
+              <Image
+                src={service.coverImageUrl}
+                alt="thumbnail"
+                layout="fill"
+                objectFit="cover"
+                className={styles.cardImage}
+              />
+            </div>
             <div className={styles.serviceCardContent}>
-              <div className={styles.imageContainer}>
-                <Image
-                  src={service.coverImageUrl}
-                  alt="thumbnail"
-                  layout="fill"
-                  objectFit="cover"
-                  className={styles.cardImage}
-                />
-              </div>
               <h3 className={styles.serviceTitle}>{service.title}</h3>
               <p className={styles.serviceDescription}>{service.excerpt}</p>
 

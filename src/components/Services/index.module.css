@@ -21,7 +21,7 @@
 
 .servicePackagesGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--spacing-lg);
   margin: 0 auto;
 }
@@ -32,7 +32,6 @@
   backdrop-filter: var(--glass-blur);
   border-radius: var(--border-radius-md);
   box-shadow: var(--shadow-md);
-  padding: var(--spacing-lg);
   transition:
     transform var(--transition-medium),
     box-shadow var(--transition-medium);
@@ -55,6 +54,9 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition:
+    transform var(--transition-fast),
+    border-radius var(--transition-fast);
 }
 
 .serviceCard:hover {
@@ -66,6 +68,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
+  padding: var(--spacing-md);
 }
 
 .serviceTitle {
@@ -118,10 +121,6 @@
     gap: var(--spacing-md);
   }
 
-  .serviceCard {
-    padding: var(--spacing-md);
-  }
-
   .serviceTitle {
     font-size: var(--font-size-lg);
   }
@@ -146,10 +145,6 @@
 
   .servicePackagesGrid {
     grid-template-columns: 1fr;
-  }
-
-  .serviceCard {
-    padding: var(--spacing-lg);
   }
 
   .serviceCard:hover {

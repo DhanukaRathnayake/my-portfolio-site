@@ -62,7 +62,11 @@ const Blog: FunctionComponent<Props> = ({
   // Format the date safely
   const formatDate = (dateString: string | undefined): string => {
     if (!dateString) return "Unknown date";
-    return new Date(dateString).toLocaleDateString();
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    });
   };
 
   return (
@@ -100,7 +104,7 @@ const Blog: FunctionComponent<Props> = ({
               <p className={styles.cardDescription}>{item.excerpt}</p>
               <div className={styles.cardFooter}>
                 <span className={styles.cardDate}>
-                  {item.createdAt ? formatDate(item.updatedAt) : "N/A"}
+                  {item.createdAt ? formatDate(item.createdAt) : "N/A"}
                 </span>
                 <button
                   className={`${styles.readMoreButton} primary-button`}

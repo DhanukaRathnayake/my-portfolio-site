@@ -5,7 +5,6 @@
 
 .timelineHeader {
   margin: 0 auto;
-  padding: 0 var(--spacing-md);
   text-align: left;
   max-width: 1200px;
 }
@@ -31,7 +30,7 @@
 .timelineItem {
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
+  margin-top: 30px;
   gap: var(--spacing-xl);
 }
 
@@ -124,6 +123,14 @@
     padding: var(--spacing-lg) var(--spacing-sm);
   }
 
+  .timelineHeader {
+    text-align: center;
+  }
+
+  .timelineMarker {
+    align-self: center;
+  }
+
   .timelineItem {
     flex-direction: column;
     gap: var(--spacing-md);
@@ -149,10 +156,14 @@
     font-size: var(--font-size-md);
   }
 
+  .timelineItemTitle {
+    text-align: center;
+  }
+
   .timelineItemContent {
     top: 0;
     max-width: 100%;
-    padding: 25px;
+    padding: 0;
   }
 
   .timelineLine {
@@ -182,11 +193,7 @@
   }
 
   .timelineItemContent {
-    padding: 25px;
-  }
-
-  .timelineLine {
-    left: 1rem;
+    padding: 0;
   }
 }
 
@@ -212,14 +219,15 @@
   }
 
   .timelineItemContent {
-    padding: 25px;
+    padding: 0;
   }
 
   .timelineItemContent:hover {
     transform: none;
   }
 
-  .timelineLine {
-    left: 0.75rem;
+  .timelineDot {
+    height: 0.7rem;
+    width: 0.7rem;
   }
 }

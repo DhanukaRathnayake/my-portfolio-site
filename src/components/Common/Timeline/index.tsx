@@ -56,10 +56,13 @@ export const Timeline = ({
             <div className={styles.timelineMarker}>
               <div className={styles.timelineDot} />
               <h3 className={styles.timelineItemDate}>{item.date}</h3>
+              <div
+                className={`${styles.timelineDot} ${styles.timelineDotSmall}`}
+              />
             </div>
 
-            <div className={`${styles.timelineItemContent} primary-card`}>
-              <h3 className={styles.timelineItemTitle}>{item.title}</h3>
+            <div className={`${styles.timelineItemContent}`}>
+              <h2 className={styles.timelineItemTitle}>{item.title}</h2>
               {item.content}
             </div>
           </div>
