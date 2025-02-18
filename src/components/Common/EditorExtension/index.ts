@@ -10,6 +10,7 @@ import BulletList from "@tiptap/extension-bullet-list";
 import OrderedList from "@tiptap/extension-ordered-list";
 import Image from "@tiptap/extension-image";
 import CodeBlockExtension from "./codeblock";
+import Link from "@tiptap/extension-link";
 
 const extensions = [
   Placeholder.configure({
@@ -58,6 +59,18 @@ const extensions = [
   // Add Heading extension
   Heading.configure({
     levels: [1, 2], // Allow H1 and H2 headers
+  }),
+
+  // Enable Link extension with anchor support
+  Link.configure({
+    protocols: ["http", "https", "mailto", "tel"],
+    autolink: true,
+    linkOnPaste: true,
+    openOnClick: false,
+    HTMLAttributes: {
+      class: "custom-link",
+    },
+    validate: (href) => /^https?:\/\//.test(href) || href.startsWith("#"), // Allow anchor links
   }),
 ];
 
