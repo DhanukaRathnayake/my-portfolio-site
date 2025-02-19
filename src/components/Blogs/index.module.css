@@ -5,8 +5,8 @@
 .blogCards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--spacing-md);
-  margin-bottom: var(--spacing-md);
+  gap: var(--spacing-lg);
+  margin: 0 auto;
 }
 
 .cardContainer {
