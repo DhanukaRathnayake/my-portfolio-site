@@ -21,18 +21,18 @@ const Layout = ({ children }: LayoutProps) => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    const lastVisit = localStorage.getItem("lastVisit");
+    const lastVisit = Number(localStorage.getItem("lastVisit")); // Direct conversion
     const now = Date.now();
     const oneWeek = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
-    setTimeout(() => {
-      if (!lastVisit || now - parseInt(lastVisit) > oneWeek) {
-        setShowWelcomePage(true);
-        localStorage.setItem("lastVisit", now.toString());
-        setTimeout(() => setShowWelcomePage(false), 7000);
-      }
-      setIsLoading(false);
-    }, 1000);
+    if (!lastVisit || now - lastVisit > oneWeek) {
+      setShowWelcomePage(true);
+      localStorage.setItem("lastVisit", now.toString());
+
+      setTimeout(() => setShowWelcomePage(false), 7000);
+    }
+
+    setIsLoading(false);
   }, []);
 
   return (
