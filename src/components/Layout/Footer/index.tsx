@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <div className={styles.container}>
         <p className={styles.copyright}>
           &copy; {new Date().getFullYear()}{" "}
-          <text className={styles.highlights}>TAGZY</text>. Designed & developed
+          <span className={styles.highlights}>TAGZY</span>. Designed & developed
           by{" "}
           <span className={styles.highlights}>
             {Info.firstName + " " + Info.lastName}

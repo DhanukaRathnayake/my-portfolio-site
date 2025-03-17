@@ -2,10 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { motion } from "motion/react";
-import {
-  HeroText,
-  Highlight,
-} from "@/components/Common/TextGenerateEffects/HeroText";
 
 // Styles
 import styles from "./index.module.css";
@@ -84,6 +80,7 @@ const TopNavBar: React.FC = () => {
           width={1} // Placeholder value
           alt={`Logo`}
           className={styles.logo}
+          property="true"
         />
       </Link>
 

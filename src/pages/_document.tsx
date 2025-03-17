@@ -6,7 +6,6 @@ export default function Document() {
       <Head>
         {/* Meta Tags for SEO */}
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {/* Dynamic Meta Tags from Environment Variables */}
         <meta
@@ -60,28 +59,24 @@ export default function Document() {
         />
 
         {/* Optional: Google Analytics */}
-        {
-          // process.env.SEO_PUBLIC_GOOGLE_ANALYTICS_ID && (
-          //   <script
-          //     async
-          //     src={`https://www.googletagmanager.com/gtag/js?id=${process.env.SEO_PUBLIC_GOOGLE_ANALYTICS_ID}`}
-          //   />
-          // )
-        }
-        {
-          // process.env.SEO_PUBLIC_GOOGLE_ANALYTICS_ID && (
-          //   <script
-          //     dangerouslySetInnerHTML={{
-          //       __html: `
-          //         window.dataLayer = window.dataLayer || [];
-          //         function gtag(){dataLayer.push(arguments);}
-          //         gtag('js', new Date());
-          //         gtag('config', '${process.env.SEO_PUBLIC_GOOGLE_ANALYTICS_ID}');
-          //       `,
-          //     }}
-          //   />
-          // )
-        }
+        {process.env.SEO_PUBLIC_GOOGLE_ANALYTICS_ID && (
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.SEO_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+          />
+        )}
+        {process.env.SEO_PUBLIC_GOOGLE_ANALYTICS_ID && (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                  window.dataLayer = window.dataLayer || [];
+                  function gtag(){dataLayer.push(arguments);}
+                  gtag('js', new Date());
+                  gtag('config', '${process.env.SEO_PUBLIC_GOOGLE_ANALYTICS_ID}');
+                `,
+            }}
+          />
+        )}
       </Head>
       <body>
         <Main />

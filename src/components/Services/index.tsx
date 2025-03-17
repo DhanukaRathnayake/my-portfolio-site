@@ -31,11 +31,11 @@ const Services: FunctionComponent<Props> = ({ services }) => {
     <div className={styles.servicesContainer}>
       {/* Title and Subtitle */}
       <div className={styles.servicesHeader}>
-        <h2 className={styles.servicesTitle}>
+        <div className={styles.servicesTitle}>
           <HeroText>
             My Service <Highlight>Packages</Highlight>
           </HeroText>
-        </h2>
+        </div>
         <p className={styles.servicesSubtitle}>
           Choose the perfect plan tailored to your needs
         </p>
