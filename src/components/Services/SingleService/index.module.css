@@ -9,7 +9,6 @@
   flex-direction: column-reverse;
   width: 100%;
   justify-content: center;
-  align-items: flex-start;
   gap: var(--spacing-xl);
   margin-bottom: var(--spacing-xxl);
 }
@@ -17,15 +16,21 @@
 /* Title and Metadata */
 .titleAndMetadata {
   flex: 1;
-  height: max-content;
   text-align: center;
 }
 
 .serviceTitle {
   font-size: var(--font-size-xxl);
   font-weight: 700;
-  margin-bottom: var(--spacing-xl);
   color: var(--color-text);
+}
+
+/* Social Icons */
+.socialIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
 }
 
 .metadata {
@@ -44,32 +49,35 @@
   gap: var(--spacing-xs);
 }
 
-/* Cover Image with Animation */
 .coverImageContainer {
-  width: 100%; /* Ensure full width */
-  height: auto; /* Allow height to adjust based on content */
-  perspective: 1000px; /* For 3D effect */
-  margin: var(--spacing-xl) 0;
+  display: flex;
+  align-self: center;
+  width: 40%;
+  max-width: 300px;
+  aspect-ratio: 16/9;
+  perspective: 1000px;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .coverImage {
   width: 100%;
-  height: auto; /* Maintain aspect ratio */
-  border-radius: var(--border-radius-md);
+  height: 100%;
+  object-fit: cover;
   transition: transform 0.5s ease;
   transform-style: preserve-3d;
 }
 
 .coverImageContainer:hover .coverImage {
-  transform: rotateY(-15deg); /* Rotate on hover */
+  transform: scale(1.05) rotateY(-5deg);
 }
 
 /* Blog Excerpt */
-.excerpt {
-  font-size: var(--font-size-lg);
+.serviceSummary {
+  font-size: var(--font-size-md);
   color: var(--color-text-secondary);
   margin-bottom: var(--spacing-lg);
-  line-height: 1.6;
 }
 
 /* Blog Body */
@@ -160,6 +168,10 @@
 @media (max-width: 768px) {
   .serviceContainer {
     padding: 80px var(--spacing-md) var(--spacing-xxl) var(--spacing-md);
+  }
+
+  .coverImageContainer {
+    width: 100%;
   }
 
   .serviceTitle {

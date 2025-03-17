@@ -32,7 +32,13 @@ const Blog: FunctionComponent<Props> = ({
   // Get the blogs for the current page
   const indexOfLastBlogs = currentPage * blogsPerPage;
   const indexOfFirstBlogs = indexOfLastBlogs - blogsPerPage;
-  const currentBlogs = blogs.slice(indexOfFirstBlogs, indexOfLastBlogs);
+  const currentBlogs = blogs
+    .slice(indexOfFirstBlogs, indexOfLastBlogs)
+    .sort((a, b) => {
+      const dateA = a.createdAt ? new Date(a.createdAt).getTime() : 0;
+      const dateB = b.createdAt ? new Date(b.createdAt).getTime() : 0;
+      return dateB - dateA;
+    });
 
   // Calculate total pages
   const totalPages = Math.ceil(blogs.length / blogsPerPage);

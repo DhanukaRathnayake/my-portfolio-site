@@ -182,7 +182,7 @@
   --font-size-md: clamp(1rem, 3vw, 1.125rem); /* 16px to 18px */
   --font-size-lg: clamp(1.125rem, 3.5vw, 1.25rem); /* 18px to 20px */
   --font-size-xl: clamp(1.5rem, 4vw, 1.75rem); /* 24px to 28px */
-  --font-size-xxl: clamp(2rem, 5vw, 3.5rem); /* 32px to 56px */
+  --font-size-xxl: clamp(1.75rem, 4vw, 2.5rem); /* 28px to 40px */
 
   /* Spacing */
   --spacing-xxs: 4px; /* Extra extra small spacing */
@@ -262,7 +262,7 @@
     --font-size-md: 1rem; /* 16px */
     --font-size-lg: 1.125rem; /* 18px */
     --font-size-xl: 1.5rem; /* 24px */
-    --font-size-xxl: 2rem; /* 32px */
+    --font-size-xxl: 1.75rem; /* 32px */
 
     --spacing-xxs: 4px;
     --spacing-xs: 8px;
@@ -303,7 +303,7 @@ html {
 
 /* Typography */
 body {
-  /* font-family: "Poppins", sans-serif; */
+  font-family: "Poppins", sans-serif;
   font-size: var(--font-size-base);
   color: var(--color-text);
   background-color: #000;
@@ -336,15 +336,6 @@ h4 {
 p {
   font-size: var(--font-size-md);
   /* margin-bottom: var(--spacing-md); */
-}
-
-body {
-  font-family: "Poppins", sans-serif;
-  font-weight: 400;
-}
-
-h1 {
-  font-weight: 700;
 }
 
 .italic-text {
