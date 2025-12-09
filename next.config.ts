@@ -1,16 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Enable React Strict Mode
   reactStrictMode: true,
-  // trailingSlash: true,
-  // compress: true,
-
-  devIndicators: {
-    buildActivity: false,
-  },
-
-  // Configure images
+  devIndicators: false,
   images: {
     unoptimized: true,
     remotePatterns: [
